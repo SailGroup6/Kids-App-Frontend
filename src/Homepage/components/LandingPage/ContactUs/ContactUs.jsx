@@ -5,12 +5,12 @@ import ContactUsForm from './ContactUsForm'
 const ContactUs = () => {
   return (
     <div>
-        <div className=" pt-8 m-auto w-[90%] md:w-[70%]">
+        <div className=" mt-8 m-auto w-[90%] md:w-[70%] border-[0.4px] border-[#444444]">
         <header className=" flex flex-col justify-center items-center">
           <h1 className=" text-4xl md:text-6xl">Contact us</h1>
           <h3 className=" text-2xl md:text-4xl">Where can you find us</h3>
         </header>
-        <section className=" flex flex-col md:flex-row justify-around items-center gap-10">
+        <section className=" pt-5 flex flex-col md:flex-row justify-around items-center gap-10">
         <img
             src={ContactUsimage}
             alt="ContactUsimage"

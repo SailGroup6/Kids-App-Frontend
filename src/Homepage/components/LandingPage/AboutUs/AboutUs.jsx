@@ -9,7 +9,7 @@ const AboutUs = () => {
           <h1 className=" text-4xl md:text-6xl">About us</h1>
           <h3 className=" text-2xl md:text-4xl">What Sets Us Apart !!!</h3>
         </header>
-        <section className=" flex flex-col md:flex-row justify-around items-center gap-10">
+        <section className=" pt-4 flex flex-col md:flex-row justify-around items-center gap-10">
           <img
             src={AboutUsimage}
             alt="AboutUsimage"
