@@ -1,5 +1,6 @@
 import React from "react";
 import { Progress } from "antd";
+import { motion } from "framer-motion"
 import htmlImg from "../../Assets/Images/html-img.svg";
 import cssImg from "../../Assets/Images/css-img.svg";
 import jsImg from "../../Assets/Images/js-img.svg";
@@ -14,6 +15,8 @@ const cards = [
     shadow:
       "0 10px 15px -3px rgba(252, 237, 218, 0.80), 0 4px 6px -4px rgba(252, 237, 218, 0.80)",
     progress: 50,
+    
+
   },
   {
     image: cssImg,
@@ -41,7 +44,8 @@ const ProgressCards = () => {
   return (
     <React.Fragment>
       <a href="" alt="courses" className="no-underline hover:text-black">
-        <div className="flex flex-col flex-wrap items-center justify-around gap-y-[1rem] md:flex-row">
+        <div className="flex flex-col flex-wrap items-center justify-around gap-y-[1rem] md:flex-row"
+        >
           {cards.map((card, index) => (
             <div
               key={index}

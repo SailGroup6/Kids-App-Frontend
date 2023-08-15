@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Layout, Spin, notification } from "antd";
+import { motion } from "framer-motion";
 import CustomCalendar from "../../Components/Calendar/CustomCalendar";
 import Button from "../../Components/Button/Button";
 import ProgressCards from "../../Components/Cards/ProgressCards";
@@ -23,9 +24,11 @@ const Dashboard = () => {
   const [api, contextHolder] = notification.useNotification();
   const openNotification = () => {
     api.open({
-      message: <div>
-        <p>Notification Title</p>
-      </div>,
+      message: (
+        <div>
+          <p>Notification Title</p>
+        </div>
+      ),
       description:
         "I will never close automatically. This is a purposely very very long description that has many many characters and words.",
       duration: 0,
@@ -89,7 +92,12 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div className="flex justify-around w-full h-[20svh] bg-white md:h-[20svh] shadow-md mt-[2rem] rounded-lg ">
+                  <motion.div
+                    className="flex justify-around w-full h-[20svh] bg-white md:h-[20svh] shadow-md mt-[2rem] rounded-lg "
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ ease: "easeIn", duration: 1 }}
+                  >
                     <div className="flex flex-col h-[20svh] w-[50%] justify-around pl-[1rem] md:pl[0] ">
                       <p className="font-[caveat-regular] text-[1.2rem] md:text-[1.5rem]">
                         Today's Task
@@ -106,16 +114,28 @@ const Dashboard = () => {
                       />
                       <img src={taskBoyIcon} className="w-[50%] md:w-full" />
                     </div>
-                  </div>
+                  </motion.div>
 
                   <div className="px-[6%] py-[5%] md:px-[7%]">
-                    <p className="flex flex-col font-[caveat-regular] text-[1.2rem] text-center sm:flex-row sm:text-[1.5rem] sm:pl-[0.5rem]">
+                    <motion.p
+                      className="flex flex-col font-[caveat-regular] text-[1.2rem] text-center sm:flex-row sm:text-[1.5rem] sm:pl-[0.5rem]"
+                      initial={{ opacity: 0.4 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        ease: "easeIn",
+                        duration: 3,
+                      }}
+                    >
                       Overview
-                    </p>
+                    </motion.p>
                   </div>
-                  <div>
+                  <motion.div
+                    initial={{ opacity: 0.4, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ ease: "easeInOut", duration: 1 }}
+                  >
                     <ProgressCards />
-                  </div>
+                  </motion.div>
                 </section>
               </Content>
 
@@ -129,11 +149,21 @@ const Dashboard = () => {
                 }}
               >
                 <div className="flex flex-col w-full h-[100svh] justify-around items-center">
-                  <div className="h-[30vh] justify-between align-center border border-2 border-slate-500 rounded-lg bg-[#FCEDDA] w-[70%]">
+                  <motion.div
+                    className="h-[30vh] justify-between align-center border border-2 border-slate-500 rounded-lg bg-[#FCEDDA] w-[70%]"
+                    initial={{ opacity: 0}}
+                    animate={{ opacity: 1}}
+                    transition={{ ease: "easeIn", duration: 2 }}
+                  >
                     <CustomCalendar />
-                  </div>
+                  </motion.div>
 
-                  <div className="h-[50vh] border border-2 border-slate-500 rounded-lg bg-[#FCEDDA] px-[4%] w-[70%]">
+                  <motion.div
+                    className="h-[50vh] border border-2 border-slate-500 rounded-lg bg-[#FCEDDA] px-[4%] w-[70%]"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1}}
+                    transition={{ ease: "easeIn", duration:2 }}
+                  >
                     <p className="font-[poppins-regular] font-semibold text-[0.8rem] text-center pt-[2rem]">
                       Upcoming Courses
                     </p>
@@ -149,7 +179,7 @@ const Dashboard = () => {
                       <p>Advanced Javascript</p>
                       <p className="text-[#00000066]">Jan 2024</p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </Sider>
             </Layout>
