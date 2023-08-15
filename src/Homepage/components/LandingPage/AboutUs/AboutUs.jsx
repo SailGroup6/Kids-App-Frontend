@@ -13,10 +13,10 @@ const AboutUs = () => {
           <img
             src={AboutUsimage}
             alt="AboutUsimage"
-            className=" h-[15rem] md:h-[30rem]"
+            className=" h-[15rem] md:h-[20rem] lg:h-[30rem]"
           />
           <div>
-            <p className=" text-xl md:text-3xl text-justify">
+            <p className=" text-xl lg:text-3xl text-justify">
               We recognize that young minds learn best when they're having fun.
               Our curriculum is designed with age-appropriate content,
               interactive activities, and colorful visuals that captivate
