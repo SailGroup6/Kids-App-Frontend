@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.bg{
+background:url(../src/Component/RegAsset/23816386_ordv_hfju_140724.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+
+
+}
+
+
+@font-face{
+    font-family: "caveat-300";
+    src: url(../src/Component/RegAsset/Fonts/CaveatBrush-Regular.ttf);
+
+}
+
+@font-face {
+    font-family: poppins-bold;
+    src: url(../src/Component/RegAsset/Fonts/Poppins-Regular.ttf);
+}
