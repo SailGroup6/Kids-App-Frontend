@@ -1,14 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Element } from "react-scroll"
 import AboutUsimage from "../../../Assets/Images/AboutUsImage.svg";
 
 const AboutUs = () => {
   return (
-    <div>
+    <Element name="aboutUsLink">
       <div className="pt-8 m-auto w-[90%] md:w-[70%] font-[caveat-regular] pt-[5rem]">
         <header className="flex flex-col justify-center items-center">
           <motion.h1
-            className="text-3xl md:text-6xl"
+            className="text-2xl md:text-5xl"
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -57,7 +58,7 @@ const AboutUs = () => {
           </motion.div>
         </section>
       </div>
-    </div>
+    </Element>
   );
 };
 
