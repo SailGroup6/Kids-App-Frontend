@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function HamburgerNav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-
   return (
     <div className="flex items-center justify-between ">
       <nav>
@@ -36,28 +36,39 @@ export default function HamburgerNav() {
             </div>
             <ul className="flex flex-col items-center justify-between min-h-[250px] ">
               <li className="border-b border-gray-400 my-8 uppercase">
-              <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC] ">Home</ul>
+                <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC] ">
+                  Home
+                </ul>
               </li>
               <li className="border-b border-gray-400 my-8 uppercase">
-              <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC] " >About us</ul>
+                <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC] ">
+                  About us
+                </ul>
               </li>
               <li className="border-b border-gray-400 my-8 uppercase">
-              <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]">Contact us</ul>
+                <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]">
+                  Contact us
+                </ul>
               </li>
-            <div className=" border-[0.5px] border-gray-400 rounded-lg py-1 px-3 flex items-center">
-           <button type="submit" className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]">Register</button>
-         </div>
+              <div className=" border-[0.5px] border-gray-400 rounded-lg py-1 px-3 flex items-center">
+                <button
+                  type="submit"
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]"
+                >
+                  Register
+                </button>
+              </div>
             </ul>
           </div>
         </section>
 
         <li className="DESKTOP-MENU hidden space-x-8 lg:flex">
-        <ul className=" cursor-pointer">Home</ul>
-         <ul className=" cursor-pointer">About us</ul>
-        <ul className=" cursor-pointer">Contact us</ul>
-        <div className=" border-[0.5px] border-white rounded-lg py-1 px-3 flex items-center">
-        <button type="submit">Register</button>
-       </div>
+          <ul className=" cursor-pointer">Home</ul>
+          <ul className=" cursor-pointer">About us</ul>
+          <ul className=" cursor-pointer">Contact us</ul>
+          <div className=" border-[0.5px] border-white rounded-lg py-1 px-3 flex items-center">
+            <NavLink to="/registration">Register</NavLink>
+          </div>
         </li>
       </nav>
     </div>

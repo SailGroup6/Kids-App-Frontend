@@ -25,9 +25,14 @@ const Dashboard = () => {
   const openNotification = () => {
     api.open({
       message: (
-        <div>
+        <motion.div
+          className="font-[caveat-brush]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 2 }}
+          transition={{ duration: 1 }}
+        >
           <p>Notification Title</p>
-        </div>
+        </motion.div>
       ),
       description:
         "I will never close automatically. This is a purposely very very long description that has many many characters and words.",
@@ -68,7 +73,7 @@ const Dashboard = () => {
               <Content className="bg-[#FFFBF6] w-full h-[60rem] sm:h-screen">
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
                   <div className="flex items-center font-[poppins-regular] justify-between">
-                    <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1rem]">
+                    <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
                       Hi User , Welcome
                     </p>
                     <div className="flex font-[poppins-regular] justify-between">
@@ -99,10 +104,10 @@ const Dashboard = () => {
                     transition={{ ease: "easeIn", duration: 1 }}
                   >
                     <div className="flex flex-col h-[20svh] w-[50%] justify-around pl-[1rem] md:pl[0] ">
-                      <p className="font-[caveat-regular] text-[1.2rem] md:text-[1.5rem]">
+                      <p className="font-[caveat-regular] text-[1.2rem] sm:text-[1.4rem] md:text-[1.6rem]">
                         Today's Task
                       </p>
-                      <p className="font-[poppins-regular] text-[0.7rem]">
+                      <p className="font-[poppins-regular] text-[0.7rem] md:text-[0.9rem]">
                         check your daily tasks and schedules
                       </p>
                       <Button type="purple" text="View all tasks" />
@@ -118,7 +123,7 @@ const Dashboard = () => {
 
                   <div className="px-[6%] py-[5%] md:px-[7%]">
                     <motion.p
-                      className="flex flex-col font-[caveat-regular] text-[1.2rem] text-center sm:flex-row sm:text-[1.5rem] sm:pl-[0.5rem]"
+                      className="flex flex-col font-[caveat-regular] text-[1.2rem] sm:flex-row sm:text-[1.4rem] sm:pl-[0.5rem] md:text-[1.6rem]"
                       initial={{ opacity: 0.4 }}
                       animate={{ opacity: 1 }}
                       transition={{
@@ -151,8 +156,8 @@ const Dashboard = () => {
                 <div className="flex flex-col w-full h-[100svh] justify-around items-center">
                   <motion.div
                     className="h-[30vh] justify-between align-center border border-2 border-slate-500 rounded-lg bg-[#FCEDDA] w-[70%]"
-                    initial={{ opacity: 0}}
-                    animate={{ opacity: 1}}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ ease: "easeIn", duration: 2 }}
                   >
                     <CustomCalendar />
@@ -161,21 +166,21 @@ const Dashboard = () => {
                   <motion.div
                     className="h-[50vh] border border-2 border-slate-500 rounded-lg bg-[#FCEDDA] px-[4%] w-[70%]"
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1}}
-                    transition={{ ease: "easeIn", duration:2 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ ease: "easeIn", duration: 2 }}
                   >
-                    <p className="font-[poppins-regular] font-semibold text-[0.8rem] text-center pt-[2rem]">
+                    <p className="font-[poppins-regular] font-semibold text-[0.9rem] text-center pt-[2rem]">
                       Upcoming Courses
                     </p>
-                    <div className="border-l-4 px-[0.5rem] border-[#1DA684] font-[poppins-regular] text-[0.7rem] mt-[2rem] mb-[1rem]">
+                    <div className="border-l-4 px-[0.5rem] border-[#1DA684] font-[poppins-regular] text-[0.7rem] md:text-[0.9rem] mt-[2rem] mb-[1rem]">
                       <p>Advanced HTML</p>
                       <p className="text-[#00000066]">Sep 2023</p>
                     </div>
-                    <div className="border-l-4 px-[0.5rem] border-[#9B5DE6] font-[poppins-regular] text-[0.7rem] mb-[1rem]">
+                    <div className="border-l-4 px-[0.5rem] border-[#9B5DE6] font-[poppins-regular] text-[0.7rem] md:text-[0.9rem] mb-[1rem]">
                       <p>Advanced CSS</p>
                       <p className="text-[#00000066]">Oct 2023</p>
                     </div>
-                    <div className="border-l-4 px-[0.5rem] border-[#EB7D0C] font-[poppins-regular] text-[0.7rem] mb-[1rem]">
+                    <div className="border-l-4 px-[0.5rem] border-[#EB7D0C] font-[poppins-regular] text-[0.7rem] md:text-[0.9rem] mb-[1rem]">
                       <p>Advanced Javascript</p>
                       <p className="text-[#00000066]">Jan 2024</p>
                     </div>
