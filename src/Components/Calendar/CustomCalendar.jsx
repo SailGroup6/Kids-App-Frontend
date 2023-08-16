@@ -6,7 +6,7 @@ const CustomCalendar = () => {
   return (
     <div>
       <Calendar
-        className = "font-[atom-regular] font-bold text-center align-center h-[auto] w-[auto]text-gray text-[0.6rem] px-[1rem] pt-[1rem]"
+        className = "font-[atom-regular] font-bold text-center align-center h-[auto] w-[auto] text-gray text-[0.8rem] px-[1rem] pt-[1rem]"
       />
     </div>
   );
