@@ -11,7 +11,7 @@ const AboutUs = () => {
             className="text-3xl md:text-6xl"
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 1, delay: 0.3 }}
           >
             About us
           </motion.h1>
@@ -19,7 +19,7 @@ const AboutUs = () => {
             className="text-xl md:text-3xl"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2, delay: 1 }}
+            transition={{ duration: 2, delay: 0.5 }}
           >
             What Sets Us Apart !!!
           </motion.h3>
@@ -28,17 +28,17 @@ const AboutUs = () => {
           <motion.img
             src={AboutUsimage}
             alt="AboutUsimage"
-            className="h-[15rem] md:h-[20rem] lg:h-[30rem]"
+            className="h-[15rem] md:h-[22rem] lg:h-[30rem]"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 3, delay: 3 }}
+            transition={{ duration: 3, delay: 1.5 }}
           />
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 3, delay: 4 }}
+            transition={{ duration: 3, delay: 2 }}
           >
-            <p className="text-xl lg:text-2xl text-justify">
+            <p className="text-2xl lg:text-2xl text-justify">
               We recognize that young minds learn best when they're having fun.
               Our curriculum is designed with age-appropriate content,
               interactive activities, and colorful visuals that captivate

@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 const ContactInput = (props) => {
     return (
-      <div className="input-group relative">
+      <div className=" relative">
         <input
           type={props.type}
-          className={` bg-inherit border border-t-0 border-x-0 border-b-[#8D8D8D] font-semibold text-[--grey3] outline-none ${props.className}`}
+          className={` block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${props.className} `}
           name={props.name}
           id={props.id}
           required={props.required}
@@ -13,7 +13,12 @@ const ContactInput = (props) => {
           // eslint-disable-next-line react/no-unknown-property
           arial-label={props.arialLabel}
         />
-        <label className=" font-semibold text-[#8D8D8D] text-lg pointer-events-none absolute left-4 top-[0%] transition-all">
+
+      
+
+
+
+        <label className=" absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">
           {props.label}
         </label>
       </div>
