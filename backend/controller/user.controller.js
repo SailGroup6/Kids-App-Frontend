@@ -1,5 +1,6 @@
 const Joi = require("joi");
 const UserModel = require("../models/Users");
+const bcrypt = require("bcrypt")
 
 const registration = async (req, res) => {
   const schema = Joi.object({
@@ -8,6 +9,8 @@ const registration = async (req, res) => {
     gender: Joi.string().required(),
     parentFullName: Joi.string().min(3).required(),
     email: Joi.string().email().required(),
+    username: Joi.string().required(),
+    phoneNumber: Joi.number().required(),
     password: Joi.string().min(8).required(),
   });
   const { error } = schema.validate(req.body);
@@ -18,7 +21,16 @@ const registration = async (req, res) => {
       data: null,
     });
   }
-  const { fullName, age, gender, parentFullName, email, password } = req.body;
+  const {
+    fullName,
+    age,
+    gender,
+    parentFullName,
+    email,
+    password,
+    username,
+    phoneNumber,
+  } = req.body;
   try {
     let user = await UserModel.findOne({ email });
     if (user) {
@@ -28,6 +40,9 @@ const registration = async (req, res) => {
         data: null,
       });
     }
+    //hashing the password with 2^n algorithm
+    const salt = await bcrypt.genSalt(10);
+
     user = new UserModel({
       fullName,
       age,
@@ -35,13 +50,31 @@ const registration = async (req, res) => {
       parentFullName,
       email,
       password,
-      createdDate: new Date().toJSON()
+      username,
+      phoneNumber,
+      createdDate: new Date().toJSON(),
     });
-    await user.save()
+    user.password = await bcrypt.hash(user.password, salt)
+    await user.save();
+    res.status(200).send({
+      responseCode: "00",
+      responseMessage: "User created successfully",
+      data: {
+        _id: user._id,
+        fullName,
+        age,
+        gender,
+        parentFullName,
+        email,
+        username,
+        phoneNumber,
+        createdDate: user.createdDate
+      },
+    });
   } catch (error) {
     res.status(500).send({
       responseCode: "90",
-      responseMessage: "Internal server error",error,
+      responseMessage: error.message,
       data: null,
     });
   }
