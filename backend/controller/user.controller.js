@@ -1,6 +1,6 @@
 const Joi = require("joi");
+const bcrypt = require("bcrypt");
 const UserModel = require("../models/Users");
-const bcrypt = require("bcrypt")
 
 const registration = async (req, res) => {
   const schema = Joi.object({
