@@ -25,7 +25,7 @@ const LoginPage = () => {
 
           <form
             action="/submit"
-            method="post"
+            method="get"
             className="grid place-content-center font-[poppins-regular] mt-[3rem]"
           >
             <label
