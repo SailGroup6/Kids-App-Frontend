@@ -18,7 +18,7 @@ const LandingPage = () => {
       <Spin size="large" />
     </div>
   ) : (
-    <div className=" bg-[#FFFDFC]">
+    <div className=" bg-[#FFFEFC]">
       <HeroSection />
       <AboutUs />
       <ContactUs />

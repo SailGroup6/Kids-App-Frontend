@@ -52,7 +52,7 @@ const ProgressCards = () => {
             to={card.link}
             key={index}
             style={{
-              boxShadow: `${card.shadow}`,
+              boxShadow: `${card.shadow}`
             }}
             className="flex flex-col justify-around items-center w-full md:w-[30%] h-[30svh] rounded-lg bg-white"
           >

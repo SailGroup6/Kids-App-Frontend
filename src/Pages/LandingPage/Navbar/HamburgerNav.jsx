@@ -55,8 +55,16 @@ export default function HamburgerNav() {
                   type="submit"
                   className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]"
                 >
-                  Register
+                  Sign In
                 </button>
+              </div>
+              <div >
+              <button
+              type="submit"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]"
+            >
+              Register
+            </button>
               </div>
             </ul>
           </div>
@@ -66,9 +74,12 @@ export default function HamburgerNav() {
           <ul className=" cursor-pointer">Home</ul>
           <ul className=" cursor-pointer">About us</ul>
           <ul className=" cursor-pointer">Contact us</ul>
-          <div className=" border-[0.5px] border-white rounded-lg py-1 px-3 flex items-center">
+          <button className=" border-[0.5px] border-white text-[#9B5DE6] hover:text-white hover:bg-[#9B5DE6] bg-white rounded-lg py-1 px-3 flex items-center">
+          <NavLink to="/login">Login</NavLink>
+          </button>
+          <button className=" border-[0.5px] border-white rounded-lg py-1 px-3 hover:bg-white hover:text-[#9B5DE6] flex items-center">
             <NavLink to="/registration">Register</NavLink>
-          </div>
+          </button>
         </li>
       </nav>
     </div>

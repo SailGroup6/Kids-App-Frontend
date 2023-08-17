@@ -3,8 +3,8 @@ import ContactInput from "./ContactInput";
 
 const ContactUsForm = () => {
   return (
-    <div className="grid gap-4 ">
-      <div className=" flex flex-col gap-4 ">
+    <div className="flex flex-col gap-4 pl-8">
+      <div className=" flex flex-col gap-4 lg:flex-row ">
         <ContactInput
           label={"First name"}
           arialLabel={"Firstname"}
@@ -26,7 +26,7 @@ const ContactUsForm = () => {
         />
       </div>
 
-      <div className=" flex flex-col gap-4 ">
+      <div className=" flex flex-col gap-4 lg:flex-row ">
         <ContactInput
           label={"Email"}
           arialLabel={"Email"}
@@ -47,20 +47,14 @@ const ContactUsForm = () => {
         />
       </div>
 
-      <label
-        for="message"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >
-        Your message
-      </label>
       <textarea
+      className=" resize-none  block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 border-0 border-b-2 bg-inherit border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#9B5DE6] peer"
         id="message"
         rows="4"
-        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="Write your thoughts here..."
+        placeholder="Write your message..."
       ></textarea>
 
-      <div className=" border-[0.5px] border-gray-400 rounded-md py-1 my-4 flex items-center justify-center bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]">
+      <div className=" rounded-md py-1 my-4 flex items-center justify-center bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]">
         <button type="submit" className=" text-white ">
           Send Message
         </button>

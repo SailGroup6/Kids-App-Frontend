@@ -1,9 +1,18 @@
 import React from "react";
 import "../../index.css";
+import { useState, useEffect } from "react";
+import { Spin } from "antd";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
 const Registration = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
   const Formik = useFormik({
     initialValues: {
       fullname: "",
@@ -49,8 +58,11 @@ const Registration = () => {
     },
   });
 
-
-  return (
+  return isLoading ? (
+    <div className="flex justify-center items-center min-h-screen w-full">
+      <Spin size="large" />
+    </div>
+  ) : (
     <>
       <main className="h-full bg flex items-center justify-center p-5">
         <form
@@ -73,7 +85,9 @@ const Registration = () => {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="name" className="font-[poppins-bold]" >Full Name: </label>
+            <label htmlFor="name" className="font-[poppins-bold]">
+              Full Name:{" "}
+            </label>
             <input
               type="text"
               placeholder=""
@@ -94,7 +108,10 @@ const Registration = () => {
 
           <div className="flex flex-row gap-5 w-full pt-3">
             <div className="flex flex-col w-[50%] ">
-              <label htmlFor="age" className="font-[poppins-bold]" > 🎂 Age:</label>
+              <label htmlFor="age" className="font-[poppins-bold]">
+                {" "}
+                🎂 Age:
+              </label>
               <input
                 type="number"
                 name=""
@@ -105,11 +122,15 @@ const Registration = () => {
                 onBlur={Formik.handleBlur}
               />
               <div className="text-red-500 font-[poppins-bold]">
-                {Formik.touched.age && Formik.errors.age ? Formik.errors.age : ""}
+                {Formik.touched.age && Formik.errors.age
+                  ? Formik.errors.age
+                  : ""}
               </div>
             </div>
             <div className="flex flex-col w-[50%]">
-              <label htmlFor="gender" className="font-[poppins-bold]" >👫 Gender:</label>
+              <label htmlFor="gender" className="font-[poppins-bold]">
+                👫 Gender:
+              </label>
               <select
                 id="gender"
                 name="gender"
@@ -130,7 +151,10 @@ const Registration = () => {
             <h1> 👵 Parent/Guardian Information</h1>
           </div>
           <div className="flex flex-col">
-            <label htmlFor="name" className="font-[poppins-bold]"  > Parent/Guardian Full Name: </label>
+            <label htmlFor="name" className="font-[poppins-bold]">
+              {" "}
+              Parent/Guardian Full Name:{" "}
+            </label>
             <input
               type="text"
               placeholder=" steven star"
@@ -141,13 +165,18 @@ const Registration = () => {
               onBlur={Formik.handleBlur}
             />
             <div className=" text-red-500 font-[poppins-bold]">
-              {Formik.touched.parentname && Formik.errors.parentname ? "Parent Name is required" : ""}
+              {Formik.touched.parentname && Formik.errors.parentname
+                ? "Parent Name is required"
+                : ""}
             </div>
           </div>
 
           <div className="flex flex-row gap-5 w-full pt-3">
             <div className="flex flex-col w-[50%] ">
-              <label htmlFor="email" className="font-[poppins-bold]" > 📧 Email Address:</label>
+              <label htmlFor="email" className="font-[poppins-bold]">
+                {" "}
+                📧 Email Address:
+              </label>
               <input
                 type="email"
                 name="email"
@@ -158,11 +187,16 @@ const Registration = () => {
                 onChange={Formik.handleChange}
               />
               <div className=" text-red-500 font-[poppins-bold]">
-                {Formik.touched.email && Formik.errors.email ? Formik.errors.email : ""}
+                {Formik.touched.email && Formik.errors.email
+                  ? Formik.errors.email
+                  : ""}
               </div>
             </div>
             <div className="flex flex-col  w-[50%]">
-              <label htmlFor="number" className="font-[poppins-bold]" > 📞 phone Number:</label>
+              <label htmlFor="number" className="font-[poppins-bold]">
+                {" "}
+                📞 phone Number:
+              </label>
               <input
                 type="tel"
                 name="number"
@@ -173,7 +207,9 @@ const Registration = () => {
                 className=" p-1 rounded outline-none border"
               />
               <div className="text-red-500 font-[poppins-bold]">
-                {Formik.touched.number && Formik.errors.number ? Formik.errors.number : ""}
+                {Formik.touched.number && Formik.errors.number
+                  ? Formik.errors.number
+                  : ""}
               </div>
             </div>
           </div>
@@ -183,7 +219,10 @@ const Registration = () => {
             <h1> Login Information</h1>
           </div>
           <div className="flex flex-col">
-            <label htmlFor="username" className="font-[poppins-bold]" > Choose a Username: </label>
+            <label htmlFor="username" className="font-[poppins-bold]">
+              {" "}
+              Choose a Username:{" "}
+            </label>
             <input
               type="text"
               placeholder=" steven star"
@@ -194,12 +233,17 @@ const Registration = () => {
               onBlur={Formik.handleBlur}
             />
             <div className=" text-red-500 font-[poppins-bold]">
-              {Formik.touched.username && Formik.errors.parentname ? "Username is required" : ""}
+              {Formik.touched.username && Formik.errors.parentname
+                ? "Username is required"
+                : ""}
             </div>
           </div>
           <div className="flex flex-row gap-5 w-full pt-3">
             <div className="flex flex-col w-[50%]">
-              <label htmlFor="password" className="font-[poppins-bold]" > 🔒 Password:</label>
+              <label htmlFor="password" className="font-[poppins-bold]">
+                {" "}
+                🔒 Password:
+              </label>
               <input
                 type="password"
                 name="password"
@@ -208,11 +252,16 @@ const Registration = () => {
                 className=" rounded p-1 outline-none border"
               />
               {Formik.touched.password && Formik.errors.password && (
-                <div className="text-red-500 font-[poppins-bold] ">{Formik.errors.password}</div>
+                <div className="text-red-500 font-[poppins-bold] ">
+                  {Formik.errors.password}
+                </div>
               )}
             </div>
             <div className="flex flex-col  w-[50%]">
-              <label htmlFor="confirm password" className="font-[poppins-bold]" > 🔒 Confirm Password:</label>
+              <label htmlFor="confirm password" className="font-[poppins-bold]">
+                {" "}
+                🔒 Confirm Password:
+              </label>
               <input
                 type="password"
                 name="cpassword"
@@ -221,7 +270,9 @@ const Registration = () => {
                 className="rounded p-1 outline-none border"
               />
               {Formik.touched.cpassword && Formik.errors.cpassword && (
-                <div className="text-red-500 font-[poppins-bold]">{Formik.errors.cpassword}</div>
+                <div className="text-red-500 font-[poppins-bold]">
+                  {Formik.errors.cpassword}
+                </div>
               )}
             </div>
           </div>

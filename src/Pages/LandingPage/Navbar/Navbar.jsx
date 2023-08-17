@@ -9,7 +9,7 @@ const Navbar = () => {
     >
       <div className=" flex justify-center items-center gap-3 cursor-pointer">
         <img src={logo} alt="logo" className=" object-contain w-[40px]" />
-        <p>kidsHive</p>
+        <p>KidsHive</p>
       </div>
       <HamburgerNavBar />
     </div>
