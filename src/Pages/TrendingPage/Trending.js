@@ -1,18 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Layout, Spin, notification } from "antd";
+import { Layout, Spin } from "antd";
 import { motion } from "framer-motion";
 import CustomCalendar from "../../Components/Calendar/CustomCalendar";
-import Button from "../../Components/Button/Button";
 import ProgressCards from "../../Components/Cards/ProgressCards";
-import WidgetCards from "../../Components/Cards/WidgetCards";
-import bellIcon from "../../Assets/Images/bell.svg";
-import taskGirlIcon from "../../Assets/Images/task-girl.svg";
-import taskBoyIcon from "../../Assets/Images/task-boy.svg";
+import UpcomingCoursesCards from "../../Components/Cards/UpcomingCoursesCards";
+import WidgetCardsTrending from "../../Components/Cards/WidgetCardsTrending";
+import Chart from "../../Assets/Images/chart.svg"
+
 
 const { Header, Content, Sider } = Layout;
 
-const Dashboard = () => {
+const Trending = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -21,24 +20,6 @@ const Dashboard = () => {
     }, 500);
   }, []);
 
-  const [api, contextHolder] = notification.useNotification();
-  const openNotification = () => {
-    api.open({
-      message: (
-        <motion.div
-          className="font-[caveat-brush]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 2 }}
-          transition={{ duration: 1 }}
-        >
-          <p>Notification</p>
-        </motion.div>
-      ),
-      description:
-        "No notification",
-      duration: 0,
-    });
-  };
 
   return (
     <React.Fragment>
@@ -62,7 +43,7 @@ const Dashboard = () => {
                 alignItems: "center",
               }}
             >
-              <WidgetCards />
+              <WidgetCardsTrending />
             </Sider>
             <Layout>
               <Header
@@ -72,58 +53,18 @@ const Dashboard = () => {
               />
               <Content className="bg-[#FFFBF6] w-full h-[60rem] sm:h-screen">
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
-                  <div className="flex items-center font-[poppins-regular] justify-between">
-                    <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
-                      Hi User 
-                    </p>
-                    <div className="flex font-[poppins-regular] justify-between">
-{/*                      <input
-                        type="text"
-                        placeholder="Search"
-                        className="h-[2rem] shadow-sm rounded-lg pl-[1rem] pr-[1rem] text-black placeholder-black w-[60%] font-[0.4rem]"
-                      />
-*/}
-                      {contextHolder}
-                      <div
-                        className="bg-white rounded-full font-[poppins-regular] ml-[0.5rem] flex items-center justify-center cursor-pointer w-10 h-8"
-                        onClick={openNotification}
-                      >
-                        <img
-                          src={bellIcon}
-                          alt="bell Icon"
-                          className="w-6 h-6"
-                        />
-                      </div>
-                    </div>
-                  </div>
 
-                  <motion.div
-                    className="flex justify-around w-full h-[20svh] bg-white md:h-[20svh] shadow-md mt-[2rem] rounded-lg "
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ ease: "easeIn", duration: 1 }}
+                  <div
+                    initial={{ opacity: 0.4, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ ease: "easeInOut", duration: 1 }}
                   >
-                    <div className="flex flex-col h-[20svh] w-[50%] justify-around pl-[1rem] md:pl[0] ">
-                      <p className="font-[caveat-regular] text-[1.2rem] sm:text-[1.4rem] md:text-[1.6rem]">
-                        Welcome
-                      </p>
-                      <p className="font-[poppins-regular] text-[0.7rem] md:text-[0.9rem]">
-                        Available courses
-                      </p>
-                      <Button type="purple" text="See courses" />
-                    </div>
-                    <div className="flex w-[auto]">
-                      <img
-                        src={taskGirlIcon}
-                        className="w-[50%] bg-white md:w-full"
-                      />
-                      <img src={taskBoyIcon} className="w-[50%] md:w-full" />
-                    </div>
-                  </motion.div>
+                    <ProgressCards />
+                  </div>
 
                   <div className="px-[6%] py-[5%] md:px-[7%]">
                     <motion.p
-                      className="flex flex-col font-[caveat-regular] text-[1.2rem] sm:flex-row sm:text-[1.4rem] sm:pl-[0.5rem] md:text-[1.6rem]"
+                      className="flex flex-col font-[caveat-regular] text-[1.2rem] border-b-2 sm:border-b-2 sm:flex-row sm:text-[1.4rem] sm:pl-[0.5rem] md:border-b-2 md:text-[1.6rem]"
                       initial={{ opacity: 0.4 }}
                       animate={{ opacity: 1 }}
                       transition={{
@@ -131,7 +72,7 @@ const Dashboard = () => {
                         duration: 3,
                       }}
                     >
-                      Let's Learn
+                      Your Progress
                     </motion.p>
                   </div>
                   <motion.div
@@ -139,7 +80,7 @@ const Dashboard = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ ease: "easeInOut", duration: 1 }}
                   >
-                    <ProgressCards />
+                    <img src = {Chart} />
                   </motion.div>
                 </section>
               </Content>
@@ -195,4 +136,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Trending;

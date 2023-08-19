@@ -32,13 +32,13 @@ const LoginPage = () => {
               htmlFor="username"
               className="block text-[0.7rem] sm:text-[0.8rem]"
             >
-              Full Name<span className="text-[#FF3D00]">*</span>
+              Username<span className="text-[#FF3D00]">*</span>
             </label>
             <input
               type="text"
               id="username"
               name="username"
-              className=" border rounded-[1rem] w-40 text-[0.6rem] py-[0.5rem] mb-[1.5rem] px-[0.5rem] sm:w-60 sm:text-[0.7rem] md:w-70 lg:w-80"
+              className=" border rounded-[1rem] shadow-md w-40 text-[0.6rem] py-[0.5rem] mb-[1.5rem] px-[0.5rem] sm:w-60 sm:shadow-md sm:text-[0.7rem] md:w-70 md:shadow-md lg:w-80 lg:shadow-md"
             />
             {/* Password */}
             <label
@@ -51,7 +51,7 @@ const LoginPage = () => {
               type="password"
               id="password"
               name="password"
-              className=" border rounded-[1rem] mb-[1.5rem] w-40 text-[0.6rem] py-[0.5rem] px-[0.5rem] sm:w-60 sm:text-[0.7rem] md:w-70 lg:w-80"
+              className=" border rounded-[1rem] mb-[1.5rem] w-40 text-[0.6rem] py-[0.5rem] px-[0.5rem] sm:w-60 sm:text-[0.7rem] md:w-70 lg:w-80 shadow-md sm:shadow-md md:shadow-md lg:shadow-md"
             />
 
             <label className="flex text-[0.6rem] mb-[1.5rem] items-center gap-[0.5rem]">
@@ -62,7 +62,7 @@ const LoginPage = () => {
             <input
               type="submit"
               value="Sign In"
-              className=" border rounded-[1rem] bg-gradient-to-r from-green-700 via-green-500 to-yellow-200 cursor-pointer text-[#FFFFFF] mb-[1.5rem] w-40 text-[0.7rem] py-[0.5rem] px-[0.5rem] sm:w-60 sm:text-[0.8rem] md:w-70 lg:w-80"
+              className=" border rounded-[1rem] bg-gradient-to-r from-green-700 via-green-500 to-yellow-200 cursor-pointer text-[#FFFFFF] mb-[1.5rem] w-40 text-[0.7rem] py-[0.5rem] px-[0.5rem] sm:w-60 sm:text-[0.8rem] md:w-70 lg:w-80 shadow-md sm:shadow-md md:shadow-md lg:shadow-md"
             ></input>
           </form>
         </div>
@@ -71,7 +71,7 @@ const LoginPage = () => {
           <img
             src={loginImg}
             alt="login"
-            className=" h-[100svh]  sm:w-100 md:w-100 lg:w-100 "
+            className=" h-[100svh]  sm:w-100 md:w-100 lg:w-100  "
           />
         </div>
       </div>
