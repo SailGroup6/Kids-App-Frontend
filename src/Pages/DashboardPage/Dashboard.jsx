@@ -43,7 +43,7 @@ const Dashboard = () => {
   return (
     <React.Fragment>
       {isLoading ? (
-        <div className="flex justify-center items-center min-h-screen w-full">
+        <div className="flex items-center justify-center w-full min-h-screen">
           <Spin size="large" />
         </div>
       ) : (
