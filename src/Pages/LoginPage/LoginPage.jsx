@@ -1,8 +1,43 @@
 import React from "react";
 import loginImg from "../../Assets/Images/login-img.svg";
 import bumblebeeImg from "../../Assets/Images/bumbleebee-img.svg";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios"; // Import Axios
+
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [token, setToken] = useState("")
+  const navigate = useNavigate();
+  const url = "https://kidshive-user-creation-api.onrender.com/api/v1/auth/login";
+
+  async function handleSubmit() {
+    const credentials = { email, password };
+
+    try {
+      const response = await axios.post(url, credentials, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      // Set the JWT token in the state
+      setToken(response.data.token);
+
+      console.log(response.data.token);
+
+      // Navigate to the dashboard route
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Login error:", error);
+      // Handle login error here
+    }
+  }
+
+ 
   return (
     <React.Fragment>
       <div className="flex items-center min-h-screen px-[10%] bg-[#FFFDFC]">
@@ -24,20 +59,21 @@ const LoginPage = () => {
           </p>
 
           <form
-            action="/submit"
-            method="get"
+            onSubmit={handleSubmit}
             className="grid place-content-center font-[poppins-regular] mt-[3rem]"
+            id="formEl"
           >
             <label
-              htmlFor="username"
+              htmlFor="email"
               className="block text-[0.7rem] sm:text-[0.8rem]"
             >
-              Username<span className="text-[#FF3D00]">*</span>
+              Email<span className="text-[#FF3D00]">*</span>
             </label>
             <input
               type="text"
-              id="username"
-              name="username"
+              id="email"
+              name="email"
+              onChange = {(e) => setEmail(e.target.value)}
               className=" border rounded-[1rem] shadow-md w-40 text-[0.6rem] py-[0.5rem] mb-[1.5rem] px-[0.5rem] sm:w-60 sm:shadow-md sm:text-[0.7rem] md:w-70 md:shadow-md lg:w-80 lg:shadow-md"
             />
             {/* Password */}
@@ -51,6 +87,7 @@ const LoginPage = () => {
               type="password"
               id="password"
               name="password"
+              onChange = {(e) => setPassword(e.target.value)}
               className=" border rounded-[1rem] mb-[1.5rem] w-40 text-[0.6rem] py-[0.5rem] px-[0.5rem] sm:w-60 sm:text-[0.7rem] md:w-70 lg:w-80 shadow-md sm:shadow-md md:shadow-md lg:shadow-md"
             />
 

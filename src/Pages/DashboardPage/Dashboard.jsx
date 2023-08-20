@@ -84,16 +84,22 @@ const Dashboard = () => {
                       />
 */}
                       {contextHolder}
-                      <div
-                        className="bg-white rounded-full font-[poppins-regular] ml-[0.5rem] flex items-center justify-center cursor-pointer w-10 h-8"
+                      <motion.div
+                        className="bg-white rounded-full font-[poppins-regular] ml-[0.5rem] shadow-md flex items-center justify-center cursor-pointer w-10 h-8"
                         onClick={openNotification}
+                        whileHover={{
+                          scale: "1.1",
+                          textShadow: "0px 0px 8px rgb(255,255,255)",
+                          boxShadow: "0px 0px 8px rgb(0,0,255)",
+                          transition: { duration: .2 } 
+                        }}
                       >
                         <img
                           src={bellIcon}
                           alt="bell Icon"
                           className="w-6 h-6"
                         />
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
 
@@ -108,9 +114,9 @@ const Dashboard = () => {
                         Welcome
                       </p>
                       <p className="font-[poppins-regular] text-[0.7rem] md:text-[0.9rem]">
-                        Available courses
+                        check out available lessons
                       </p>
-                      <Button type="purple" text="See courses" />
+                      <Button type="purple" text="See lessons" />
                     </div>
                     <div className="flex w-[auto]">
                       <img
