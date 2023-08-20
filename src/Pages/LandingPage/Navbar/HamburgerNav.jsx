@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import NavButton from "./NavButton";
 
 export default function HamburgerNav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <div className="flex items-center justify-between ">
       <nav>
-        <section className="MOBILE-MENU flex lg:hidden">
+        <section className="flex MOBILE-MENU lg:hidden">
           <div
-            className="HAMBURGER-ICON space-y-2"
+            className="space-y-2 HAMBURGER-ICON"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
-            <span className="block h-1 w-8 animate-pulse bg-white"></span>
-            <span className="block h-1 w-8 animate-pulse bg-white"></span>
-            <span className="block h-1 w-8 animate-pulse bg-white"></span>
+            <span className="block w-8 h-1 bg-white animate-pulse"></span>
+            <span className="block w-8 h-1 bg-white animate-pulse"></span>
+            <span className="block w-8 h-1 bg-white animate-pulse"></span>
           </div>
 
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
@@ -22,7 +23,7 @@ export default function HamburgerNav() {
               onClick={() => setIsNavOpen(false)}
             >
               <svg
-                className="h-8 w-8 text-gray-600"
+                className="w-8 h-8 text-gray-600"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -35,45 +36,35 @@ export default function HamburgerNav() {
               </svg>
             </div>
             <ul className="flex flex-col items-center justify-between min-h-[250px] ">
-              <li className="border-b border-gray-400 my-8 uppercase">
+              <li className="my-8 uppercase border-b border-gray-400">
                 <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC] ">
                   Home
                 </ul>
               </li>
-              <li className="border-b border-gray-400 my-8 uppercase">
+              <li className="my-8 uppercase border-b border-gray-400">
                 <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC] ">
                   About us
                 </ul>
               </li>
-              <li className="border-b border-gray-400 my-8 uppercase">
+              <li className="my-8 uppercase border-b border-gray-400">
                 <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]">
                   Contact us
                 </ul>
               </li>
-              <div className=" border-[0.5px] border-gray-400 rounded-lg py-1 px-3 flex items-center">
-                <button
-                  type="submit"
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]"
-                >
-                  Sign In
-                </button>
-              </div>
-              <div >
-              <button
-              type="submit"
-              className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]"
-            >
-              Register
-            </button>
-              </div>
+             <div className= " flex flex-col gap-4">
+             <NavButton
+             text = {"Login"}/>
+             <NavButton
+             text = {"Sign up"}/>
+             </div>
             </ul>
           </div>
         </section>
 
-        <li className="DESKTOP-MENU hidden space-x-8 lg:flex">
-          <ul className=" cursor-pointer">Home</ul>
-          <ul className=" cursor-pointer">About us</ul>
-          <ul className=" cursor-pointer">Contact us</ul>
+        <li className="hidden space-x-8 DESKTOP-MENU lg:flex">
+          <ul className="cursor-pointer ">Home</ul>
+          <ul className="cursor-pointer ">About us</ul>
+          <ul className="cursor-pointer ">Contact us</ul>
           <button className=" border-[0.5px] border-white text-[#9B5DE6] hover:text-white hover:bg-[#9B5DE6] bg-white rounded-lg py-1 px-3 flex items-center">
           <NavLink to="/login">Login</NavLink>
           </button>

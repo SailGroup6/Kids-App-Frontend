@@ -4,7 +4,7 @@ import ContactInput from "./ContactInput";
 const ContactUsForm = () => {
   return (
     <div className="flex flex-col gap-4 pl-8">
-      <div className=" flex flex-col gap-4 lg:flex-row ">
+      <div className="flex flex-col gap-4 lg:flex-row">
         <ContactInput
           label={"First name"}
           arialLabel={"Firstname"}
@@ -26,7 +26,7 @@ const ContactUsForm = () => {
         />
       </div>
 
-      <div className=" flex flex-col gap-4 lg:flex-row ">
+      <div className="flex flex-col gap-4 lg:flex-row">
         <ContactInput
           label={"Email"}
           arialLabel={"Email"}
@@ -48,14 +48,14 @@ const ContactUsForm = () => {
       </div>
 
       <textarea
-      className=" resize-none  block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 border-0 border-b-2 bg-inherit border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#9B5DE6] peer"
+      className=" resize-none  block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-lg text-gray-900 border-0 border-b-2 bg-inherit border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#9B5DE6] peer"
         id="message"
         rows="4"
         placeholder="Write your message..."
       ></textarea>
 
       <div className=" rounded-md py-1 my-4 flex items-center justify-center bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]">
-        <button type="submit" className=" text-white ">
+        <button type="submit" className="text-white ">
           Send Message
         </button>
       </div>

@@ -25,7 +25,7 @@ const cards = [
     bgcolor: "rgba(155, 93, 230, 0.30)",
     color: "#9B5DE6",
     shadow:
-      "0px 10px 15px -3px rgba(155, 93, 230, 0.30), 0px 4px 6px -4px rgba(155, 93, 230, 0.30)",
+      "0 10px 15px -3px rgba(155, 93, 230, 0.30), 0 4px 6px -4px rgba(155, 93, 230, 0.30)",
     progress: 30,
     link: "/cssCourse",
   },
@@ -42,7 +42,7 @@ const cards = [
   },
 ];
 
-const ProgressCards = () => {
+const ActiveCoursesCards = () => {
   return (
     <React.Fragment>
       <div className="flex flex-col flex-wrap items-center justify-around gap-y-[1rem] md:flex-row">
@@ -54,17 +54,17 @@ const ProgressCards = () => {
             style={{
               boxShadow: `${card.shadow}`
             }}
-            className="flex flex-col justify-around items-center w-full md:w-[30%] h-[30svh] rounded-lg bg-white"
+            className="flex flex-col justify-around items-center w-full md:w-[25%] h-[20svh] rounded-lg bg-white"
           >
            
-              <div className="flex justify-around items-center">
+              <div className="flex justify-around items-center w-[30%] h-full">
                 <img src={card.image} alt="image" className="h-20 w-15 " />
                 <div className="flex flex-col justify-around items-center ml-[0.3rem]">
-                  <p className="font-[caveat-regular] text-[1.2rem] md:text-[1.4rem] ">
+                  <p className="font-[caveat-regular] text-[1.1rem] md:text-[1.3rem] ">
                     {card.topic}
                   </p>
                   <div
-                    className="font-[poppins-regular] text-[0.7rem] rounded-lg bg-[] px-[0.5rem]"
+                    className="font-[poppins-regular] text-[0.6rem] rounded-lg bg-[] px-[0.4rem]"
                     style={{
                       backgroundColor: `${card.bgcolor}`,
                       color: `${card.color}`,
@@ -75,7 +75,7 @@ const ProgressCards = () => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center align-center h-[auto] w-[70%]">
+              <div className="flex items-center justify-center align-center h-[auto] w-[80%]">
                 <Progress
                   percent={card.progress}
                   className="font-[poppins-regular] items-center"
@@ -90,4 +90,4 @@ const ProgressCards = () => {
   );
 };
 
-export default ProgressCards;
+export default ActiveCoursesCards;
