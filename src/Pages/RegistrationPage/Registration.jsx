@@ -72,31 +72,31 @@ const Registration = () => {
       <main className="h-full bg flex items-center justify-center p-5">
         <form
           onSubmit={Formik.handleSubmit}
-          className="w-[70%] h-[90%] bg-[#FFFFFF] p-10 shadow-xl rounded-lg"
+          className="w-[70%] h-[90%] bg-[#FFFFFF] p-10 shadow-2xl rounded-lg"
         >
-          <div className=" flex-col text-center text-black text-[1rem] md:text-[1.7rem]">
-            <div className="text-center  font-[caveat-300] animate-pulse md:text-cyan-[2rem]">
-              🌟 Welcome to Kid Hive 🌟
+          <div className=" flex-col text-center text-black text-[1rem] md:text-[1.5rem]">
+            <div className="text-center  font-[caveat-regular]  animate-pulse md:text-cyan-[0.9rem]">
+               Welcome to Kid Hive 
             </div>
-            <div className=" text-black  font-[caveat-regular] text-[20px]">
+            <div className=" text-black  font-[caveat-regular]  text-[1.2rem]">
               Student Registration Form
             </div>
           </div>
 
           {/* KID INFORMATION */}
 
-          <div className="w-56 text-xl  font-[caveat-regular] ">
+          <div className="w-56 text-md  font-[poppins-bold]  ">
             Kids Information
           </div>
 
           <div className="flex flex-col">
             <label htmlFor="name" className="font-[poppins-regular] text-[0.8rem]">
-              Full Name:{" "}
+            🧒 Full Name *
             </label>
             <input
               type="text"
               placeholder=""
-              className=" w-full p-2 rounded-md outline-none border"
+              className=" w-full p-1 rounded-md shadow-md outline-none border"
               value={Formik.values.fullName}
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
@@ -114,14 +114,13 @@ const Registration = () => {
           <div className="flex flex-row gap-5 w-full pt-3">
             <div className="flex flex-col w-[50%] ">
               <label htmlFor="age" className="font-[poppins-bold] text-[0.8rem]">
-                {" "}
-                Age:
+              🎂 Age *
               </label>
               <input
                 type="number"
                 name=""
                 id="age"
-                className=" rounded-md p-1 outline-none border"
+                className=" rounded-md p-1 shadow-md outline-none border"
                 value={Formik.values.age}
                 onChange={Formik.handleChange}
                 onBlur={Formik.handleBlur}
@@ -134,14 +133,14 @@ const Registration = () => {
             </div>
             <div className="flex flex-col w-[50%]">
               <label htmlFor="gender" className="font-[poppins-bold] text-[0.8rem]">
-                Gender:
+              👦 Gender *
               </label>
               <select
                 id="gender"
                 name="gender"
                 value={Formik.values.gender}
                 onChange={Formik.handleChange}
-                className=" rounded p-1 border"
+                className=" rounded shadow-md p-1 border"
               >
                 <option value="Select">Select Gender</option>
                 <option value="Female">Female</option>
@@ -151,7 +150,7 @@ const Registration = () => {
           </div>
 
           {/* PARENT /GUARDIAN  INFORMATION */}
-          <div className=" text-xl  font-[caveat-regular] pt-5 pb-2">
+          <div className=" text-md  font-[poppins-bold] pt-5 pb-2">
             <h1>Parent/Guardian Information</h1>
           </div>
           <div className="flex flex-col">
@@ -162,7 +161,7 @@ const Registration = () => {
             <input
               type="text"
               placeholder=" steven star"
-              className=" w-full p-2 rounded-md outline-none border "
+              className=" w-full p-1 shadow-md rounded-md outline-none border "
               name="parentFullName"
               value={Formik.values.parentFullName}
               onChange={Formik.handleChange}
@@ -185,7 +184,7 @@ const Registration = () => {
                 type="email"
                 name="email"
                 placeholder="kideye@gamil.com"
-                className="p-1 rounded outline-none border"
+                className="p-1 rounded shadow-md outline-none border"
                 value={Formik.values.email}
                 onBlur={Formik.handleBlur}
                 onChange={Formik.handleChange}
@@ -208,7 +207,7 @@ const Registration = () => {
                 value={Formik.values.number}
                 onChange={Formik.handleChange}
                 onBlur={Formik.handleBlur}
-                className=" p-1 rounded outline-none border"
+                className=" p-1 rounded shadow-md outline-none border"
               />
               <div className="text-red-500 font-[poppins-bold]  text-[0.8rem]">
                 {Formik.touched.phoneNumber && Formik.errors.phoneNumber
@@ -219,7 +218,7 @@ const Registration = () => {
           </div>
 
           {/* LOGIN INFORMATION SECTION */}
-          <div className=" w-[30%] text-xl  font-[caveat-regular] pt-5 pb-2">
+          <div className=" w-[30%] text-md  font-[poppins-bold]  pt-5 pb-2">
             <h1> Login Information</h1>
           </div>
           <div className="flex flex-col">
@@ -230,7 +229,7 @@ const Registration = () => {
             <input
               type="text"
               placeholder=" steven star"
-              className=" w-full p-2 rounded-md outline-none border"
+              className=" w-full p-1 rounded-md shadow-md outline-none border"
               name="username"
               value={Formik.values.username}
               onChange={Formik.handleChange}
@@ -253,7 +252,7 @@ const Registration = () => {
                 name="password"
                 value={Formik.values.password}
                 onChange={Formik.handleChange}
-                className=" rounded p-1 outline-none border"
+                className=" rounded p-1 shadow-md outline-none border"
               />
               {Formik.touched.password && Formik.errors.password && (
                 <div className="text-red-500 font-[poppins-bold]  text-[0.8rem]">
@@ -271,7 +270,7 @@ const Registration = () => {
                 name="cpassword"
                 value={Formik.values.cpassword}
                 onChange={Formik.handleChange}
-                className="rounded p-1 outline-none border"
+                className="rounded p-1 shadow-md outline-none border"
               />
               {Formik.touched.cpassword && Formik.errors.cpassword && (
                 <div className="text-red-500 font-[poppins-bold]  text-[0.8rem]">

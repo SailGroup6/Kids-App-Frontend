@@ -4,7 +4,6 @@ import bumblebeeImg from "../../Assets/Images/bumbleebee-img.svg";
 import { Spin } from "antd"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Dashboard from "../DashboardPage/Dashboard";
 import axios from "axios"; // Import Axios
 
 
@@ -13,7 +12,6 @@ const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [userData, setUserData] = useState(null);
   const [token, setToken] = useState("")
   const navigate = useNavigate();
 
@@ -28,6 +26,7 @@ const LoginPage = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const credentials = { email, password };
+    console.log(credentials)
 
     try {
       const response = await axios.post(url, credentials, {
@@ -40,7 +39,6 @@ const LoginPage = () => {
       // Set the JWT token in the state
       setToken(response.data.data.token);
       // Set the UserData in the state
-      setUserData(response.data.data.username)
 
       // Navigate to the dashboard route
       navigate("/dashboard");
