@@ -4,6 +4,7 @@ import bumblebeeImg from "../../Assets/Images/bumbleebee-img.svg";
 import { Spin } from "antd"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Dashboard from "../DashboardPage/Dashboard";
 import axios from "axios"; // Import Axios
 
 
@@ -12,17 +13,20 @@ const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [userData, setUserData] = useState(null);
   const [token, setToken] = useState("")
   const navigate = useNavigate();
+
   const url = "https://kidshive-user-creation-api.onrender.com/api/v1/auth/login";
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 500);
   }, []);
 
-  async function handleSubmit() {
+  async function handleSubmit(e) {
+    e.preventDefault();
     const credentials = { email, password };
 
     try {
@@ -34,19 +38,17 @@ const LoginPage = () => {
       });
 
       // Set the JWT token in the state
-      setToken(response.data.token);
-
-      console.log(response.data.token);
+      setToken(response.data.data.token);
+      // Set the UserData in the state
+      setUserData(response.data.data)
 
       // Navigate to the dashboard route
       navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error);
-      // Handle login error here
+      // Handle login error
     }
   }
-
- 
 
 
   return isLoading ? (
@@ -126,6 +128,7 @@ const LoginPage = () => {
             className=" h-[100svh]  sm:w-100 md:w-100 lg:w-100  "
           />
         </div>
+       
       </div>
     </React.Fragment>
   );
