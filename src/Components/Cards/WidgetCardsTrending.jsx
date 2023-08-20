@@ -20,7 +20,7 @@ const WidgetCardsTrending = () => {
     {
       name: smileyIcon,
       style: "max-w-[80%] mb-[1.5rem]",
-      link: "/bio",
+      link: "/profile",
       whileHover: { scale: 1.3, transition: { duration: 0.1 } },
       title: "About Me" 
     },

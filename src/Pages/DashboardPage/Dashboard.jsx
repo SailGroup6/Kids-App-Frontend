@@ -9,6 +9,8 @@ import WidgetCards from "../../Components/Cards/WidgetCards";
 import bellIcon from "../../Assets/Images/bell.svg";
 import taskGirlIcon from "../../Assets/Images/task-girl.svg";
 import taskBoyIcon from "../../Assets/Images/task-boy.svg";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -16,7 +18,10 @@ const { Header, Content, Sider } = Layout;
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  //const username = location.state?.username || "User" ;
+  const storedUsername = localStorage.getItem("username") || "User";
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -41,6 +46,11 @@ const Dashboard = () => {
       duration: 0,
     });
   };
+
+  function handleLogout(){
+    navigate("/login")
+  }
+
 
   return (
     <React.Fragment>
@@ -76,7 +86,7 @@ const Dashboard = () => {
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
                   <div className="flex items-center font-[poppins-regular] justify-between">
                     <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
-                      Hi User
+                      Hi {storedUsername}
                     </p>
                     <div className="flex font-[poppins-regular] justify-between">
 {/*                      <input

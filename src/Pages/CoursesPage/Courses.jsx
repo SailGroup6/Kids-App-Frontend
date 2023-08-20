@@ -13,6 +13,7 @@ const { Header, Content, Sider } = Layout;
 
 const Courses = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const storedUsername = localStorage.getItem("username") || "User";
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,11 +31,11 @@ const Courses = () => {
           animate={{ opacity: 2 }}
           transition={{ duration: 1 }}
         >
-          <p>Notification Title</p>
+          <p>Notification </p>
         </motion.div>
       ),
       description:
-        "I will never close automatically. This is a purposely very very long description that has many many characters and words.",
+        "No Notification",
       duration: 0,
     });
   };
@@ -73,7 +74,7 @@ const Courses = () => {
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
                   <div className="flex items-center font-[poppins-regular] justify-between">
                     <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
-                      Hi User
+                      Hi {storedUsername}
                     </p>
                     <div className="flex font-[poppins-regular] justify-between">
                       {/*                      <input

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Link } from "react-scroll";
 
 export default function HamburgerNav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -8,7 +9,7 @@ export default function HamburgerNav() {
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div
-            className="HAMBURGER-ICON space-y-2"
+            className="HAMBURGER-ICON space-y-2 cursor-pointer"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
             <span className="block h-1 w-8 animate-pulse bg-white"></span>
@@ -18,7 +19,7 @@ export default function HamburgerNav() {
 
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
-              className="absolute top-0 right-0 px-8 py-8"
+              className="absolute top-0 right-0 cursor-pointer px-8 py-8"
               onClick={() => setIsNavOpen(false)}
             >
               <svg
@@ -35,51 +36,79 @@ export default function HamburgerNav() {
               </svg>
             </div>
             <ul className="flex flex-col items-center justify-between min-h-[250px] ">
-              <li className="border-b border-gray-400 my-8 uppercase">
-                <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC] ">
-                  Home
-                </ul>
-              </li>
-              <li className="border-b border-gray-400 my-8 uppercase">
-                <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC] ">
-                  About us
-                </ul>
-              </li>
-              <li className="border-b border-gray-400 my-8 uppercase">
-                <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]">
-                  Contact us
-                </ul>
-              </li>
-              <div className=" border-[0.5px] border-gray-400 rounded-lg py-1 px-3 flex items-center">
+              <Link to="homeLink" smooth={true} duration={1500}>
+                <li className="border-b border-gray-400 my-8 cursor-pointer uppercase">
+                  <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC] ">
+                    Home
+                  </ul>
+                </li>
+              </Link>
+              <Link to="aboutUsLink" smooth={true} duration={1500}>
+                <li className="border-b border-gray-400 my-8 cursor-pointer  uppercase">
+                  <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC] ">
+                    About us
+                  </ul>
+                </li>
+              </Link>
+              <Link to="contactUsLink" smooth={true} duration={1500}>
+                <li className="border-b border-gray-400 my-8 cursor-pointer uppercase">
+                  <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]">
+                    Contact us
+                  </ul>
+                </li>
+              </Link>
+              <NavLink
+                to="/login"
+                className="border-[0.5px] border-gray-400 rounded-lg py-1 px-3 mb-[2rem] flex items-center"
+              >
+                <button
+                  type="submit"
+                  className=" text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]"
+                >
+                  Sign In
+                </button>
+              </NavLink>
+              <NavLink
+                to="/login"
+                className="border-[0.5px] border-gray-400 rounded-lg py-1 px-3 mb-[2rem] flex items-center"
+              >
                 <button
                   type="submit"
                   className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]"
                 >
-                  Sign In
+                  Register
                 </button>
-              </div>
-              <div >
-              <button
-              type="submit"
-              className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC]"
-            >
-              Register
-            </button>
-              </div>
+              </NavLink>
             </ul>
           </div>
         </section>
 
         <li className="DESKTOP-MENU hidden space-x-8 lg:flex">
-          <ul className=" cursor-pointer">Home</ul>
-          <ul className=" cursor-pointer">About us</ul>
-          <ul className=" cursor-pointer">Contact us</ul>
-          <button className=" border-[0.5px] border-white text-[#9B5DE6] hover:text-white hover:bg-[#9B5DE6] bg-white rounded-lg py-1 px-3 flex items-center">
-          <NavLink to="/login">Login</NavLink>
-          </button>
-          <button className=" border-[0.5px] border-white rounded-lg py-1 px-3 hover:bg-white hover:text-[#9B5DE6] flex items-center">
-            <NavLink to="/registration">Register</NavLink>
-          </button>
+          <Link to="homeLink" smooth={true} duration={1500}>
+            <ul className=" cursor-pointer transition-all duration-400 hover:scale-110">
+              Home
+            </ul>
+          </Link>
+          <Link to="aboutUsLink" smooth={true} duration={1500}>
+            <ul className=" cursor-pointer transition-all duration-400 hover:scale-110">
+              About us
+            </ul>
+          </Link>
+          <Link to="contactUsLink" smooth={true} duration={1500}>
+            <ul className=" cursor-pointer transition-all duration-400 hover:scale-110">
+              Contact us
+            </ul>
+          </Link>
+          <NavLink to="/login">
+            <button className=" border-[0.5px] border-none text-[#9B5DE6] transition-all duration-400 hover:scale-110 bg-white rounded-lg py-1 px-3 flex items-center">
+              Login
+            </button>
+          </NavLink>
+          <NavLink to="/signup">
+            <button className="border-[0.5px] border-white rounded-lg py-1 px-3 transition-all duration-400 hover:scale-110 hover:text-white flex items-center">
+              Register
+            </button>
+          </NavLink>
         </li>
       </nav>
     </div>

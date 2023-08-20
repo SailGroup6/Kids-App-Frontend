@@ -1,21 +1,21 @@
-import React from "react";
-import loginImg from "../../Assets/Images/login-img.svg";
-import bumblebeeImg from "../../Assets/Images/bumbleebee-img.svg";
-import { Spin } from "antd"
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Spin, message } from "antd"; // Import message component
+import { Button, Popconfirm, Switch } from "antd";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import Axios
-
+import loginImg from "../../Assets/Images/login-img.svg";
+import bumblebeeImg from "../../Assets/Images/bumbleebee-img.svg";
 
 const LoginPage = () => {
-
   const [isLoading, setIsLoading] = useState(true);
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [token, setToken] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [token, setToken] = useState("");
   const navigate = useNavigate();
 
-  const url = "https://kidshive-user-creation-api.onrender.com/api/v1/auth/login";
+  const url =
+    "https://kidshive-user-creation-api.onrender.com/api/v1/auth/login";
 
   useEffect(() => {
     setTimeout(() => {
@@ -26,7 +26,6 @@ const LoginPage = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const credentials = { email, password };
-    console.log(credentials)
 
     try {
       const response = await axios.post(url, credentials, {
@@ -39,15 +38,21 @@ const LoginPage = () => {
       // Set the JWT token in the state
       setToken(response.data.data.token);
       // Set the UserData in the state
+      localStorage.setItem("username", response.data.data.username);
+      localStorage.setItem("accessToken", response.data.data.token);
+      localStorage.setItem("refreshToken", response.data.data.token);
+
+      // Display success message
+      message.success("Login successful!");
 
       // Navigate to the dashboard route
-      navigate("/dashboard");
+      navigate("/dashboard",{ state: { username: response.data.data.username } });
     } catch (error) {
       console.error("Login error:", error);
-      // Handle login error
+      // Display error message
+      message.error("Login failed. Please check your credentials.");
     }
   }
-
 
   return isLoading ? (
     <div className="flex justify-center items-center min-h-screen w-full">
@@ -68,9 +73,9 @@ const LoginPage = () => {
           </p>
           <p className="font-[caveat-regular] text-center text-[0.8rem] ">
             Don't have an account?{" "}
-            <span className="text-[#bedc7cfc]">
-              <a href="">Sign Up</a>
-            </span>
+            <NavLink to="/signup">
+              <span className="text-[#bedc7cfc]">Sign Up</span>
+            </NavLink>
           </p>
 
           <form
@@ -88,7 +93,7 @@ const LoginPage = () => {
               type="text"
               id="email"
               name="email"
-              onChange = {(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               className=" border rounded-[1rem] shadow-md w-40 text-[0.6rem] py-[0.5rem] mb-[1.5rem] px-[0.5rem] sm:w-60 sm:shadow-md sm:text-[0.7rem] md:w-70 md:shadow-md lg:w-80 lg:shadow-md"
             />
             {/* Password */}
@@ -102,7 +107,7 @@ const LoginPage = () => {
               type="password"
               id="password"
               name="password"
-              onChange = {(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               className=" border rounded-[1rem] mb-[1.5rem] w-40 text-[0.6rem] py-[0.5rem] px-[0.5rem] sm:w-60 sm:text-[0.7rem] md:w-70 lg:w-80 shadow-md sm:shadow-md md:shadow-md lg:shadow-md"
             />
 
