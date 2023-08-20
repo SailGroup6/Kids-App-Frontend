@@ -115,9 +115,10 @@ const Dashboard = () => {
                     <div className="flex w-[auto]">
                       <img
                         src={taskGirlIcon}
+                        alt="taskgirl"
                         className="w-[50%] bg-white md:w-full"
                       />
-                      <img src={taskBoyIcon} className="w-[50%] md:w-full" />
+                      <img src={taskBoyIcon} alt="taskboy" className="w-[50%] md:w-full" />
                     </div>
                   </motion.div>
 
@@ -155,7 +156,7 @@ const Dashboard = () => {
               >
                 <div className="flex flex-col w-full h-[100svh] justify-around items-center">
                   <motion.div
-                    className="h-[30vh] justify-between align-center border border-2 border-slate-500 rounded-lg bg-[#FCEDDA] w-[70%]"
+                    className="h-[30vh] justify-between align-center border-2 border-slate-500 rounded-lg bg-[#FCEDDA] w-[70%]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ ease: "easeIn", duration: 2 }}
@@ -164,7 +165,7 @@ const Dashboard = () => {
                   </motion.div>
 
                   <motion.div
-                    className="h-[50vh] border border-2 border-slate-500 rounded-lg bg-[#FCEDDA] px-[4%] w-[70%]"
+                    className="h-[50vh] border-2 border-slate-500 rounded-lg bg-[#FCEDDA] px-[4%] w-[70%]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ ease: "easeIn", duration: 2 }}

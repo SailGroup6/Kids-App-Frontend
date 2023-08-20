@@ -52,10 +52,10 @@ export default function HamburgerNav() {
                 </ul>
               </li>
              <div className= " flex flex-col gap-4">
+             <NavButton text= {"Login"}>
+           </NavButton>
              <NavButton
-             text = {"Login"}/>
-             <NavButton
-             text = {"Sign up"}/>
+             text = {"Register"}/>
              </div>
             </ul>
           </div>
@@ -63,8 +63,8 @@ export default function HamburgerNav() {
 
         <li className="hidden space-x-8 DESKTOP-MENU lg:flex">
           <ul className="cursor-pointer ">Home</ul>
-          <ul className="cursor-pointer ">About us</ul>
-          <ul className="cursor-pointer ">Contact us</ul>
+          <ul className="cursor-pointer "> <NavLink to= "/aboutus">About us</NavLink> </ul>
+          <ul className="cursor-pointer "><NavLink to="/contactus" >Contact us </NavLink></ul>
           <button className=" border-[0.5px] border-white text-[#9B5DE6] hover:text-white hover:bg-[#9B5DE6] bg-white rounded-lg py-1 px-3 flex items-center">
           <NavLink to="/login">Login</NavLink>
           </button>
