@@ -1,17 +1,26 @@
 import React from "react";
 import loginImg from "../../Assets/Images/login-img.svg";
 import bumblebeeImg from "../../Assets/Images/bumbleebee-img.svg";
+import { Spin } from "antd"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import Axios
 
 
 const LoginPage = () => {
+
+  const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [token, setToken] = useState("")
   const navigate = useNavigate();
   const url = "https://kidshive-user-creation-api.onrender.com/api/v1/auth/login";
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
 
   async function handleSubmit() {
     const credentials = { email, password };
@@ -38,7 +47,13 @@ const LoginPage = () => {
   }
 
  
-  return (
+
+
+  return isLoading ? (
+    <div className="flex justify-center items-center min-h-screen w-full">
+      <Spin size="large" />
+    </div>
+  ) : (
     <React.Fragment>
       <div className="flex items-center min-h-screen px-[10%] bg-[#FFFDFC]">
         <div className=" w-[100%]  sm:w-[60%] sm:mt-[5rem]">
