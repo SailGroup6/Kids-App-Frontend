@@ -11,6 +11,7 @@ import taskGirlIcon from "../../Assets/Images/task-girl.svg";
 import taskBoyIcon from "../../Assets/Images/task-boy.svg";
 
 
+
 const { Header, Content, Sider } = Layout;
 
 const Dashboard = ({userData}) => {
@@ -74,9 +75,9 @@ const Dashboard = ({userData}) => {
               <Content className="bg-[#FFFBF6] w-full h-[60rem] sm:h-screen">
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
                   <div className="flex items-center font-[poppins-regular] justify-between">
-                    {<p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
-                      userData && Hi {userData.username}
-                    </p>}
+                    <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
+                      Hi {userData.username}
+                    </p>
                     <div className="flex font-[poppins-regular] justify-between">
 {/*                      <input
                         type="text"
