@@ -40,7 +40,7 @@ const LoginPage = () => {
       // Set the JWT token in the state
       setToken(response.data.data.token);
       // Set the UserData in the state
-      setUserData(response.data.data)
+      setUserData(response.data.data.username)
 
       // Navigate to the dashboard route
       navigate("/dashboard");
@@ -128,7 +128,6 @@ const LoginPage = () => {
             className=" h-[100svh]  sm:w-100 md:w-100 lg:w-100  "
           />
         </div>
-        {userData && <Dashboard userData={userData} />}
       </div>
     </React.Fragment>
   );

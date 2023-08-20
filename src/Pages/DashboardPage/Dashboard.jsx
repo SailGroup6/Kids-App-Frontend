@@ -14,7 +14,7 @@ import taskBoyIcon from "../../Assets/Images/task-boy.svg";
 
 const { Header, Content, Sider } = Layout;
 
-const Dashboard = ({userData}) => {
+const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const Dashboard = ({userData}) => {
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
                   <div className="flex items-center font-[poppins-regular] justify-between">
                     <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
-                      Hi {userData.username}
+                      Hi User
                     </p>
                     <div className="flex font-[poppins-regular] justify-between">
 {/*                      <input
