@@ -1,47 +1,43 @@
 import React from "react";
 import "../../index.css";
-import { useState, useEffect } from "react";
-import { Spin } from "antd";
+// import { useState, useEffect } from "react";
+// import { Spin } from "antd";
 import { useFormik } from "formik";
 import * as yup from "yup";
+ import axios from "axios";
+
+
 
 const Registration = () => {
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  }, []);
   const Formik = useFormik({
     initialValues: {
-      fullname: "",
+      fullName: "",
       age: "",
       gender: "",
       email: "",
-      number: "",
+      phoneNumber: "",
       password: "",
-      terms: "",
-      parentname: "",
+      parentFullName: "",
       cpassword: "",
       username: "",
       // terms:"false"
     },
 
     validationSchema: yup.object({
-      fullname: yup.string().required(),
+      fullName: yup.string(),
       age: yup.number().max(12, "Too Old").required("Age is Required"),
       email: yup.string().email("invalid email").required("Email is required"),
-      number: yup
+      phoneNumber: yup
         .number()
         .typeError("Please enter a valid number")
         .integer("Please enter a whole number")
         .required("Number is required"),
-      parentname: yup.string().required(),
+      parentFullName: yup.string().required(),
       username: yup.string().required(),
       password: yup
         .string()
-        .matches(/[0-9]/, "Password requires a number")
+        .matches()
         .required("Password is required"),
       cpassword: yup
         .string()
@@ -50,19 +46,58 @@ const Registration = () => {
       // terms: yup
       // .boolean()
       // .oneOf([true], "You must agree to the terms and conditions"),
-      terms: yup.array().required(),
+      // terms: yup.array().required(),
     }),
 
-    onSubmit: (values) => {
-      console.log(values);
+
+    onSubmit: (Values) => {
+      
+      axios
+        .post(
+          "https://kidshive-user-creation-api.onrender.com/api/v1/auth/signup",
+          Values,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          if (error.response && error.response.data) {
+            console.error(error.response.data);
+          } else {
+            console.error(error.message);
+          }
+        
+        });
+      
     },
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   });
 
-  return isLoading ? (
-    <div className="flex justify-center items-center min-h-screen w-full">
-      <Spin size="large" />
-    </div>
-  ) : (
+  
+
+  return (
+  
+  
     <>
       <main className="h-full bg flex items-center justify-center p-5">
         <form
@@ -92,15 +127,15 @@ const Registration = () => {
               type="text"
               placeholder=""
               className=" w-full p-2 rounded-md outline-none border"
-              value={Formik.values.fullname}
+              value={Formik.values.fullName}
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
-              name="fullname"
+              name="fullName"
               title=""
               id="name"
             />
             <div className="text-red-500 font-[poppins-bold]">
-              {Formik.touched.fullname && Formik.errors.fullname
+              {Formik.touched.fullName && Formik.errors.fullName
                 ? "A Name is Required"
                 : ""}
             </div>
@@ -138,10 +173,10 @@ const Registration = () => {
                 onChange={Formik.handleChange}
                 className=" rounded p-1 border"
               >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="nonBinary">Non-binary</option>
-                <option value="other">Other</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="NonBinary">Non-binary</option>
+                <option value="Other">Other</option>
               </select>
             </div>
           </div>
@@ -159,13 +194,13 @@ const Registration = () => {
               type="text"
               placeholder=" steven star"
               className=" w-full p-2 rounded-md outline-none border "
-              name="parentname"
-              value={Formik.values.parentname}
+              name="parentFullName"
+              value={Formik.values.parentFullName}
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
             />
             <div className=" text-red-500 font-[poppins-bold]">
-              {Formik.touched.parentname && Formik.errors.parentname
+              {Formik.touched.parentFullName && Formik.errors.parentFullName
                 ? "Parent Name is required"
                 : ""}
             </div>
@@ -199,7 +234,7 @@ const Registration = () => {
               </label>
               <input
                 type="tel"
-                name="number"
+                name="phoneNumber"
                 placeholder="0709566499"
                 value={Formik.values.number}
                 onChange={Formik.handleChange}
@@ -207,8 +242,8 @@ const Registration = () => {
                 className=" p-1 rounded outline-none border"
               />
               <div className="text-red-500 font-[poppins-bold]">
-                {Formik.touched.number && Formik.errors.number
-                  ? Formik.errors.number
+                {Formik.touched.phoneNumber && Formik.errors.phoneNumber
+                  ? Formik.errors.phoneNumber
                   : ""}
               </div>
             </div>
@@ -278,7 +313,7 @@ const Registration = () => {
           </div>
 
           {/* CHECK BOX */}
-          <div className=" pt-3 font-[caveat-300]">
+          {/* <div className=" pt-3 font-[caveat-300]">
             <label htmlFor="terms" className=" font-semibold text-lg ">
               {" "}
               Terms and Condition
@@ -294,7 +329,7 @@ const Registration = () => {
                 i have read and agreed to the terms and condition
               </p>
             </div>
-          </div>
+          </div> */}
 
           {/* BUTTON */}
           <div className=" flex justify-center items-center pt-5">
@@ -314,6 +349,7 @@ const Registration = () => {
           </p>
         </form>
       </main>
+  
     </>
   );
 };
