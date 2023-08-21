@@ -94,6 +94,11 @@ const WidgetCardsTrending = () => {
           </NavLink>
         </div>
       ))}
+      <LogoutModal
+        visible={modalVisible}
+        handleLogout={handleLogout}
+        handleClose={handleCloseModal}
+      />
     </div>
   );
 };
