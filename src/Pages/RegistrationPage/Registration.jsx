@@ -168,7 +168,7 @@ const Registration = () => {
           <div className="flex flex-col">
             <label htmlFor="name" className="font-[poppins-bold]  text-[0.8rem]">
               {" "}
-              Parent/Guardian Full Name:{" "}
+              👩‍👦 Parent/Guardian Full Name:{" "}
             </label>
             <input
               type="text"
@@ -190,7 +190,7 @@ const Registration = () => {
             <div className="flex flex-col w-[50%] ">
               <label htmlFor="email" className="font-[poppins-bold]  text-[0.8rem]">
                 {" "}
-                Email Address:
+                📧 Email Address:
               </label>
               <input
                 type="email"
@@ -210,7 +210,7 @@ const Registration = () => {
             <div className="flex flex-col  w-[50%]">
               <label htmlFor="number" className="font-[poppins-bold]  text-[0.8rem]">
                 {" "}
-                Phone Number:
+                📞 Phone Number:
               </label>
               <input
                 type="tel"
@@ -236,7 +236,7 @@ const Registration = () => {
           <div className="flex flex-col">
             <label htmlFor="username" className="font-[poppins-bold]  text-[0.8rem]">
               {" "}
-              Choose a Username:{" "}
+              🔑 Choose a Username:{" "}
             </label>
             <input
               type="text"
@@ -257,7 +257,7 @@ const Registration = () => {
             <div className="flex flex-col w-[50%]">
               <label htmlFor="password" className="font-[poppins-bold]  text-[0.8rem]">
                 {" "}
-                Password:
+                🔒 Password:
               </label>
               <input
                 type="password"
@@ -275,7 +275,7 @@ const Registration = () => {
             <div className="flex flex-col  w-[50%]">
               <label htmlFor="confirm password" className="font-[poppins-bold]  text-[0.8rem]">
                 {" "}
-                Confirm Password:
+                🔒 Confirm Password:
               </label>
               <input
                 type="password"
