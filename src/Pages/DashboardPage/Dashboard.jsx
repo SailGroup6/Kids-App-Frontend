@@ -36,18 +36,16 @@ const Dashboard = () => {
           animate={{ opacity: 2 }}
           transition={{ duration: 1 }}
         >
-          <p className="font-[poppins-regular]">Notification</p>
+          <p className="font-[poppins-regular] font-medium">Notification</p>
         </motion.div>
       ),
       description:
-        "none",
+        "",
       duration: 0,
     });
   };
 
-  function handleLogout(){
-    navigate("/login")
-  }
+
 
 
   return (
