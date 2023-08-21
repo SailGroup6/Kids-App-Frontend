@@ -50,7 +50,7 @@ const LoginPage = () => {
       localStorage.setItem("phoneNumber",response.data.data.phoneNumber);
 
       localStorage.setItem("accessToken", response.data.data.token);
-      localStorage.setItem("refreshToken", response.data.data.token);
+      localStorage.setItem("refreshToken", response.data.data);
 
       // Display success message
       message.success("Login successful!");

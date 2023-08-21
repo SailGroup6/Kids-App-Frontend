@@ -6,6 +6,7 @@ import Registration from "./Pages/RegistrationPage/Registration";
 import Courses from "./Pages/CoursesPage/Courses";
 import Trending from "./Pages/TrendingPage/Trending"
 import Profile from "./Pages/ProfilePage/Profile";
+import SuccessPage from "./Pages/SuccessPage/SuccessPage";
 import { ConfigProvider } from "antd";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/trending" element={<Trending/>} />
           <Route path="/profile" element={<Profile/>} />
+          <Route path="/success" element={<SuccessPage/>} />
         </Routes>
       </ConfigProvider>
     </div>
