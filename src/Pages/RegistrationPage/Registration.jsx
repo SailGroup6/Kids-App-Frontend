@@ -1,13 +1,16 @@
 import React from "react";
 import "../../index.css";
 import { useState, useEffect } from "react";
-import { Spin } from "antd";
+import { useNavigate } from "react-router-dom"
+import { Spin, message } from "antd";
+import SuccessPage from "../SuccessPage/SuccessPage";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 
 const Registration = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
   const Formik = useFormik({
     initialValues: {
       fullName: "",
@@ -52,6 +55,8 @@ const Registration = () => {
         )
         .then((response) => {
           console.log(response.data);
+          message.success("Account created successfully!");
+          navigate("/success")
         })
         .catch((error) => {
           if (error.response && error.response.data) {

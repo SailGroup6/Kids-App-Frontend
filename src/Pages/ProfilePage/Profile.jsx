@@ -47,9 +47,9 @@ const Profile = () => {
           <WidgetCardsSmiley />
         </Sider>
 
-        <Content className="h-full grid bg-[#FFFBF6] p-10 font-[caveat-regular]">
+        <Content className="h-full grid bg-[#FFFBF6] p-10 ">
           <motion.div
-            className="border h-[150px] rounded shadow-md"
+            className="border h-[150px] rounded shadow-md bg-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
@@ -58,16 +58,16 @@ const Profile = () => {
             }}
           >
             <div className="border-b  ml-5 mr-5">
-              <h1 className="mt-6">Login information</h1>
+              <h1 className="mt-6 font-[caveat-regular] text-[1.1rem]">Login information</h1>
             </div>
 
-            <div className="pl-5 pt-5 text-[30PX]">
+            <div className="pl-5 pt-5 font-[poppins-regular] text-[0.8rem]">
               <h1> 🔑 Username : {storedUsername}</h1>
               <h1> 🔒 password : ********</h1>
             </div>
           </motion.div>
           <motion.div
-            className="border h-[150px] rounded shadow-md"
+            className="border h-[150px] rounded shadow-md bg-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
@@ -76,16 +76,16 @@ const Profile = () => {
             }}
           >
             <div className="border-b  ml-5 mr-5">
-              <h1 className="mt-6">Personal information</h1>
+              <h1 className="mt-6 font-[caveat-regular] text-[1.1rem]">Personal information</h1>
             </div>
-            <div className="pl-5 pt-5 text-[30PX]">
+            <div className="pl-5 pt-5 font-[poppins-regular] text-[0.8rem]">
               <h1> 🧑 Full Name : {storedFullName}</h1>
               <h1> 🎂 Age : {storedAge} </h1>
               <h1> 👨‍🦱 Gender:{storedGender} </h1>
             </div>
           </motion.div>
           <motion.div
-            className="border h-[150px] rounded shadow-md"
+            className="border h-[150px] rounded shadow-md bg-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
@@ -94,11 +94,11 @@ const Profile = () => {
             }}
           >
             <div className="border-b  ml-5 mr-5">
-              <h1 className="mt-6">Parent/ Guardian information</h1>
+              <h1 className="mt-6 font-[caveat-regular] text-[1.1rem]">Parent/ Guardian information</h1>
             </div>
-            <div className="pl-5 pt-5 text-[30PX] ">
+            <div className="pl-5 pt-5 font-[poppins-regular] text-[0.8rem]">
               <h1> 🧑 Parent/Guardian Full Name : {storedParentFullName}</h1>
-              <h1> 🎂 Email : {storedEmail} </h1>
+              <h1> 🎂 Email :<span>{storedEmail}</span></h1>
             </div>
           </motion.div>
         </Content>
