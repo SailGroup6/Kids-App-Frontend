@@ -78,12 +78,11 @@ const Courses = () => {
                       Lessons
                     </p>
                     <div className="flex font-[poppins-regular] justify-between">
-                      {/*                      <input
+                  {/*<input
                         type="text"
                         placeholder="Search"
                         className="h-[2rem] shadow-sm rounded-lg pl-[1rem] pr-[1rem] text-black placeholder-black w-[60%] font-[0.4rem]"
-                      />
-*/}
+                      />*/}
                       {contextHolder}
                       <motion.div
                         className="bg-white rounded-full font-[poppins-regular] ml-[0.5rem] flex items-center justify-center cursor-pointer w-10 h-8"

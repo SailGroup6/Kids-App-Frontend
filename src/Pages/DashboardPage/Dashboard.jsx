@@ -9,8 +9,7 @@ import WidgetCards from "../../Components/Cards/WidgetCards";
 import bellIcon from "../../Assets/Images/bell.svg";
 import taskGirlIcon from "../../Assets/Images/task-girl.svg";
 import taskBoyIcon from "../../Assets/Images/task-boy.svg";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 
 
@@ -32,17 +31,16 @@ const Dashboard = () => {
   const openNotification = () => {
     api.open({
       message: (
-        <motion.div
-          className="font-[caveat-brush]"
+        <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 2 }}
           transition={{ duration: 1 }}
         >
-          <p>Notification</p>
+          <p className="font-[poppins-regular]">Notification</p>
         </motion.div>
       ),
       description:
-        "No notification",
+        "none",
       duration: 0,
     });
   };
@@ -128,7 +126,7 @@ const Dashboard = () => {
                       <p className="font-[poppins-regular] text-[0.7rem] md:text-[0.9rem]">
                         check out available lessons
                       </p>
-                      <Button type="purple" text="See lessons" />
+                      <Link to ="/courses"><Button type="purple" text="See lessons" /></Link>
                     </div>
                     <div className="flex w-[auto]">
                       <img
