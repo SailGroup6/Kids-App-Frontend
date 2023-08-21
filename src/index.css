@@ -1,7 +1,9 @@
+/* Include base, components, and utility styles from Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Define custom font faces */
 @font-face {
   font-family: "poppins-regular";
   src: url('../src/Assets/Fonts/Poppins/Poppins-Regular.ttf');
