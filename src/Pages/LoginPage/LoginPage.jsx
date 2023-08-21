@@ -8,6 +8,7 @@ import loginImg from "../../Assets/Images/login-img.svg";
 import bumblebeeImg from "../../Assets/Images/bumbleebee-img.svg";
 
 const LoginPage = () => {
+  const [signInLoading, setSignInLoading] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +29,7 @@ const LoginPage = () => {
     const credentials = { email, password };
 
     try {
+      setSignInLoading(true);
       const response = await axios.post(url, credentials, {
         headers: {
           "Content-Type": "application/json",
@@ -46,11 +48,15 @@ const LoginPage = () => {
       message.success("Login successful!");
 
       // Navigate to the dashboard route
-      navigate("/dashboard",{ state: { username: response.data.data.username } });
+      navigate("/dashboard", {
+        state: { username: response.data.data.username },
+      });
     } catch (error) {
       console.error("Login error:", error);
       // Display error message
       message.error("Login failed. Please check your credentials.");
+    } finally {
+      setSignInLoading(false); // Disable loading state
     }
   }
 
@@ -116,11 +122,20 @@ const LoginPage = () => {
               the terms conditions
             </label>
 
-            <input
+           {/* <input
               type="submit"
               value="Sign In"
               className=" border rounded-[1rem] bg-gradient-to-r from-green-700 via-green-500 to-yellow-200 cursor-pointer text-[#FFFFFF] mb-[1.5rem] w-40 text-[0.7rem] py-[0.5rem] px-[0.5rem] sm:w-60 sm:text-[0.8rem] md:w-70 lg:w-80 "
-            ></input>
+            ></input> */}
+
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="mb-[1.5rem] w-40 bg-[#9B5DE6] text-[0.8rem] font-[poppins-regular] sm:w-60 sm:text-[0.8rem] md:w-70 lg:w-80"
+              loading={signInLoading}
+            >
+              Sign In
+            </Button>
           </form>
         </div>
 
