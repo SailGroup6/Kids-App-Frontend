@@ -1,3 +1,4 @@
+// Import necessary dependencies
 import React from "react";
 import { useState, useEffect } from "react";
 import { Layout, Spin, notification } from "antd";
@@ -12,25 +13,32 @@ import taskBoyIcon from "../../Assets/Images/task-boy.svg";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 
 
-
+// Destructuring components from antd Layout
 const { Header, Content, Sider } = Layout;
 
+// Define the Dashboard component
 const Dashboard = () => {
+   // State for loading indicator
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
-  //const username = location.state?.username || "User" ;
+
+  // Get the username from local storage; if not available, use "User" as default
   const storedUsername = localStorage.getItem("username") || "User";
+
   useEffect(() => {
+    // Simulate loading delay and then set isLoading to false
     setTimeout(() => {
       setIsLoading(false);
     }, 200);
   }, []);
 
+    // Notification setup
   const [api, contextHolder] = notification.useNotification();
   const openNotification = () => {
     api.open({
       message: (
+        // Framer Motion animation for the notification message
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 2 }}
@@ -40,8 +48,8 @@ const Dashboard = () => {
         </motion.div>
       ),
       description:
-        "",
-      duration: 0,
+        "", // Empty description for now
+      duration: 0, // Stay open until manually closed
     });
   };
 
@@ -51,12 +59,15 @@ const Dashboard = () => {
   return (
     <React.Fragment>
       {isLoading ? (
+        // Display loading indicator while page is loading
         <div className="flex items-center justify-center w-full min-h-screen">
           <Spin size="large" />
         </div>
       ) : (
+        // Display content when page is loaded completely
         <div className="w-full">
           <Layout className="h-screen">
+           {/* First Sidebar */}
             <Sider
               breakpoint="lg"
               collapsedWidth="0"
@@ -70,6 +81,7 @@ const Dashboard = () => {
                 alignItems: "center",
               }}
             >
+             {/* Component in the first sidebar */}
               <WidgetCards />
             </Sider>
             <Layout>
@@ -81,16 +93,11 @@ const Dashboard = () => {
               <Content className="bg-[#FFFBF6] w-full h-[60rem] sm:h-screen">
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
                   <div className="flex items-center font-[poppins-regular] justify-between">
+                   {/* Greeting message */}
                     <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
                       Hi {storedUsername}
                     </p>
                     <div className="flex font-[poppins-regular] justify-between">
-{/*                      <input
-                        type="text"
-                        placeholder="Search"
-                        className="h-[2rem] shadow-sm rounded-lg pl-[1rem] pr-[1rem] text-black placeholder-black w-[60%] font-[0.4rem]"
-                      />
-*/}
                       {contextHolder}
                       <motion.div
                         className="bg-white rounded-full font-[poppins-regular] ml-[0.5rem] shadow-md flex items-center justify-center cursor-pointer w-10 h-8"
@@ -124,6 +131,7 @@ const Dashboard = () => {
                       <p className="font-[poppins-regular] text-[0.7rem] md:text-[0.9rem]">
                         check out available lessons
                       </p>
+                      {/* Link to the "courses" page */}
                       <Link to ="/courses"><Button type="purple" text="See lessons" /></Link>
                     </div>
                     <div className="flex w-[auto]">
@@ -154,11 +162,13 @@ const Dashboard = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ ease: "easeInOut", duration: 1 }}
                   >
+                  {/* Render the progress cards */}
                     <ProgressCards />
                   </motion.div>
                 </section>
               </Content>
 
+                      {/* Second Sidebar */}
               <Sider
                 breakpoint="md"
                 collapsedWidth="0"
@@ -175,6 +185,8 @@ const Dashboard = () => {
                     animate={{ opacity: 1 }}
                     transition={{ ease: "easeIn", duration: 2 }}
                   >
+
+                  {/* Render the custom calendar */}
                     <CustomCalendar />
                   </motion.div>
 
@@ -187,6 +199,7 @@ const Dashboard = () => {
                     <p className="font-[poppins-regular] font-semibold text-[0.9rem] text-center pt-[2rem]">
                       Upcoming Courses
                     </p>
+                    {/* Upcoming course details */}
                     <div className="border-l-4 px-[0.5rem] border-[#1DA684] font-[poppins-regular] text-[0.7rem] md:text-[0.9rem] mt-[2rem] mb-[1rem]">
                       <p>Advanced HTML</p>
                       <p className="text-[#00000066]">Sep 2023</p>

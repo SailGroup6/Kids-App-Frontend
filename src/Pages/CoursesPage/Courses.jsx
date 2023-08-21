@@ -82,15 +82,10 @@ const Courses = () => {
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
                   <div className="flex items-center font-[poppins-regular] justify-between">
                     <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
-                      {/*Hi {storedUsername} */}
+                     
                       Lessons
                     </p>
                     <div className="flex font-[poppins-regular] justify-between">
-                  {/*<input
-                        type="text"
-                        placeholder="Search"
-                        className="h-[2rem] shadow-sm rounded-lg pl-[1rem] pr-[1rem] text-black placeholder-black w-[60%] font-[0.4rem]"
-                      />*/}
                       {contextHolder}
                       <motion.div
                         className="bg-white rounded-full font-[poppins-regular] ml-[0.5rem] flex items-center justify-center cursor-pointer w-10 h-8"

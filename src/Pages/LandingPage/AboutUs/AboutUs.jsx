@@ -1,13 +1,16 @@
-import React from "react";
+// Import necessary dependencies and components
 import { motion } from "framer-motion";
 import { Element } from "react-scroll";
 import AboutUsimage from "../../../Assets/Images/AboutUsImage.svg";
 
+// Define the AboutUs component
 const AboutUs = () => {
   return (
+    // Use the "Element" component from react-scroll for smooth scrolling
     <Element name="aboutUsLink">
       <div className=" m-auto w-[90%] md:w-[70%] font-[caveat-regular] pt-[5rem] md:h-screen">
         <header className="flex flex-col justify-center items-center">
+        {/* Heading with Framer Motion animation */}
           <motion.h1
             className="text-2xl md:text-5xl"
             initial={{ opacity: 0, y: -40 }}
@@ -16,6 +19,7 @@ const AboutUs = () => {
           >
             About us
           </motion.h1>
+          {/* Subheading with Framer Motion animation */}
           <motion.h3
             className="text-xl md:text-3xl"
             initial={{ opacity: 0, y: -30 }}
@@ -26,6 +30,7 @@ const AboutUs = () => {
           </motion.h3>
         </header>
         <section className="pt-4 flex flex-col md:flex-row justify-around items-center gap-10">
+        {/* Image with Framer Motion animation */}
           <motion.img
             src={AboutUsimage}
             alt="AboutUsimage"
@@ -34,12 +39,15 @@ const AboutUs = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 3, delay: 3 }}
           />
+
+          {/* Text content with Framer Motion animation */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 3, delay: 4 }}
           >
             <div>
+             {/* Content explaining the unique features of the curriculum */}
               <p className="text-lg md:text-2xl text-justify">
                 We recognize that young minds learn best when they're having
                 fun. Our curriculum is designed with age-appropriate content,
