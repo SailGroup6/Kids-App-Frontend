@@ -13,11 +13,12 @@ const { Header, Content, Sider } = Layout;
 
 const Courses = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const storedUsername = localStorage.getItem("username") || "User";
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 200);
   }, []);
 
   const [api, contextHolder] = notification.useNotification();
@@ -30,11 +31,11 @@ const Courses = () => {
           animate={{ opacity: 2 }}
           transition={{ duration: 1 }}
         >
-          <p>Notification Title</p>
+          <p>Notification </p>
         </motion.div>
       ),
       description:
-        "I will never close automatically. This is a purposely very very long description that has many many characters and words.",
+        "No Notification",
       duration: 0,
     });
   };
@@ -73,26 +74,32 @@ const Courses = () => {
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
                   <div className="flex items-center font-[poppins-regular] justify-between">
                     <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
-                      Hi User
+                      {/*Hi {storedUsername} */}
+                      Lessons
                     </p>
                     <div className="flex font-[poppins-regular] justify-between">
-                      {/*                      <input
+                  {/*<input
                         type="text"
                         placeholder="Search"
                         className="h-[2rem] shadow-sm rounded-lg pl-[1rem] pr-[1rem] text-black placeholder-black w-[60%] font-[0.4rem]"
-                      />
-*/}
+                      />*/}
                       {contextHolder}
-                      <div
+                      <motion.div
                         className="bg-white rounded-full font-[poppins-regular] ml-[0.5rem] flex items-center justify-center cursor-pointer w-10 h-8"
                         onClick={openNotification}
+                        whileHover={{
+                          scale: "1.1",
+                          textShadow: "0px 0px 8px rgb(255,255,255)",
+                          boxShadow: "0px 0px 8px rgb(0,0,255)",
+                          transition: { duration: .2 } 
+                        }}
                       >
                         <img
                           src={bellIcon}
                           alt="bell Icon"
                           className="w-6 h-6"
                         />
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
 
@@ -109,13 +116,13 @@ const Courses = () => {
                       Available Lessons
                     </motion.p>
                   </div>
-                  <div
-                    initial={{ opacity: 0.4, y: 20 }}
+                  <motion.div
+                    initial={{ opacity: 0.4, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ ease: "easeInOut", duration: 1 }}
                   >
                     <ActiveCoursesCards />
-                  </div>
+                  </motion.div>
 
                   <div className="px-[6%] py-[5%] md:px-[7%]">
                     <motion.p

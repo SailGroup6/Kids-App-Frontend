@@ -52,7 +52,7 @@
 
 
 .bg{
-  background:url('../src/Assets/Images/23816386_ordv_hfju_140724.jpg');
+  background:linear-gradient(180deg, rgba(155, 93, 230, 0.50) 0%, rgba(0, 0, 0, 0.00) 100%), url('../src/Assets/Images/img-bg.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

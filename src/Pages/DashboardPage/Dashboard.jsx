@@ -9,36 +9,46 @@ import WidgetCards from "../../Components/Cards/WidgetCards";
 import bellIcon from "../../Assets/Images/bell.svg";
 import taskGirlIcon from "../../Assets/Images/task-girl.svg";
 import taskBoyIcon from "../../Assets/Images/task-boy.svg";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+
+
 
 const { Header, Content, Sider } = Layout;
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  //const username = location.state?.username || "User" ;
+  const storedUsername = localStorage.getItem("username") || "User";
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 200);
   }, []);
 
   const [api, contextHolder] = notification.useNotification();
   const openNotification = () => {
     api.open({
       message: (
-        <motion.div
-          className="font-[caveat-brush]"
+        <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 2 }}
           transition={{ duration: 1 }}
         >
-          <p>Notification</p>
+          <p className="font-[poppins-regular]">Notification</p>
         </motion.div>
       ),
       description:
-        "No notification",
+        "none",
       duration: 0,
     });
   };
+
+  function handleLogout(){
+    navigate("/login")
+  }
+
 
   return (
     <React.Fragment>
@@ -74,7 +84,7 @@ const Dashboard = () => {
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
                   <div className="flex items-center font-[poppins-regular] justify-between">
                     <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
-                      Hi User 
+                      Hi {storedUsername}
                     </p>
                     <div className="flex font-[poppins-regular] justify-between">
 {/*                      <input
@@ -84,16 +94,22 @@ const Dashboard = () => {
                       />
 */}
                       {contextHolder}
-                      <div
-                        className="bg-white rounded-full font-[poppins-regular] ml-[0.5rem] flex items-center justify-center cursor-pointer w-10 h-8"
+                      <motion.div
+                        className="bg-white rounded-full font-[poppins-regular] ml-[0.5rem] shadow-md flex items-center justify-center cursor-pointer w-10 h-8"
                         onClick={openNotification}
+                        whileHover={{
+                          scale: "1.1",
+                          textShadow: "0px 0px 8px rgb(255,255,255)",
+                          boxShadow: "0px 0px 8px rgb(0,0,255)",
+                          transition: { duration: .2 } 
+                        }}
                       >
                         <img
                           src={bellIcon}
                           alt="bell Icon"
                           className="w-6 h-6"
                         />
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
 
@@ -108,9 +124,9 @@ const Dashboard = () => {
                         Welcome
                       </p>
                       <p className="font-[poppins-regular] text-[0.7rem] md:text-[0.9rem]">
-                        Available courses
+                        check out available lessons
                       </p>
-                      <Button type="purple" text="See courses" />
+                      <Link to ="/courses"><Button type="purple" text="See lessons" /></Link>
                     </div>
                     <div className="flex w-[auto]">
                       <img

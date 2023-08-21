@@ -1,5 +1,7 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import LogoutModal from "../Modal/LogoutModal";
+import { Button } from "antd";
+import { NavLink, useNavigate } from "react-router-dom";
 import dashboardIcon from "../../Assets/Images/DashboardInactive.svg";
 import smileyIcon from "../../Assets/Images/smile.svg";
 import trendingIcon from "../../Assets/Images/TrendingActive.svg";
@@ -9,54 +11,79 @@ import logoutIcon from "../../Assets/Images/log-out.svg";
 import { motion } from "framer-motion";
 
 const WidgetCardsTrending = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Perform logout action
+    // For example: Clear session, token, etc.
+
+    console.log("Logout action triggered");
+    setModalVisible(false);
+    navigate("/");
+  };
+
+  const handleLogoutClick = () => {
+    setModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
   const images = [
     {
       name: dashboardIcon,
       style: "max-w-[80%] mb-[1.5rem] mt-[5rem]",
       link: "/dashboard",
       whileHover: { scale: 1.3, transition: { duration: 0.1 } },
-      title: "My dashboard" 
+      title: "My dashboard",
     },
     {
       name: smileyIcon,
       style: "max-w-[80%] mb-[1.5rem]",
       link: "/profile",
       whileHover: { scale: 1.3, transition: { duration: 0.1 } },
-      title: "About Me" 
+      title: "About Me",
     },
     {
       name: trendingIcon,
       style: "max-w-[80%] mb-[1.5rem]",
       link: "/trending",
-      title: "Exciting Lessons" 
+      title: "Exciting Lessons",
     },
     {
       name: clipboardIcon,
       style: "max-w-[80%] mb-[15rem]",
       link: "/courses",
       whileHover: { scale: 1.3, transition: { duration: 0.1 } },
-      title: "Lessons" 
+      title: "Lessons",
     },
     {
       name: settingsIcon,
       style: "max-w-[80%] mb-[1.5rem]",
       link: "/settings",
       whileHover: { scale: 1.3, transition: { duration: 0.1 } },
-      title: "Settings" 
+      title: "Settings",
     },
     {
       name: logoutIcon,
       style: "max-w-[80%] mb-[1.5rem]",
-      link: "/logout",
       whileHover: { scale: 1.3, transition: { duration: 0.1 } },
-      title: "Logout" 
+      title: "Logout",
+      onClick: handleLogoutClick,
     },
   ];
 
   return (
     <div>
       {images.map((image, index) => (
-        <div className="" key={index} title={image.title}>
+        <div
+          className=""
+          key={index}
+          title={image.title}
+          onClick={image.onClick}
+        >
           <NavLink to={image.link} activeClassName="">
             <motion.img
               src={image.name}
@@ -67,6 +94,11 @@ const WidgetCardsTrending = () => {
           </NavLink>
         </div>
       ))}
+      <LogoutModal
+        visible={modalVisible}
+        handleLogout={handleLogout}
+        handleClose={handleCloseModal}
+      />
     </div>
   );
 };

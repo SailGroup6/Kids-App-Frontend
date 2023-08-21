@@ -4,7 +4,6 @@ import { Layout, Spin } from "antd";
 import { motion } from "framer-motion";
 import CustomCalendar from "../../Components/Calendar/CustomCalendar";
 import ProgressCards from "../../Components/Cards/ProgressCards";
-import UpcomingCoursesCards from "../../Components/Cards/UpcomingCoursesCards";
 import WidgetCardsTrending from "../../Components/Cards/WidgetCardsTrending";
 import Chart from "../../Assets/Images/chart.svg"
 
@@ -17,7 +16,7 @@ const Trending = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 200);
   }, []);
 
 
