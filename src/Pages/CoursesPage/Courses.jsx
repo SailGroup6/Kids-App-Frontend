@@ -31,11 +31,11 @@ const Courses = () => {
           animate={{ opacity: 2 }}
           transition={{ duration: 1 }}
         >
-          <p>Notification </p>
+          <p className="font-[poppins-regular] font-medium">Notification </p>
         </motion.div>
       ),
       description:
-        "No Notification",
+        "",
       duration: 0,
     });
   };
@@ -158,7 +158,7 @@ const Courses = () => {
               >
                 <div className="flex flex-col w-full h-[100svh] justify-around items-center">
                   <motion.div
-                    className="h-[30vh] justify-between align-center border border-2 border-slate-500 rounded-lg bg-[#FCEDDA] w-[70%]"
+                    className="h-[30vh] justify-between align-center border-2 border-slate-500 rounded-lg bg-[#FCEDDA] w-[70%]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ ease: "easeIn", duration: 2 }}

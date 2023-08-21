@@ -1,12 +1,19 @@
 import React from "react";
 import WidgetCards from "../../Components/Cards/WidgetCards";
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom"
 import { Layout, Spin } from "antd";
 import { motion } from "framer-motion";
-
 import WidgetCardsSmiley from "../../Components/Cards/WidgetCardsSmiley";
 
 const { Header, Content, Sider } = Layout;
+
+const storedUsername = localStorage.getItem("username") || "User";
+const storedGender = localStorage.getItem("gender") || "";
+const storedAge = localStorage.getItem("age") || "";
+const storedFullName = localStorage.getItem("fullName") || "";
+const storedEmail = localStorage.getItem("email") || "";
+const storedParentFullName = localStorage.getItem("parentFullName") || "";
 
 const Profile = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -55,7 +62,7 @@ const Profile = () => {
             </div>
 
             <div className="pl-5 pt-5 text-[30PX]">
-              <h1> 🔑 Username : Udo God'slove</h1>
+              <h1> 🔑 Username : {storedUsername}</h1>
               <h1> 🔒 password : ********</h1>
             </div>
           </motion.div>
@@ -72,9 +79,9 @@ const Profile = () => {
               <h1 className="mt-6">Personal information</h1>
             </div>
             <div className="pl-5 pt-5 text-[30PX]">
-              <h1> 🧑 Full Name : Udo God'slove</h1>
-              <h1> 🎂 Age : 12 </h1>
-              <h1> 👨‍🦱 Gender: Male </h1>
+              <h1> 🧑 Full Name : {storedFullName}</h1>
+              <h1> 🎂 Age : {storedAge} </h1>
+              <h1> 👨‍🦱 Gender:{storedGender} </h1>
             </div>
           </motion.div>
           <motion.div
@@ -90,9 +97,8 @@ const Profile = () => {
               <h1 className="mt-6">Parent/ Guardian information</h1>
             </div>
             <div className="pl-5 pt-5 text-[30PX] ">
-              <h1> 🧑 Parent/Guardian Full Name : Udo God'slove</h1>
-              <h1> 🎂 Email : johndoe@gmail.com </h1>
-              <h1> 👨‍🦱 Gender: Male </h1>
+              <h1> 🧑 Parent/Guardian Full Name : {storedParentFullName}</h1>
+              <h1> 🎂 Email : {storedEmail} </h1>
             </div>
           </motion.div>
         </Content>

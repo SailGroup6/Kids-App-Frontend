@@ -3,7 +3,7 @@ import { Modal, Button } from 'antd';
 const LogoutModal = ({ visible, handleLogout, handleClose }) => {
   return (
     <Modal
-      visible={visible}
+      open={visible}
       title="Logout"
       onCancel={handleClose}
       footer={[
