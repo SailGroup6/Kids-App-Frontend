@@ -1,8 +1,8 @@
 import React from "react";
 import "../../index.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
-import { Spin, message } from "antd";
+import { useNavigate } from "react-router-dom";
+import { Spin, message, Button } from "antd";
 import SuccessPage from "../SuccessPage/SuccessPage";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -10,6 +10,7 @@ import axios from "axios";
 
 const Registration = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [signInLoading, setSignInLoading] = useState(false);
   const navigate = useNavigate();
   const Formik = useFormik({
     initialValues: {
@@ -43,6 +44,7 @@ const Registration = () => {
     }),
 
     onSubmit: (Values) => {
+      setSignInLoading(true);
       axios
         .post(
           "https://kidshive-user-creation-api.onrender.com/api/v1/auth/signup",
@@ -56,7 +58,7 @@ const Registration = () => {
         .then((response) => {
           console.log(response.data);
           message.success("Account created successfully!");
-          navigate("/success")
+          navigate("/success");
         })
         .catch((error) => {
           if (error.response && error.response.data) {
@@ -74,7 +76,6 @@ const Registration = () => {
     }, 200);
   }, []);
 
-
   return isLoading ? (
     <div className="flex justify-center items-center min-h-screen w-full">
       <Spin size="large" />
@@ -83,12 +84,12 @@ const Registration = () => {
     <>
       <main className="h-full bg flex items-center justify-center p-5">
         <form
-          onSubmit={Formik.handleSubmit}
+          
           className="w-[65%] h-[auto] bg-[#FFFFFF] p-10 shadow-2xl rounded-lg"
         >
           <div className=" flex-col text-center text-black text-[1rem] md:text-[1.5rem]">
             <div className="text-center  font-[caveat-regular]  animate-pulse md:text-cyan-[0.9rem]">
-               Welcome to Kid Hive 
+              Welcome to Kid Hive
             </div>
             <div className=" text-black  font-[caveat-regular]  text-[1.2rem]">
               Student Registration Form
@@ -102,8 +103,11 @@ const Registration = () => {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="name" className="font-[poppins-regular] text-[0.8rem]">
-            🧒 Full Name *
+            <label
+              htmlFor="name"
+              className="font-[poppins-regular] text-[0.8rem]"
+            >
+              🧒 Full Name *
             </label>
             <input
               type="text"
@@ -125,8 +129,11 @@ const Registration = () => {
 
           <div className="flex flex-row gap-5 w-full pt-3">
             <div className="flex flex-col w-[50%] ">
-              <label htmlFor="age" className="font-[poppins-bold] text-[0.8rem]">
-              🎂 Age *
+              <label
+                htmlFor="age"
+                className="font-[poppins-bold] text-[0.8rem]"
+              >
+                🎂 Age *
               </label>
               <input
                 type="number"
@@ -144,8 +151,11 @@ const Registration = () => {
               </div>
             </div>
             <div className="flex flex-col w-[50%]">
-              <label htmlFor="gender" className="font-[poppins-bold] text-[0.8rem]">
-              👦 Gender *
+              <label
+                htmlFor="gender"
+                className="font-[poppins-bold] text-[0.8rem]"
+              >
+                👦 Gender *
               </label>
               <select
                 id="gender"
@@ -166,9 +176,12 @@ const Registration = () => {
             <h1>Parent/Guardian Information</h1>
           </div>
           <div className="flex flex-col">
-            <label htmlFor="name" className="font-[poppins-bold]  text-[0.8rem]">
+            <label
+              htmlFor="name"
+              className="font-[poppins-bold]  text-[0.8rem]"
+            >
               {" "}
-              Parent/Guardian Full Name:{" "}
+              👩‍👦 Parent/Guardian Full Name:{" "}
             </label>
             <input
               type="text"
@@ -188,9 +201,12 @@ const Registration = () => {
 
           <div className="flex flex-row gap-5 w-full pt-3">
             <div className="flex flex-col w-[50%] ">
-              <label htmlFor="email" className="font-[poppins-bold]  text-[0.8rem]">
+              <label
+                htmlFor="email"
+                className="font-[poppins-bold]  text-[0.8rem]"
+              >
                 {" "}
-                Email Address:
+                📧 Email Address:
               </label>
               <input
                 type="email"
@@ -200,7 +216,7 @@ const Registration = () => {
                 value={Formik.values.email}
                 onBlur={Formik.handleBlur}
                 onChange={Formik.handleChange}
-              /> 
+              />
               <div className=" text-red-500 font-[poppins-bold]  text-[0.8rem]">
                 {Formik.touched.email && Formik.errors.email
                   ? Formik.errors.email
@@ -208,9 +224,12 @@ const Registration = () => {
               </div>
             </div>
             <div className="flex flex-col  w-[50%]">
-              <label htmlFor="number" className="font-[poppins-bold]  text-[0.8rem]">
+              <label
+                htmlFor="number"
+                className="font-[poppins-bold]  text-[0.8rem]"
+              >
                 {" "}
-                Phone Number:
+                📞 Phone Number:
               </label>
               <input
                 type="tel"
@@ -234,9 +253,12 @@ const Registration = () => {
             <h1> Login Information</h1>
           </div>
           <div className="flex flex-col">
-            <label htmlFor="username" className="font-[poppins-bold]  text-[0.8rem]">
+            <label
+              htmlFor="username"
+              className="font-[poppins-bold]  text-[0.8rem]"
+            >
               {" "}
-              Choose a Username:{" "}
+              🔑 Choose a Username:{" "}
             </label>
             <input
               type="text"
@@ -255,9 +277,12 @@ const Registration = () => {
           </div>
           <div className="flex flex-row gap-5 w-full pt-3">
             <div className="flex flex-col w-[50%]">
-              <label htmlFor="password" className="font-[poppins-bold]  text-[0.8rem]">
+              <label
+                htmlFor="password"
+                className="font-[poppins-bold]  text-[0.8rem]"
+              >
                 {" "}
-                Password:
+                🔒 Password:
               </label>
               <input
                 type="password"
@@ -273,9 +298,12 @@ const Registration = () => {
               )}
             </div>
             <div className="flex flex-col  w-[50%]">
-              <label htmlFor="confirm password" className="font-[poppins-bold]  text-[0.8rem]">
+              <label
+                htmlFor="confirm password"
+                className="font-[poppins-bold]  text-[0.8rem]"
+              >
                 {" "}
-                Confirm Password:
+                🔒 Confirm Password:
               </label>
               <input
                 type="password"
@@ -294,24 +322,25 @@ const Registration = () => {
 
           {/* BUTTON */}
           <div className=" flex justify-center items-center pt-5">
-            <button
-              type="submit"
-              className="  p-2 w-32 font-[caveat-300] bg-green-600 text-white transition-all duration-400 hover:scale-110 shadow-md rounded-md"
+            <Button
+              type="primary"
+              onClick={Formik.handleSubmit}
+              className="font-[poppins-regular] w-32 bg-[#9B5DE6] text-white text-[0.8rem] "
+              loading={signInLoading}
             >
               Submit
-            </button>
+            </Button>
           </div>
 
           {/* AGREEMENT TEXT */}
           <div className="flex w-full justify-center items-center">
-          <p className="font-[caveat-300] pt-5 text-center">
-            By submitting this form, you confirm that you are the parent or
-            legal guardian of the child mentioned above.<br/> Thank you for joining
-            Kid Hive! We're excited to embark on a learning journey together. 🚀
-          </p>
-
+            <p className="font-[caveat-300] pt-5 text-center">
+              By submitting this form, you confirm that you are the parent or
+              legal guardian of the child mentioned above.
+              <br /> Thank you for joining Kid Hive! We're excited to embark on
+              a learning journey together. 🚀
+            </p>
           </div>
-
         </form>
       </main>
     </>

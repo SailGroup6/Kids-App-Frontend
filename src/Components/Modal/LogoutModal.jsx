@@ -6,11 +6,12 @@ const LogoutModal = ({ visible, handleLogout, handleClose }) => {
       open={visible}
       title="Logout"
       onCancel={handleClose}
+      className="font-[poppins-regular]"
       footer={[
-        <Button key="cancel" onClick={handleClose}>
+        <Button key="cancel" onClick={handleClose} className="font-[poppins-regular]">
           Cancel
         </Button>,
-        <Button key="logout" type="primary" className="text-black hover:"onClick={handleLogout}>
+        <Button key="logout" type="primary" className="font-[poppins-regular] bg-[#9B5DE6]"onClick={handleLogout}>
           Logout
         </Button>,
       ]}
