@@ -11,7 +11,7 @@ const LogoutModal = ({ visible, handleLogout, handleClose }) => {
         <Button key="cancel" onClick={handleClose} className="font-[poppins-regular]">
           Cancel
         </Button>,
-        <Button key="logout" type="primary" className="font-[poppins-regular]"onClick={handleLogout}>
+        <Button key="logout" type="primary" className="font-[poppins-regular] bg-[#9B5DE6]"onClick={handleLogout}>
           Logout
         </Button>,
       ]}
