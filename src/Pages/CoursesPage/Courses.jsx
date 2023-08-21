@@ -116,13 +116,13 @@ const Courses = () => {
                       Available Lessons
                     </motion.p>
                   </div>
-                  <div
-                    initial={{ opacity: 0.4, y: 20 }}
+                  <motion.div
+                    initial={{ opacity: 0.4, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ ease: "easeInOut", duration: 1 }}
                   >
                     <ActiveCoursesCards />
-                  </div>
+                  </motion.div>
 
                   <div className="px-[6%] py-[5%] md:px-[7%]">
                     <motion.p

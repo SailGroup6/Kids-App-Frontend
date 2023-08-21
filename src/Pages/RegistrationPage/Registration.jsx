@@ -2,7 +2,6 @@ import React from "react";
 import "../../index.css";
 import { useState, useEffect } from "react";
 import { Spin } from "antd";
-import { NavLink } from "react-router-dom"
 import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
@@ -20,7 +19,6 @@ const Registration = () => {
       parentFullName: "",
       cpassword: "",
       username: "",
-      // terms:"false"
     },
 
     validationSchema: yup.object({
@@ -39,10 +37,6 @@ const Registration = () => {
         .string()
         .oneOf([yup.ref("password"), null], 'Must match "password" field value')
         .required("Confirm Password is required"),
-      // terms: yup
-      // .boolean()
-      // .oneOf([true], "You must agree to the terms and conditions"),
-      // terms: yup.array().required(),
     }),
 
     onSubmit: (Values) => {
@@ -85,7 +79,7 @@ const Registration = () => {
       <main className="h-full bg flex items-center justify-center p-5">
         <form
           onSubmit={Formik.handleSubmit}
-          className="w-[70%] h-[90%] bg-[#FFFFFF] p-10 shadow-2xl rounded-lg"
+          className="w-[65%] h-[auto] bg-[#FFFFFF] p-10 shadow-2xl rounded-lg"
         >
           <div className=" flex-col text-center text-black text-[1rem] md:text-[1.5rem]">
             <div className="text-center  font-[caveat-regular]  animate-pulse md:text-cyan-[0.9rem]">
@@ -98,7 +92,7 @@ const Registration = () => {
 
           {/* KID INFORMATION */}
 
-          <div className="w-56 text-md  font-[poppins-bold]  ">
+          <div className="w-56 text-md  font-[poppins-bold]">
             Kids Information
           </div>
 
@@ -109,7 +103,7 @@ const Registration = () => {
             <input
               type="text"
               placeholder=""
-              className=" w-full p-1 rounded-md shadow-md font-[poppins-regular] text-[0.8rem] outline-none border"
+              className="w-full p-1 rounded-md shadow-md font-[poppins-regular] text-[0.8rem] outline-none border"
               value={Formik.values.fullName}
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
@@ -293,25 +287,6 @@ const Registration = () => {
             </div>
           </div>
 
-          {/* CHECK BOX */}
-          {/* <div className=" pt-3 font-[caveat-300]">
-            <label htmlFor="terms" className=" font-semibold text-lg ">
-              {" "}
-              Terms and Condition
-            </label>
-            <div className=" flex gap-3">
-              <input
-                type="checkbox"
-                name="terms"
-                value=""
-                onChange={Formik.handleChange}
-              />{" "}
-              <p className="text-[18px]">
-                i have read and agreed to the terms and condition
-              </p>
-            </div>
-          </div> */}
-
           {/* BUTTON */}
           <div className=" flex justify-center items-center pt-5">
             <button
@@ -323,11 +298,15 @@ const Registration = () => {
           </div>
 
           {/* AGREEMENT TEXT */}
-          <p className="font-[caveat-300] pt-5">
+          <div className="flex w-full justify-center items-center">
+          <p className="font-[caveat-300] pt-5 text-center">
             By submitting this form, you confirm that you are the parent or
-            legal guardian of the child mentioned above. Thank you for joining
+            legal guardian of the child mentioned above.<br/> Thank you for joining
             Kid Hive! We're excited to embark on a learning journey together. 🚀
           </p>
+
+          </div>
+
         </form>
       </main>
     </>

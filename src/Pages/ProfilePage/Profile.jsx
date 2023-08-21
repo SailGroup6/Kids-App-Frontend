@@ -17,7 +17,6 @@ const Profile = () => {
     }, 200);
   }, []);
 
-
   return isLoading ? (
     <div className="flex justify-center items-center min-h-screen w-full">
       <Spin size="large" />
@@ -42,7 +41,15 @@ const Profile = () => {
         </Sider>
 
         <Content className="h-full grid bg-[#FFFBF6] p-10 font-[caveat-regular]">
-          <div className="border h-[150px] rounded shadow-md">
+          <motion.div
+            className="border h-[150px] rounded shadow-md"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              ease: "easeIn",
+              duration: 1.5,
+            }}
+          >
             <div className="border-b  ml-5 mr-5">
               <h1 className="mt-6">Login information</h1>
             </div>
@@ -51,8 +58,16 @@ const Profile = () => {
               <h1> 🔑 Username : Udo God'slove</h1>
               <h1> 🔒 password : ********</h1>
             </div>
-          </div>
-          <div className="border h-[150px] rounded shadow-md">
+          </motion.div>
+          <motion.div
+            className="border h-[150px] rounded shadow-md"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              ease: "easeIn",
+              duration: 1.5,
+            }}
+          >
             <div className="border-b  ml-5 mr-5">
               <h1 className="mt-6">Personal information</h1>
             </div>
@@ -61,8 +76,16 @@ const Profile = () => {
               <h1> 🎂 Age : 12 </h1>
               <h1> 👨‍🦱 Gender: Male </h1>
             </div>
-          </div>
-          <div className="border h-[150px] rounded shadow-md">
+          </motion.div>
+          <motion.div
+            className="border h-[150px] rounded shadow-md"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              ease: "easeIn",
+              duration: 1.5,
+            }}
+          >
             <div className="border-b  ml-5 mr-5">
               <h1 className="mt-6">Parent/ Guardian information</h1>
             </div>
@@ -71,7 +94,7 @@ const Profile = () => {
               <h1> 🎂 Email : johndoe@gmail.com </h1>
               <h1> 👨‍🦱 Gender: Male </h1>
             </div>
-          </div>
+          </motion.div>
         </Content>
       </Layout>
     </div>
