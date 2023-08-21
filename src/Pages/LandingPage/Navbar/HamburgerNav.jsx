@@ -69,7 +69,7 @@ export default function HamburgerNav() {
                 </button>
               </NavLink>
               <NavLink
-                to="/login"
+                to="/signup"
                 className="border-[0.5px] border-gray-400 rounded-lg py-1 px-3 mb-[2rem] flex items-center"
               >
                 <button
