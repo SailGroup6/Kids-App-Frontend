@@ -20,7 +20,7 @@ const NotFoundPage = () => {
           subTitle="Sorry, the page you visited does not exist."
           className="font-[poppins-regular]"
           extra={
-            <Link to="/landingPage">
+            <Link to="/">
               <Button
                 type="primary"
                 className="font-[poppins-regular] bg-[#9B5DE6]"
