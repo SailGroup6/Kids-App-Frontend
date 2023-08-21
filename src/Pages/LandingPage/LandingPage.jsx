@@ -11,7 +11,7 @@ const LandingPage = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 500);
   }, []);
   return isLoading ? (
     <div className="flex justify-center items-center min-h-screen w-full">

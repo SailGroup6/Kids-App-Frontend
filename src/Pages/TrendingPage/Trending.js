@@ -17,7 +17,7 @@ const Trending = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 200);
   }, []);
 
 

@@ -20,7 +20,7 @@ const LoginPage = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 200);
   }, []);
 
   async function handleSubmit(e) {

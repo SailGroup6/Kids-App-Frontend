@@ -25,7 +25,7 @@ const Dashboard = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 200);
   }, []);
 
   const [api, contextHolder] = notification.useNotification();

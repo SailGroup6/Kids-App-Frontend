@@ -72,7 +72,7 @@ const Registration = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 200);
   }, []);
 
 

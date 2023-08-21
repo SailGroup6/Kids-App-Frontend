@@ -14,7 +14,7 @@ const Profile = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 200);
   }, []);
 
 
@@ -49,7 +49,7 @@ const Profile = () => {
 
             <div className="pl-5 pt-5 text-[30PX]">
               <h1> 🔑 Username : Udo God'slove</h1>
-              <h1> 🔒 password : 123456</h1>
+              <h1> 🔒 password : ********</h1>
             </div>
           </div>
           <div className="border h-[150px] rounded shadow-md">

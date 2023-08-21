@@ -15,6 +15,7 @@ function App() {
         theme={{
           token: {
             colorPrimary: "#9B5DE6",
+            textPrimary: "black"
           },
         }}
       >
