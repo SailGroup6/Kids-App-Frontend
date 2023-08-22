@@ -8,6 +8,7 @@ import Trending from "./Pages/TrendingPage/Trending"
 import Profile from "./Pages/ProfilePage/Profile";
 import SuccessPage from "./Pages/SuccessPage/SuccessPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
+import ContentPage from "./Pages/ContentPage/ContentPage";
 import { ConfigProvider } from "antd";
 
 function App() {
@@ -30,8 +31,12 @@ function App() {
           <Route path="/profile" element={<Profile/>} />
           <Route path="/success" element={<SuccessPage/>} />
           <Route path="*" element={<NotFoundPage/>} />
+          <Route path="/htmlCourse" element={<ContentPage/>} />
+          <Route path="/cssCourse" element={""} />
+          <Route path="/jsCourse" element={""} />
         </Routes>
       </ConfigProvider>
+
     </div>
   );
 }
