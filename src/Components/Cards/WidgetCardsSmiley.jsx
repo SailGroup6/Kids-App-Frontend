@@ -1,6 +1,6 @@
+//import neccesary dependencies and components
 import React, { useState } from "react";
 import LogoutModal from "../Modal/LogoutModal";
-import { Button } from "antd";
 import { NavLink, useNavigate } from "react-router-dom";
 import dashboardIcon from "../../Assets/Images/DashboardInactive.svg";
 import smileyIcon from "../../Assets/Images/smileyActive.svg";
@@ -11,26 +11,29 @@ import logoutIcon from "../../Assets/Images/log-out.svg";
 import { motion } from "framer-motion";
 
 const WidgetCardsSmiley = () => {
+   // State to manage visibility of the logout modal
   const [modalVisible, setModalVisible] = useState(false);
 
+   // Hook for programmatic navigation
   const navigate = useNavigate();
 
+  // Perform logout action
   const handleLogout = () => {
-    // Perform logout action
-    // For example: Clear session, token, etc.
-
     console.log("Logout action triggered");
     setModalVisible(false);
     navigate("/");
   };
-
+   // Function to handle logout icon click
   const handleLogoutClick = () => {
     setModalVisible(true);
   };
 
+  // Function to close the logout modal
   const handleCloseModal = () => {
     setModalVisible(false);
   };
+
+  // Array of image data for each widget card
   const images = [
     {
       name: dashboardIcon,
@@ -77,6 +80,7 @@ const WidgetCardsSmiley = () => {
 
   return (
     <div>
+      {/* Map over the images array and render each widget card */}
       {images.map((image, index) => (
         <div
           className=""
@@ -84,7 +88,9 @@ const WidgetCardsSmiley = () => {
           title={image.title}
           onClick={image.onClick}
         >
+          {/* NavLink to the specified widget link */}
           <NavLink to={image.link} activeClassName="">
+            {/* Animate the image with framer-motion while hovering */}
             <motion.img
               src={image.name}
               whileHover={image.whileHover}
@@ -94,6 +100,7 @@ const WidgetCardsSmiley = () => {
           </NavLink>
         </div>
       ))}
+          {/* Render the LogoutModal component */}
       <LogoutModal
         visible={modalVisible}
         handleLogout={handleLogout}
@@ -103,4 +110,5 @@ const WidgetCardsSmiley = () => {
   );
 };
 
+// Export the WidgetCardsSmiley component for use in other parts of the application
 export default WidgetCardsSmiley;

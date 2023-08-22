@@ -69,4 +69,5 @@ const ContactUsForm = () => {
   );
 };
 
+// Export the ContactUsForm component for use in other parts of the application
 export default ContactUsForm;

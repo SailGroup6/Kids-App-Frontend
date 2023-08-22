@@ -1,27 +1,35 @@
+// Importing the required modules
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
 
 export default function HamburgerNav() {
+  // State to manage the navigation menu's open/close state
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <div className="flex items-center justify-between ">
-      <nav>
+       <nav>
+        {/* Mobile Navigation Menu */}
         <section className="flex MOBILE-MENU lg:hidden">
           <div
             className="HAMBURGER-ICON space-y-2 cursor-pointer"
             onClick={() => setIsNavOpen((prev) => !prev)}
-          >
+            >
+            {/* Hamburger Icon */}
             <span className="block w-8 h-1 bg-white animate-pulse"></span>
             <span className="block w-8 h-1 bg-white animate-pulse"></span>
             <span className="block w-8 h-1 bg-white animate-pulse"></span>
           </div>
 
+            {/* Mobile Menu Content */} 
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+
+             {/* Close button Function */}
             <div
               className="absolute top-0 right-0 cursor-pointer px-8 py-8"
               onClick={() => setIsNavOpen(false)}
-            >
+              >
+              {/* Close Menu Icon */}
               <svg
                 className="w-8 h-8 text-gray-600"
                 viewBox="0 0 24 24"
@@ -35,6 +43,8 @@ export default function HamburgerNav() {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </div>
+
+              {/* Mobile Menu Links */}
             <ul className="flex flex-col items-center justify-between min-h-[250px] ">
               <Link to="homeLink" smooth={true} duration={1500}>
                 <li className="border-b border-gray-400 my-8 cursor-pointer uppercase">
@@ -83,6 +93,7 @@ export default function HamburgerNav() {
           </div>
         </section>
 
+         {/* Desktop Menu */}
         <li className="DESKTOP-MENU hidden space-x-8 lg:flex">
           <Link to="homeLink" smooth={true} duration={1500}>
             <ul className=" cursor-pointer transition-all duration-400 hover:scale-110">

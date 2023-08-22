@@ -37,4 +37,5 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection; // Exporting the HeroSection component for use in other files
+ // Exporting the HeroSection component for use in other files
+export default HeroSection;

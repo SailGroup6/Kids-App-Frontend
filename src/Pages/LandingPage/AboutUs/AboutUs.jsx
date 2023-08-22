@@ -72,4 +72,5 @@ const AboutUs = () => {
   );
 };
 
+// Export the AboutUs component for use in other parts of the application
 export default AboutUs;

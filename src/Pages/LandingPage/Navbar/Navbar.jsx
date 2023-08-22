@@ -1,7 +1,8 @@
-
+// Importing the required components
 import logo from "../../../Assets/Images/bumbleebee-img.svg";
 import HamburgerNavBar from "./HamburgerNav";
 
+//Define the Navbar components
 const Navbar = () => {
   return (
     <div
@@ -16,4 +17,5 @@ const Navbar = () => {
   );
 };
 
+ // Export the Navbar component for use in other parts of the application
 export default Navbar;

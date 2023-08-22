@@ -17,5 +17,4 @@ const HeroSectionText = () => {
 };
 
 // Exporting the HeroSectionText component for use in other files
-
 export default HeroSectionText; 

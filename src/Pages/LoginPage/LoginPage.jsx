@@ -41,6 +41,7 @@ const LoginPage = () => {
 
       // Set the JWT token in the state
       setToken(response.data.data.token);
+      
       // Set the UserData in the state
       localStorage.setItem("username", response.data.data.username);
       localStorage.setItem("userId", response.data.data._id);
@@ -88,7 +89,7 @@ const LoginPage = () => {
       <div className="flex items-center min-h-screen px-[10%] bg-[#FFFDFC]">
         <div className=" w-[100%]  sm:w-[60%] sm:mt-[5rem]">
           <div className="flex w-full h-[auto] mb-[0.7rem] text-center items-center justify-center">
-            <img src={bumblebeeImg} className="w-7 h-7 pr-[0.5rem]" />
+            <img src={bumblebeeImg} alt="BumblebeeImg" className="w-7 h-7 pr-[0.5rem]" />
             <p className="font-[caveat-regular] text-center text-[1rem] sm:text-[1.7rem]">
               KidsHive
             </p>

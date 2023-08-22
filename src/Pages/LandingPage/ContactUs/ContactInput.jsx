@@ -26,5 +26,6 @@ const ContactInput = (props) => {
     );
   };
   
+  // Export theContactInput component for use in other parts of the application
   export default ContactInput;
   

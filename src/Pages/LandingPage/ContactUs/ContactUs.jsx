@@ -34,4 +34,5 @@ const ContactUs = () => {
   );
 };
 
+// Export the ContactUs component for use in other parts of the application
 export default ContactUs;

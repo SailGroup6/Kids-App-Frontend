@@ -14,9 +14,8 @@ const { Header, Content, Sider } = Layout;
 
 // Define the Courses component
 const Courses = () => {
-    // State for loading indicator
+  // State for loading indicator
   const [isLoading, setIsLoading] = useState(true);
-  const storedUsername = localStorage.getItem("username") || "User";
 
   useEffect(() => {
     // Simulate loading delay
@@ -39,8 +38,7 @@ const Courses = () => {
           <p className="font-[poppins-regular] font-medium">Notification </p>
         </motion.div>
       ),
-      description:
-        "", // Empty description for now
+      description: "", // Empty description for now
       duration: 0, // Stay open until manually closed
     });
   };
@@ -69,7 +67,7 @@ const Courses = () => {
                 alignItems: "center",
               }}
             >
-             {/* Component in the first sidebar */}
+              {/* Component in the first sidebar */}
               <WidgetCardsClipboard />
             </Sider>
             <Layout>
@@ -82,7 +80,6 @@ const Courses = () => {
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
                   <div className="flex items-center font-[poppins-regular] justify-between">
                     <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
-                     
                       Lessons
                     </p>
                     <div className="flex font-[poppins-regular] justify-between">
@@ -94,7 +91,7 @@ const Courses = () => {
                           scale: "1.1",
                           textShadow: "0px 0px 8px rgb(255,255,255)",
                           boxShadow: "0px 0px 8px rgb(0,0,255)",
-                          transition: { duration: .2 } 
+                          transition: { duration: 0.2 },
                         }}
                       >
                         <img
@@ -106,7 +103,7 @@ const Courses = () => {
                     </div>
                   </div>
 
-                         {/* Section: Available Lessons */}
+                  {/* Section: Available Lessons */}
                   <div className="px-[6%] py-[5%] md:px-[7%]">
                     <motion.p
                       className="flex flex-col font-[caveat-regular] text-[1.2rem] border-b-2 sm:border-b-2 sm:flex-row sm:text-[1.4rem] sm:pl-[0.5rem] md:border-b-2 md:text-[1.6rem]"
@@ -128,7 +125,7 @@ const Courses = () => {
                   >
                     <ActiveCoursesCards />
                   </motion.div>
-                      {/* Section: Upcoming Lessons */}
+                  {/* Section: Upcoming Lessons */}
                   <div className="px-[6%] py-[5%] md:px-[7%]">
                     <motion.p
                       className="flex flex-col font-[caveat-regular] text-[1.2rem] border-b-2 sm:border-b-2 sm:flex-row sm:text-[1.4rem] sm:pl-[0.5rem] md:border-b-2 md:text-[1.6rem]"
@@ -154,7 +151,7 @@ const Courses = () => {
                 </section>
               </Content>
 
-                      {/* Second Sidebar */}
+              {/* Second Sidebar */}
               <Sider
                 breakpoint="md"
                 collapsedWidth="0"
@@ -165,8 +162,7 @@ const Courses = () => {
                 }}
               >
                 <div className="flex flex-col w-full h-[100svh] justify-around items-center">
-
-                {/* Calendar */}
+                  {/* Calendar */}
                   <motion.div
                     className="h-[30vh] justify-between align-center border-2 border-slate-500 rounded-lg bg-[#FCEDDA] w-[70%]"
                     initial={{ opacity: 0 }}
@@ -210,4 +206,5 @@ const Courses = () => {
   );
 };
 
+// Export the Courses component for use in other parts of the application
 export default Courses;

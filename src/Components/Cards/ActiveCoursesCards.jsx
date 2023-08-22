@@ -1,11 +1,12 @@
+//import neccesary dependencies and components
 import React from "react";
 import { Progress } from "antd";
-import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import htmlImg from "../../Assets/Images/html-img.svg";
 import cssImg from "../../Assets/Images/css-img.svg";
 import jsImg from "../../Assets/Images/js-img.svg";
 
+// Array of course cards data
 const cards = [
   {
     image: htmlImg,
@@ -42,12 +43,14 @@ const cards = [
   },
 ];
 
+// Define the ActiveCoursesCards component
 const ActiveCoursesCards = () => {
   return (
     <React.Fragment>
       <div className="flex flex-col flex-wrap items-center justify-around gap-y-[1rem] md:flex-row">
-        {cards.map((card, index) => (
-          
+
+          {/* Map over the cards array and render each course card */}
+        {cards.map((card, index) => (         
           <NavLink
             to={card.link}
             key={index}
@@ -58,7 +61,7 @@ const ActiveCoursesCards = () => {
           >
            
               <div className="flex justify-around items-center w-[30%] h-full">
-                <img src={card.image} alt="image" className="h-20 w-15 " />
+                <img src={card.image} alt="card" className="h-20 w-15 " />
                 <div className="flex flex-col justify-around items-center ml-[0.3rem]">
                   <p className="font-[caveat-regular] text-[1.1rem] md:text-[1.3rem] ">
                     {card.topic}
@@ -76,6 +79,7 @@ const ActiveCoursesCards = () => {
               </div>
 
               <div className="flex items-center justify-center align-center h-[auto] w-[80%]">
+                 {/* Render the Progress component with the course progress */}
                 <Progress
                   percent={card.progress}
                   className="font-[poppins-regular] items-center"
@@ -90,4 +94,5 @@ const ActiveCoursesCards = () => {
   );
 };
 
+// Export the ActiveCoursesCards component for use in other parts of the application
 export default ActiveCoursesCards;

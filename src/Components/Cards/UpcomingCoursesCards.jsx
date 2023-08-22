@@ -1,11 +1,10 @@
+//import neccesary dependencies and components
 import React from "react";
-import { Progress } from "antd";
-import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
 import advHtml from "../../Assets/Images/advHtml.svg";
 import advCss from "../../Assets/Images/advCss.svg";
 import advJs from "../../Assets/Images/advJs.svg";
 
+// Array of upcoming course cards data
 const cards = [
   {
     image: advHtml,
@@ -42,10 +41,12 @@ const cards = [
   },
 ];
 
+// Define the UpcomingCoursesCards component
 const UpcomingCoursesCards = () => {
   return (
     <React.Fragment>
       <div className="flex flex-col flex-wrap items-center justify-around gap-y-[1rem] md:flex-row">
+       {/* Map over the cards array and render each upcoming course card */}
         {cards.map((card, index) => (
           
           <div
@@ -58,7 +59,7 @@ const UpcomingCoursesCards = () => {
           >
            
               <div className="flex justify-around items-center w-[30%] h-full">
-                <img src={card.image} alt="image" className="h-20 w-10 " />
+                <img src={card.image} alt="Cardimage" className="h-20 w-10 " />
                 <div className="flex flex-col justify-around items-center ml-[0.3rem]">
                   <p className="font-[caveat-regular] text-[1.1rem] text-[#B5B5B5] md:text-[#B5B5B5] md:text-[1.3rem] ">
                     {card.topic}
@@ -67,6 +68,7 @@ const UpcomingCoursesCards = () => {
               </div>
 
               <div className="flex items-center justify-center align-center h-[auto] w-[80%]">
+                {/* Placeholder div */}
                 <div className=""></div>
               </div>
              
@@ -78,4 +80,5 @@ const UpcomingCoursesCards = () => {
   );
 };
 
+// Export the UpcomingCoursesCards component for use in other parts of the application
 export default UpcomingCoursesCards;

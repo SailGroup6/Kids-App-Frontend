@@ -30,14 +30,15 @@ const LandingPage = () => {
 
     // If page is done loading, display the main content of the landing page
     <div className="bg-[#FFFEFC]">
-      <HeroSection />  {/* Displaying the HeroSection component */}
-      <AboutUs />     {/* Displaying the AboutUs component */}
-      <ContactUs />   {/* Displaying the ContactUs component */}
+      <HeroSection />  
+      <AboutUs />     
+      <ContactUs />   
     </div>
   );
 };
 
-export default LandingPage; // Exporting the LandingPage component for use in other files
+// Exporting the LandingPage component for use in other files
+export default LandingPage; 
 
 
 

@@ -10,18 +10,15 @@ import WidgetCards from "../../Components/Cards/WidgetCards";
 import bellIcon from "../../Assets/Images/bell.svg";
 import taskGirlIcon from "../../Assets/Images/task-girl.svg";
 import taskBoyIcon from "../../Assets/Images/task-boy.svg";
-import { useLocation, useNavigate, Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 // Destructuring components from antd Layout
 const { Header, Content, Sider } = Layout;
 
 // Define the Dashboard component
 const Dashboard = () => {
-   // State for loading indicator
+  // State for loading indicator
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
-  const location = useLocation();
 
   // Get the username from local storage; if not available, use "User" as default
   const storedUsername = localStorage.getItem("username") || "User";
@@ -33,13 +30,13 @@ const Dashboard = () => {
     }, 200);
   }, []);
 
-    // Notification setup
+  // Notification setup
   const [api, contextHolder] = notification.useNotification();
   const openNotification = () => {
     api.open({
       message: (
         // Framer Motion animation for the notification message
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 2 }}
           transition={{ duration: 1 }}
@@ -47,14 +44,10 @@ const Dashboard = () => {
           <p className="font-[poppins-regular] font-medium">Notification</p>
         </motion.div>
       ),
-      description:
-        "", // Empty description for now
+      description: "", // Empty description for now
       duration: 0, // Stay open until manually closed
     });
   };
-
-
-
 
   return (
     <React.Fragment>
@@ -67,7 +60,7 @@ const Dashboard = () => {
         // Display content when page is loaded completely
         <div className="w-full">
           <Layout className="h-screen">
-           {/* First Sidebar */}
+            {/* First Sidebar */}
             <Sider
               breakpoint="lg"
               collapsedWidth="0"
@@ -81,7 +74,7 @@ const Dashboard = () => {
                 alignItems: "center",
               }}
             >
-             {/* Component in the first sidebar */}
+              {/* Component in the first sidebar */}
               <WidgetCards />
             </Sider>
             <Layout>
@@ -93,7 +86,7 @@ const Dashboard = () => {
               <Content className="bg-[#FFFBF6] w-full h-[60rem] sm:h-screen">
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
                   <div className="flex items-center font-[poppins-regular] justify-between">
-                   {/* Greeting message */}
+                    {/* Greeting message */}
                     <p className="font-[poppins-regular] text-[0.7rem] mr-[0.5rem] sm:mr-[0.5rem] md:text-[1.1rem]">
                       Hi {storedUsername}
                     </p>
@@ -106,7 +99,7 @@ const Dashboard = () => {
                           scale: "1.1",
                           textShadow: "0px 0px 8px rgb(255,255,255)",
                           boxShadow: "0px 0px 8px rgb(0,0,255)",
-                          transition: { duration: .2 } 
+                          transition: { duration: 0.2 },
                         }}
                       >
                         <img
@@ -132,7 +125,9 @@ const Dashboard = () => {
                         check out available lessons
                       </p>
                       {/* Link to the "courses" page */}
-                      <Link to ="/courses"><Button type="purple" text="See lessons" /></Link>
+                      <Link to="/courses">
+                        <Button type="purple" text="See lessons" />
+                      </Link>
                     </div>
                     <div className="flex w-[auto]">
                       <img
@@ -140,7 +135,11 @@ const Dashboard = () => {
                         alt="taskgirl"
                         className="w-[50%] bg-white md:w-full"
                       />
-                      <img src={taskBoyIcon} alt="taskboy" className="w-[50%] md:w-full" />
+                      <img
+                        src={taskBoyIcon}
+                        alt="taskboy"
+                        className="w-[50%] md:w-full"
+                      />
                     </div>
                   </motion.div>
 
@@ -162,13 +161,13 @@ const Dashboard = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ ease: "easeInOut", duration: 1 }}
                   >
-                  {/* Render the progress cards */}
+                    {/* Render the progress cards */}
                     <ProgressCards />
                   </motion.div>
                 </section>
               </Content>
 
-                      {/* Second Sidebar */}
+              {/* Second Sidebar */}
               <Sider
                 breakpoint="md"
                 collapsedWidth="0"
@@ -185,8 +184,7 @@ const Dashboard = () => {
                     animate={{ opacity: 1 }}
                     transition={{ ease: "easeIn", duration: 2 }}
                   >
-
-                  {/* Render the custom calendar */}
+                    {/* Render the custom calendar */}
                     <CustomCalendar />
                   </motion.div>
 
@@ -199,6 +197,7 @@ const Dashboard = () => {
                     <p className="font-[poppins-regular] font-semibold text-[0.9rem] text-center pt-[2rem]">
                       Upcoming Courses
                     </p>
+
                     {/* Upcoming course details */}
                     <div className="border-l-4 px-[0.5rem] border-[#1DA684] font-[poppins-regular] text-[0.7rem] md:text-[0.9rem] mt-[2rem] mb-[1rem]">
                       <p>Advanced HTML</p>
@@ -223,4 +222,5 @@ const Dashboard = () => {
   );
 };
 
+// Export the Dashboard component for use in other parts of the application
 export default Dashboard;
