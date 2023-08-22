@@ -95,17 +95,17 @@ const Registration = () => {
               />
             </Link>
 
-            <div className="text-center  font-[caveat-regular]  animate-pulse md:text-cyan-[0.9rem]">
+            <div className="text-center  font-[caveat-regular] text-[1.5rem] animate-pulse sm:text-cyan-[0.9rem]">
               Welcome to Kid Hive
             </div>
-            <div className=" text-black  font-[caveat-regular]  text-[1.2rem]">
+            <div className=" text-black  font-[caveat-regular]  text-[1.2rem] mb-[1rem]">
               Student Registration Form
             </div>
           </div>
 
           {/* KID INFORMATION */}
 
-          <div className="w-56 text-md  font-[poppins-bold]">
+          <div className="w-56 text-sm sm:text-md  font-[poppins-bold]">
             Kids Information
           </div>
 
@@ -134,8 +134,8 @@ const Registration = () => {
             </div>
           </div>
 
-          <div className="flex flex-row gap-5 w-full pt-3">
-            <div className="flex flex-col w-[50%] ">
+          <div className="flex flex-col sm:flex-row gap-5 w-full pt-3">
+            <div className="flex flex-col w-full sm:w-[50%] ">
               <label
                 htmlFor="age"
                 className="font-[poppins-bold] text-[0.8rem]"
@@ -157,7 +157,7 @@ const Registration = () => {
                   : ""}
               </div>
             </div>
-            <div className="flex flex-col w-[50%]">
+            <div className="flex flex-col w-full sm:w-[50%]">
               <label
                 htmlFor="gender"
                 className="font-[poppins-bold] text-[0.8rem]"
@@ -206,8 +206,8 @@ const Registration = () => {
             </div>
           </div>
 
-          <div className="flex flex-row gap-5 w-full pt-3">
-            <div className="flex flex-col w-[50%] ">
+          <div className="flex flex-col sm:flex-row gap-5 w-full pt-3">
+            <div className="flex flex-col w-full sm:w-[50%] ">
               <label
                 htmlFor="email"
                 className="font-[poppins-bold]  text-[0.8rem]"
@@ -230,7 +230,7 @@ const Registration = () => {
                   : ""}
               </div>
             </div>
-            <div className="flex flex-col  w-[50%]">
+            <div className="flex flex-col w-full sm:w-[50%]">
               <label
                 htmlFor="number"
                 className="font-[poppins-bold]  text-[0.8rem]"
@@ -282,8 +282,8 @@ const Registration = () => {
                 : ""}
             </div>
           </div>
-          <div className="flex flex-row gap-5 w-full pt-3">
-            <div className="flex flex-col w-[50%]">
+          <div className="flex flex-col sm:flex-row gap-5 w-full pt-3">
+            <div className="flex flex-col w-full sm:w-[50%]">
               <label
                 htmlFor="password"
                 className="font-[poppins-bold]  text-[0.8rem]"
@@ -304,7 +304,7 @@ const Registration = () => {
                 </div>
               )}
             </div>
-            <div className="flex flex-col  w-[50%]">
+            <div className="flex flex-col  w-full sm:w-[50%]">
               <label
                 htmlFor="confirm password"
                 className="font-[poppins-bold]  text-[0.8rem]"
