@@ -13,7 +13,6 @@ const NotFoundPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 2, delay: 1 }}
       >
-        (
         <Result
           status="404"
           title="404"
@@ -30,7 +29,7 @@ const NotFoundPage = () => {
             </Link>
           }
         />
-        );
+        
       </motion.div>
     </React.Fragment>
   );
