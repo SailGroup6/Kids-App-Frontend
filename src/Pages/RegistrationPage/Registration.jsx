@@ -1,9 +1,11 @@
 import React from "react";
 import "../../index.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Spin, message, Button } from "antd";
 import SuccessPage from "../SuccessPage/SuccessPage";
+import BackIcon from "../../Assets/Images/bx-arrow-back.svg";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
@@ -83,11 +85,16 @@ const Registration = () => {
   ) : (
     <>
       <main className="h-full bg flex items-center justify-center p-5">
-        <form
-          
-          className="w-[65%] h-[auto] bg-[#FFFFFF] p-10 shadow-2xl rounded-lg"
-        >
+        <form className="w-[65%] h-[auto] bg-[#FFFFFF] p-10 shadow-2xl rounded-lg">
           <div className=" flex-col text-center text-black text-[1rem] md:text-[1.5rem]">
+            <Link to="/">
+              <motion.img
+                src={BackIcon}
+                alt="previous"
+                whileHover={{ scale: 1.3, transition: { duration: 0.1 } }}
+              />
+            </Link>
+
             <div className="text-center  font-[caveat-regular]  animate-pulse md:text-cyan-[0.9rem]">
               Welcome to Kid Hive
             </div>
