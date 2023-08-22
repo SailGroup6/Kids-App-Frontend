@@ -86,7 +86,6 @@ const LoginPage = () => {
   ) : (
     <React.Fragment>
       <div className="flex items-center min-h-screen px-[10%] bg-[#FFFDFC]">
-
         <div className=" w-[100%]  sm:w-[60%] sm:mt-[5rem]">
           <div className="flex w-full h-[auto] mb-[0.7rem] text-center items-center justify-center">
             <img src={bumblebeeImg} className="w-7 h-7 pr-[0.5rem]" />
@@ -153,7 +152,7 @@ const LoginPage = () => {
 
             <Button
               className="mb-[1.5rem] w-40 text-[0.8rem] font-[poppins-regular] sm:w-60 sm:text-[0.8rem] md:w-70 lg:w-80"
-              onClick = {()=> navigate("/")}
+              onClick={() => navigate("/")}
             >
               Back
             </Button>
