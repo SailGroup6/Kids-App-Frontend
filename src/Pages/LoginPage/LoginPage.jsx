@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Spin, message } from "antd"; // Import message component
-import { Button, Popconfirm, Switch } from "antd";
-import { NavLink } from "react-router-dom";
+import { Button } from "antd";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import Axios
+import BackIcon from "../../Assets/Images/bx-arrow-back.svg";
 import loginImg from "../../Assets/Images/login-img.svg";
 import bumblebeeImg from "../../Assets/Images/bumbleebee-img.svg";
 
@@ -42,15 +44,15 @@ const LoginPage = () => {
       // Set the UserData in the state
       localStorage.setItem("username", response.data.data.username);
       localStorage.setItem("userId", response.data.data._id);
-      localStorage.setItem("fullName",response.data.data.fullName);
-      localStorage.setItem("age",response.data.data.age);
-      localStorage.setItem("gender",response.data.data.gender);
-      localStorage.setItem("email",response.data.data.email);
-      localStorage.setItem("parentFullName",response.data.data.parentFullName);
-      localStorage.setItem("phoneNumber",response.data.data.phoneNumber);
+      localStorage.setItem("fullName", response.data.data.fullName);
+      localStorage.setItem("age", response.data.data.age);
+      localStorage.setItem("gender", response.data.data.gender);
+      localStorage.setItem("email", response.data.data.email);
+      localStorage.setItem("parentFullName", response.data.data.parentFullName);
+      localStorage.setItem("phoneNumber", response.data.data.phoneNumber);
 
       localStorage.setItem("accessToken", response.data.data.token);
-      localStorage.setItem("refreshToken", response.data.data);
+      localStorage.setItem("refreshToken", response.data.data.token);
 
       // Display success message
       message.success("Login successful!");
@@ -65,7 +67,7 @@ const LoginPage = () => {
           gender: response.data.data.gender,
           parentFullname: response.data.data.parentFullName,
           phoneNumber: response.data.data.phoneNumber,
-          email: response.data.data.email
+          email: response.data.data.email,
         },
       });
     } catch (error) {
@@ -96,9 +98,9 @@ const LoginPage = () => {
           </p>
           <p className="font-[caveat-regular] text-center text-[0.8rem] ">
             Don't have an account?{" "}
-            <NavLink to="/signup">
+            <Link to="/signup">
               <span className="text-[#bedc7cfc]">Sign Up</span>
-            </NavLink>
+            </Link>
           </p>
 
           <form
@@ -139,12 +141,6 @@ const LoginPage = () => {
               the terms conditions
             </label>
 
-            {/* <input
-              type="submit"
-              value="Sign In"
-              className=" border rounded-[1rem] bg-gradient-to-r from-green-700 via-green-500 to-yellow-200 cursor-pointer text-[#FFFFFF] mb-[1.5rem] w-40 text-[0.7rem] py-[0.5rem] px-[0.5rem] sm:w-60 sm:text-[0.8rem] md:w-70 lg:w-80 "
-            ></input> */}
-
             <Button
               type="primary"
               htmlType="submit"
@@ -152,6 +148,13 @@ const LoginPage = () => {
               loading={signInLoading}
             >
               Sign In
+            </Button>
+
+            <Button
+              className="mb-[1.5rem] w-40 text-[0.8rem] font-[poppins-regular] sm:w-60 sm:text-[0.8rem] md:w-70 lg:w-80"
+              onClick={() => navigate("/")}
+            >
+              Back
             </Button>
           </form>
         </div>

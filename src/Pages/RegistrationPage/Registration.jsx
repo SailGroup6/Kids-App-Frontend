@@ -1,9 +1,11 @@
 import React from "react";
 import "../../index.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Spin, message, Button } from "antd";
 import SuccessPage from "../SuccessPage/SuccessPage";
+import BackIcon from "../../Assets/Images/bx-arrow-back.svg";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
@@ -83,22 +85,27 @@ const Registration = () => {
   ) : (
     <>
       <main className="h-full bg flex items-center justify-center p-5">
-        <form
-          
-          className="w-[65%] h-[auto] bg-[#FFFFFF] p-10 shadow-2xl rounded-lg"
-        >
+        <form className="w-[65%] h-[auto] bg-[#FFFFFF] p-10 shadow-2xl rounded-lg">
           <div className=" flex-col text-center text-black text-[1rem] md:text-[1.5rem]">
-            <div className="text-center  font-[caveat-regular]  animate-pulse md:text-cyan-[0.9rem]">
+            <Link to="/">
+              <motion.img
+                src={BackIcon}
+                alt="previous"
+                whileHover={{ scale: 1.3, transition: { duration: 0.1 } }}
+              />
+            </Link>
+
+            <div className="text-center  font-[caveat-regular] text-[1.5rem] animate-pulse sm:text-cyan-[0.9rem]">
               Welcome to Kid Hive
             </div>
-            <div className=" text-black  font-[caveat-regular]  text-[1.2rem]">
+            <div className=" text-black  font-[caveat-regular]  text-[1.2rem] mb-[1rem]">
               Student Registration Form
             </div>
           </div>
 
           {/* KID INFORMATION */}
 
-          <div className="w-56 text-md  font-[poppins-bold]">
+          <div className="w-56 text-sm sm:text-md  font-[poppins-bold]">
             Kids Information
           </div>
 
@@ -127,8 +134,8 @@ const Registration = () => {
             </div>
           </div>
 
-          <div className="flex flex-row gap-5 w-full pt-3">
-            <div className="flex flex-col w-[50%] ">
+          <div className="flex flex-col sm:flex-row gap-5 w-full pt-3">
+            <div className="flex flex-col w-full sm:w-[50%] ">
               <label
                 htmlFor="age"
                 className="font-[poppins-bold] text-[0.8rem]"
@@ -150,7 +157,7 @@ const Registration = () => {
                   : ""}
               </div>
             </div>
-            <div className="flex flex-col w-[50%]">
+            <div className="flex flex-col w-full sm:w-[50%]">
               <label
                 htmlFor="gender"
                 className="font-[poppins-bold] text-[0.8rem]"
@@ -199,8 +206,8 @@ const Registration = () => {
             </div>
           </div>
 
-          <div className="flex flex-row gap-5 w-full pt-3">
-            <div className="flex flex-col w-[50%] ">
+          <div className="flex flex-col sm:flex-row gap-5 w-full pt-3">
+            <div className="flex flex-col w-full sm:w-[50%] ">
               <label
                 htmlFor="email"
                 className="font-[poppins-bold]  text-[0.8rem]"
@@ -223,7 +230,7 @@ const Registration = () => {
                   : ""}
               </div>
             </div>
-            <div className="flex flex-col  w-[50%]">
+            <div className="flex flex-col w-full sm:w-[50%]">
               <label
                 htmlFor="number"
                 className="font-[poppins-bold]  text-[0.8rem]"
@@ -275,8 +282,8 @@ const Registration = () => {
                 : ""}
             </div>
           </div>
-          <div className="flex flex-row gap-5 w-full pt-3">
-            <div className="flex flex-col w-[50%]">
+          <div className="flex flex-col sm:flex-row gap-5 w-full pt-3">
+            <div className="flex flex-col w-full sm:w-[50%]">
               <label
                 htmlFor="password"
                 className="font-[poppins-bold]  text-[0.8rem]"
@@ -297,7 +304,7 @@ const Registration = () => {
                 </div>
               )}
             </div>
-            <div className="flex flex-col  w-[50%]">
+            <div className="flex flex-col  w-full sm:w-[50%]">
               <label
                 htmlFor="confirm password"
                 className="font-[poppins-bold]  text-[0.8rem]"
