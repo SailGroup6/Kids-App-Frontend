@@ -1,22 +1,24 @@
+// Import Neccesary Dependencies and Components
+
 import React, { useState, useEffect } from "react";
 import { Spin, message } from "antd"; // Import message component
 import { Button } from "antd";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import Axios
-import BackIcon from "../../Assets/Images/bx-arrow-back.svg";
 import loginImg from "../../Assets/Images/login-img.svg";
 import bumblebeeImg from "../../Assets/Images/bumbleebee-img.svg";
 
+// Define the LoginPage component
 const LoginPage = () => {
   const [signInLoading, setSignInLoading] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
+  const [setToken] = useState("");
   const navigate = useNavigate();
 
+  // Consuming the Api for login provided by the Backend
   const url =
     "https://kidshive-user-creation-api.onrender.com/api/v1/auth/login";
 
@@ -80,11 +82,14 @@ const LoginPage = () => {
     }
   }
 
+    // If page is loading, display a loading spinner in the center
   return isLoading ? (
     <div className="flex justify-center items-center min-h-screen w-full">
       <Spin size="large" />
     </div>
   ) : (
+
+    // If page is done loading, display the main content of the Login page
     <React.Fragment>
       <div className="flex items-center min-h-screen px-[10%] bg-[#FFFDFC]">
         <div className=" w-[100%]  sm:w-[60%] sm:mt-[5rem]">
@@ -172,4 +177,5 @@ const LoginPage = () => {
   );
 };
 
+// Exporting the LoginPage component for use in other files
 export default LoginPage;

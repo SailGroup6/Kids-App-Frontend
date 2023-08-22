@@ -1,20 +1,25 @@
+// Import Neccesary Dependencies and Components
 import React from "react";
 import "../../index.css";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Spin, message, Button } from "antd";
-import SuccessPage from "../SuccessPage/SuccessPage";
 import BackIcon from "../../Assets/Images/bx-arrow-back.svg";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 
+// Registration Component
 const Registration = () => {
+  // State to manage loading state
   const [isLoading, setIsLoading] = useState(true);
   const [signInLoading, setSignInLoading] = useState(false);
   const navigate = useNavigate();
+
+  // Formik setup for form handling and validation
   const Formik = useFormik({
+    // Initial form field values
     initialValues: {
       fullName: "",
       age: "",
@@ -27,7 +32,10 @@ const Registration = () => {
       username: "",
     },
 
+    // Validation schema for form fields
+
     validationSchema: yup.object({
+      // Validation rules for each field
       fullName: yup.string(),
       age: yup.number().max(12, "Too Old").required("Age is Required"),
       email: yup.string().email("invalid email").required("Email is required"),
@@ -45,6 +53,7 @@ const Registration = () => {
         .required("Confirm Password is required"),
     }),
 
+     // Handle form submission to the backend with axios
     onSubmit: (Values) => {
       setSignInLoading(true);
       axios
@@ -79,10 +88,13 @@ const Registration = () => {
   }, []);
 
   return isLoading ? (
+     // Display loading spinner
     <div className="flex justify-center items-center min-h-screen w-full">
       <Spin size="large" />
     </div>
   ) : (
+
+        // Display registration form when page load finish
     <>
       <main className="h-full bg flex items-center justify-center p-5">
         <form className="w-[65%] h-[auto] bg-[#FFFFFF] p-10 shadow-2xl rounded-lg">
@@ -354,4 +366,5 @@ const Registration = () => {
   );
 };
 
+// Export the Registration component
 export default Registration;

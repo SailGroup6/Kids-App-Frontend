@@ -1,3 +1,4 @@
+// Import Neccesary Dependencies and Components
 import React from "react";
 import { useState, useEffect } from "react";
 import { Layout, Spin } from "antd";
@@ -7,12 +8,14 @@ import ProgressCards from "../../Components/Cards/ProgressCards";
 import WidgetCardsTrending from "../../Components/Cards/WidgetCardsTrending";
 import Chart from "../../Assets/Images/chart.svg"
 
-
+// Destructure components for Layout
 const { Header, Content, Sider } = Layout;
 
+//Define trending component
 const Trending = () => {
   const [isLoading, setIsLoading] = useState(true);
 
+// Simulate loading delay
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -21,12 +24,14 @@ const Trending = () => {
 
 
   return (
+      // Display loading spinner while data is loading
     <React.Fragment>
       {isLoading ? (
         <div className="flex justify-center items-center min-h-screen w-full">
           <Spin size="large" />
         </div>
       ) : (
+        // Render trending page content after data is loaded
         <div className="w-full">
           <Layout className="h-screen">
             <Sider
@@ -42,6 +47,7 @@ const Trending = () => {
                 alignItems: "center",
               }}
             >
+               {/* Display widget cards for trending */}
               <WidgetCardsTrending />
             </Sider>
             <Layout>
@@ -53,6 +59,7 @@ const Trending = () => {
               <Content className="bg-[#FFFBF6] w-full h-[60rem] sm:h-screen">
                 <section className="px-[10%] py-[5%] md:px-[7%] lg:px-[10%]">
 
+                 {/* Display progress cards */}
                   <div
                     initial={{ opacity: 0.4, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -79,7 +86,7 @@ const Trending = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ ease: "easeInOut", duration: 1 }}
                   >
-                    <img src = {Chart} />
+                    <img src = {Chart} alt="Chart" />
                   </motion.div>
                 </section>
               </Content>
@@ -95,7 +102,7 @@ const Trending = () => {
               >
                 <div className="flex flex-col w-full h-[100svh] justify-around items-center">
                   <motion.div
-                    className="h-[30vh] justify-between align-center border border-2 border-slate-500 rounded-lg bg-[#FCEDDA] w-[70%]"
+                    className="h-[30vh] justify-between align-center border-2 border-slate-500 rounded-lg bg-[#FCEDDA] w-[70%]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ ease: "easeIn", duration: 2 }}
@@ -104,7 +111,7 @@ const Trending = () => {
                   </motion.div>
 
                   <motion.div
-                    className="h-[50vh] border border-2 border-slate-500 rounded-lg bg-[#FCEDDA] px-[4%] w-[70%]"
+                    className="h-[50vh] border-2 border-slate-500 rounded-lg bg-[#FCEDDA] px-[4%] w-[70%]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ ease: "easeIn", duration: 2 }}
@@ -135,4 +142,5 @@ const Trending = () => {
   );
 };
 
+// Export the Trending page component to be used in other parts of the application
 export default Trending;

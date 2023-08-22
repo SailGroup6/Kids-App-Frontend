@@ -1,13 +1,13 @@
+// Import Neccesary Dependencies and Components
 import React from "react";
-import WidgetCards from "../../Components/Cards/WidgetCards";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom"
 import { Layout, Spin } from "antd";
 import { motion } from "framer-motion";
 import WidgetCardsSmiley from "../../Components/Cards/WidgetCardsSmiley";
 
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 
+// Retrieve stored user profile data from localStorage
 const storedUsername = localStorage.getItem("username") || "User";
 const storedGender = localStorage.getItem("gender") || "";
 const storedAge = localStorage.getItem("age") || "";
@@ -15,9 +15,11 @@ const storedFullName = localStorage.getItem("fullName") || "";
 const storedEmail = localStorage.getItem("email") || "";
 const storedParentFullName = localStorage.getItem("parentFullName") || "";
 
+//Define Profile Component
 const Profile = () => {
   const [isLoading, setIsLoading] = useState(true);
 
+  // Simulate loading delay using useEffect
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -25,12 +27,14 @@ const Profile = () => {
   }, []);
 
   return isLoading ? (
+    // Loading spinner while data is loading
     <div className="flex justify-center items-center min-h-screen w-full">
       <Spin size="large" />
     </div>
   ) : (
     <div>
       <Layout className=" h-screen">
+        {/* Sidebar */}
         <Sider
           breakpoint="lg"
           collapsedWidth="0"
@@ -47,6 +51,7 @@ const Profile = () => {
           <WidgetCardsSmiley />
         </Sider>
 
+            {/* Main Content */}
         <Content className="h-full grid bg-[#FFFBF6] p-10 ">
           <motion.div
             className="border h-[150px] rounded shadow-md bg-white"
@@ -107,4 +112,5 @@ const Profile = () => {
   );
 };
 
+// Export the Profile component
 export default Profile;
