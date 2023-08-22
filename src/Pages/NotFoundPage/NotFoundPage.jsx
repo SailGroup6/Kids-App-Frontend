@@ -8,7 +8,7 @@ const NotFoundPage = () => {
   return (
     <React.Fragment>
       <motion.div
-        className="bg-[#FFFBF6]"
+        className="bg-[#FFFBF6] min-h-screen w-full"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2, delay: 1 }}
