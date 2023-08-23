@@ -84,13 +84,14 @@ const ContentPage = () => {
             <iframe
               width="100%"
               height="50%"
-              src={videoSources[selectedVideoIndex].src}
+              src={videoSources[selectedVideoIndex].path}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               className="w-[100%] h-full object-cover rounded-xl"
               allowFullScreen
             ></iframe>
+            {console.log(videoSources[selectedVideoIndex].path)}
 
             <p className="font-[poppins-regular] p-[1rem]">
               Uploaded by <span className="font-bold">Godslove Udo</span>
@@ -124,7 +125,6 @@ const ContentPage = () => {
               }
             }}
           >
-            {" "}
             {videoSources.map((video) => (
               <Menu.Item key={video.name}>{video.name}</Menu.Item>
             ))}
