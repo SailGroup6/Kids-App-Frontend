@@ -43,14 +43,14 @@ const videoId = [
 ];
 
 const videoSources = [
-  { name: "1", path: `https://www.youtube.com/embed/${videoId[0].id1}`, text: "INTRODUCTION TO BASIC HTML - LESSON 1"},
-  { name: "2", path: `https://www.youtube.com/embed/${videoId[0].id2}`, text: "HTML PAGE STRUCTURE - LESSON 2" },
-  { name: "3", path: `https://www.youtube.com/embed/${videoId[0].id3}`, text: "H1 ELEMENTS - LESSON 3" },
-  { name: "4", path: `https://www.youtube.com/embed/${videoId[0].id4}`, text: "PARAGRAPH- LESSON 4" },
-  { name: "5", path: `https://www.youtube.com/embed/${videoId[0].id5}`, text: "IMAGE TAG" },
+  { name: "1", path: `https://www.youtube.com/embed/${videoId[0].id1}`, text: "WELCOME TO THE WORLD OF HTML "},
+  { name: "2", path: `https://www.youtube.com/embed/${videoId[0].id2}`, text: "OUR PAGE STRUCTURE " },
+  { name: "3", path: `https://www.youtube.com/embed/${videoId[0].id3}`, text: "MEET THE H1 ELEMENT" },
+  { name: "4", path: `https://www.youtube.com/embed/${videoId[0].id4}`, text: "THE PARAGRAPH TAG" },
+  { name: "5", path: `https://www.youtube.com/embed/${videoId[0].id5}`, text: "THE IMAGE TAG" },
   { name: "6", path: `https://www.youtube.com/embed/${videoId[0].id6}`, text: "IMAGE HEIGHT AND WIDTH" },
-  { name: "7", path: `https://www.youtube.com/embed/${videoId[0].id7}`, text: "LINKING IMAGES" },
-  { name: "8", path: `https://www.youtube.com/embed/${videoId[0].id8}`, text: "DIV CONTAINER" },
+  { name: "7", path: `https://www.youtube.com/embed/${videoId[0].id7}`, text: "A, THE ANCHOR TELEPORTER" },
+  { name: "8", path: `https://www.youtube.com/embed/${videoId[0].id8}`, text: "DIV CONTAINER, OUR HANDY BOX" },
 
 ];
 const ContentPage = () => {
@@ -105,7 +105,7 @@ const ContentPage = () => {
               Uploaded by <span className="font-bold">Godslove Udo</span>
             </p>
             <p className="font-[poppins-regular] px-[1rem] font-bold text-[1.5rem] border-b-2">
-              INTRODUCTION TO BASIC HTML - LESSON 1
+              {videoSources[selectedVideoIndex].text}
             </p>
           </motion.div>
           <div></div>
@@ -134,8 +134,6 @@ const ContentPage = () => {
                 console.log("Clicked Video Name:", videoSources[selectedIndex].name);
                 console.log("Clicked Menu Item Key:", e.key);
               }
-              console.log("Clicked Video Name:", videoSources[selectedIndex].name);
-              console.log("Clicked Menu Item Key:", e.key);
             }}
           >
             {videoSources.map((video, index) => (
