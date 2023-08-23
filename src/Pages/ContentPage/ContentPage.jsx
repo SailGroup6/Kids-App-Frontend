@@ -71,18 +71,18 @@ const ContentPage = () => {
   ) : (
     <div>
       <Layout className=" h-screen bg-[#FFFBF6]">
-        <Link to="/dashboard">
+        <Link to="/dashboard" className=" h-[2rem] bg-[#FFFBF6]">
           <motion.img
             src={BackIcon}
             alt="previous"
             title="previous"
             whileHover={{ scale: 1.3, transition: { duration: 0.1 } }}
-            className="p-[1rem]"
+            className="p-[1rem] "
           />
-        </Link>{" "}
+        </Link>
         {/*bg-[rgba(155, 93, 230, 0.30)]*/}
         <Content className="h-full grid p-10 ">
-          <motion.div className="w-full">
+          <motion.div className="w-full h-[75svh]">
             <iframe
               width="100%"
               height="50%"
