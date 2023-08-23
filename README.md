@@ -1,6 +1,6 @@
 
-Kids-App-Frontend Developer Documentation
-Welcome to the Kids-App-Frontend developer documentation. This guide provides in-depth information about the architecture, components, and implementation details of the Kids-App-Frontend application.
+Kidshive Developer Documentation
+Welcome to the Kidshive Developer Documentation. This guide provides in-depth information about the architecture, components, and implementation details of the Kids-App-Frontend application.
 
 Table of Contents
 Introduction
@@ -15,8 +15,9 @@ Deployment
 Contributing
 Testing
 Troubleshooting
+
 1. Introduction <a name="introduction"></a>
-The Kids-App-Frontend is a web application designed to provide a user-friendly platform for young learners to access educational content. This documentation is intended for developers working on the application's frontend codebase.
+The Kidshive is a web application designed to provide a user-friendly platform for young learners to access educational content. This documentation is intended for developers working on the application's frontend codebase.
 
 2. Getting Started <a name="getting-started"></a>
 To set up the development environment and start working on the Kids-App-Frontend application, follow these steps:
@@ -27,17 +28,27 @@ Navigate to the project directory and run npm install to install project depende
 Copy the .env.example file to .env and update environment variables as needed.
 Run the development server using npm start.
 Access the application in your browser at http://localhost:3000.
+
 3. Folder Structure <a name="folder-structure"></a>
 The project's folder structure is organized to facilitate modularity and scalability. Here's an overview of the main folders:
 
 src: Contains the application's source code.
+
 components: Houses reusable UI components.
+
 assets: Stores images, icons, and other assets.
+
 pages: Defines page-level components.
+
 styles: Contains global styles and CSS files.
+
 api: Manages API integration and requests.
+
 state: Handles state management (e.g., Redux).
+
 utils: Stores utility functions and helper scripts.
+
+
 4. Components <a name="components"></a>
 The application uses modular components to create a consistent and maintainable UI. Each component is responsible for a specific UI element or functionality. Components are organized based on their purpose and complexity.
 
