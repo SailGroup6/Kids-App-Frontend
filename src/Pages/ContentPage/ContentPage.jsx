@@ -10,8 +10,6 @@ import { AppstoreOutlined } from "@ant-design/icons";
 
 const { Content, Sider } = Layout;
 
-//const videos = [{ src: "" }];
-
 function getItem(label, key, icon, children) {
   return {
     key,
@@ -33,12 +31,16 @@ const items = [
     getItem("Lesson 9: Div container", "9"),
   ]),
 ];
-const videoId = `MskilKYVKOs`
+const videoId = [
+  {id: 'BpgAzeU0w-s', id1:"MskilKYVKOs", id2: "P6CUDf-bu5A", id3: 'LIj5w7gAmXc', id4: ""}
+]
+
+
 const videoSources = [
-  { name: "lesson1", path: `https://www.youtube.com/embed/${videoId}`},
-  { name: "lesson2", path: "https://www.youtube.com/watch?v=MskilKYVKOs" },
-  { name: "lesson3", path: "https://www.youtube.com/watch?v=P6CUDf-bu5A" },
-  { name: "lesson4", path: "https://www.youtube.com/watch?v=LIj5w7gAmXc" },
+  { name: "lesson1", path: `https://www.youtube.com/embed/${videoId.id}`},
+  { name: "lesson2", path: `https://www.youtube.com/embed/${videoId.id1}` },
+  { name: "lesson3", path: `https://www.youtube.com/embed/${videoId.id2}` },
+  { name: "lesson4", path: `https://www.youtube.com/embed/${videoId.id3}` },
   { name: "lesson5", path: "https://www.youtube.com/watch?v=2KGR6tQ5B0U" },
   { name: "lesson6", path: "https://www.youtube.com/watch?v=LmoMDpEncEE" },
   { name: "lesson7", path: "https://www.youtube.com/watch?v=vq_QwWhlHhc" },
