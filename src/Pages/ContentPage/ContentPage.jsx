@@ -1,7 +1,6 @@
 import React from "react";
-import WidgetCards from "../../Components/Cards/WidgetCards";
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Layout, Spin } from "antd";
 import BackIcon from "../../Assets/Images/bx-arrow-back.svg";
 import { motion } from "framer-motion";
@@ -49,7 +48,7 @@ const videoSources = [
   { name: "1", path: `https://www.youtube.com/embed/${videoId[0].id1}`, text: "INTRODUCTION TO BASIC HTML - LESSON 1"},
   { name: "2", path: `https://www.youtube.com/embed/${videoId[0].id2}`, text: "HTML PAGE STRUCTURE - LESSON 2" },
   { name: "3", path: `https://www.youtube.com/embed/${videoId[0].id3}`, text: "H1 ELEMENTS - LESSON 3" },
-  { name: "4", path: `https://www.youtube.com/embed/${videoId[0].id4}`, text: "" },
+  { name: "4", path: `https://www.youtube.com/embed/${videoId[0].id4}`, text: " - LESSON 4" },
   { name: "5", path: `https://www.youtube.com/embed/${videoId[0].id5}`, text: "" },
   { name: "6", path: `https://www.youtube.com/embed/${videoId[0].id6}`, text: "" },
   { name: "7", path: `https://www.youtube.com/embed/${videoId[0].id7}`, text: "" },
