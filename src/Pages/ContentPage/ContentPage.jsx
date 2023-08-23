@@ -32,19 +32,29 @@ const items = [
   ]),
 ];
 const videoId = [
-  {id: 'BpgAzeU0w-s', id1:"MskilKYVKOs", id2: "P6CUDf-bu5A", id3: 'LIj5w7gAmXc', id4: "2KGR6tQ5B0U", id5: "LmoMDpEncEE",}
-]
-
+  {
+    id1: "BpgAzeU0w-s",
+    id2: "MskilKYVKOs",
+    id3: "P6CUDf-bu5A",
+    id4: "LIj5w7gAmXc",
+    id5: "2KGR6tQ5B0U",
+    id6: "LmoMDpEncEE",
+    id7: "QwWhlHhc",
+    id8: "ed7iFE7VavI",
+    id9: "vq_QwWhlHhc"
+  },
+];
 
 const videoSources = [
-  { name: "lesson1", path: `https://www.youtube.com/embed/${videoId[0].id}`},
-  { name: "lesson2", path: `https://www.youtube.com/embed/${videoId[0].id1}` },
-  { name: "lesson3", path: `https://www.youtube.com/embed/${videoId[0].id2}` },
-  { name: "lesson4", path: `https://www.youtube.com/embed/${videoId[0].id3}` },
-  { name: "lesson5", path: `https://www.youtube.com/embed/${videoId[0].id4}` },
-  { name: "lesson6", path: "https://www.youtube.com/watch?v=LmoMDpEncEE" },
-  { name: "lesson7", path: "https://www.youtube.com/watch?v=vq_QwWhlHhc" },
-  { name: "lesson8", path: "https://www.youtube.com/watch?v=ed7iFE7VavI" },
+  { name: "1", path: `https://www.youtube.com/embed/${videoId[0].id1}`, text: "INTRODUCTION TO BASIC HTML - LESSON 1"},
+  { name: "2", path: `https://www.youtube.com/embed/${videoId[0].id2}`, text: "HTML PAGE STRUCTURE - LESSON 2" },
+  { name: "3", path: `https://www.youtube.com/embed/${videoId[0].id3}`, text: "H1 ELEMENTS - LESSON 3" },
+  { name: "4", path: `https://www.youtube.com/embed/${videoId[0].id4}`, text: "" },
+  { name: "5", path: `https://www.youtube.com/embed/${videoId[0].id5}`, text: "" },
+  { name: "6", path: `https://www.youtube.com/embed/${videoId[0].id6}`, text: "" },
+  { name: "7", path: `https://www.youtube.com/embed/${videoId[0].id7}`, text: "" },
+  { name: "8", path: `https://www.youtube.com/embed/${videoId[0].id8}`, text: "" },
+  { name: "9", path: `https://www.youtube.com/embed/${videoId[0].id9}`, text: "" },
 ];
 const ContentPage = () => {
   const [mode, setMode] = useState("inline");
@@ -93,18 +103,18 @@ const ContentPage = () => {
               className="w-[100%] h-full object-cover rounded-xl"
               allowFullScreen
             ></iframe>
-            {console.log(videoSources[selectedVideoIndex].path)}
 
             <p className="font-[poppins-regular] p-[1rem]">
               Uploaded by <span className="font-bold">Godslove Udo</span>
             </p>
             <p className="font-[poppins-regular] px-[1rem] font-bold text-[1.5rem] border-b-2">
-              INTRODUCTION TO BASIC HTML - LESSON ONE
+              INTRODUCTION TO BASIC HTML - LESSON 1
             </p>
           </motion.div>
           <div></div>
         </Content>
         <Sider
+          breakpoint="md"
           collapsedWidth="0"
           width="25%"
           style={{
@@ -120,15 +130,19 @@ const ContentPage = () => {
             className="font-[poppins-regular] "
             onClick={(e) => {
               const selectedIndex = videoSources.findIndex(
-                (video) => video.name === e.key
-              );
+                (video) =>video.name === e.key );
+
               if (selectedIndex !== -1) {
                 changeVideo(selectedIndex);
+                console.log("Clicked Video Name:", videoSources[selectedIndex].name);
+                console.log("Clicked Menu Item Key:", e.key);
               }
+              console.log("Clicked Video Name:", videoSources[selectedIndex].name);
+              console.log("Clicked Menu Item Key:", e.key);
             }}
           >
-            {videoSources.map((video) => (
-              <Menu.Item key={video.name}>{video.name}</Menu.Item>
+            {videoSources.map((video, index) => (
+              <Menu.Item key={index}>{video.name}</Menu.Item>
             ))}
           </Menu>
         </Sider>
