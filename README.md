@@ -1,5 +1,4 @@
 
-Kidshive Developer Documentation
 Welcome to the Kidshive Developer Documentation. This guide provides in-depth information about the architecture, components, and implementation details of the Kids-App-Frontend application.
 
 Table of Contents
