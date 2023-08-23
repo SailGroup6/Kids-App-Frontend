@@ -25,9 +25,8 @@ const items = [
     getItem("Lesson 4: Paragraph", "4"),
     getItem("Lesson 5: Image tag ", "5"),
     getItem("Lesson 6: Image height and width", "6"),
-    getItem("Lesson 7: Link Tag", "7"),
-    getItem("Lesson 8: Linking Images", "8"),
-    getItem("Lesson 9: Div container", "9"),
+    getItem("Lesson 7: Linking Images", "7"),
+    getItem("Lesson 8: Div container", "8"),
   ]),
 ];
 const videoId = [
@@ -38,9 +37,8 @@ const videoId = [
     id4: "LIj5w7gAmXc",
     id5: "2KGR6tQ5B0U",
     id6: "LmoMDpEncEE",
-    id7: "QwWhlHhc",
+    id7: "vq_QwWhlHhc",
     id8: "ed7iFE7VavI",
-    id9: "vq_QwWhlHhc"
   },
 ];
 
@@ -48,12 +46,12 @@ const videoSources = [
   { name: "1", path: `https://www.youtube.com/embed/${videoId[0].id1}`, text: "INTRODUCTION TO BASIC HTML - LESSON 1"},
   { name: "2", path: `https://www.youtube.com/embed/${videoId[0].id2}`, text: "HTML PAGE STRUCTURE - LESSON 2" },
   { name: "3", path: `https://www.youtube.com/embed/${videoId[0].id3}`, text: "H1 ELEMENTS - LESSON 3" },
-  { name: "4", path: `https://www.youtube.com/embed/${videoId[0].id4}`, text: " - LESSON 4" },
-  { name: "5", path: `https://www.youtube.com/embed/${videoId[0].id5}`, text: "" },
-  { name: "6", path: `https://www.youtube.com/embed/${videoId[0].id6}`, text: "" },
-  { name: "7", path: `https://www.youtube.com/embed/${videoId[0].id7}`, text: "" },
-  { name: "8", path: `https://www.youtube.com/embed/${videoId[0].id8}`, text: "" },
-  { name: "9", path: `https://www.youtube.com/embed/${videoId[0].id9}`, text: "" },
+  { name: "4", path: `https://www.youtube.com/embed/${videoId[0].id4}`, text: "PARAGRAPH- LESSON 4" },
+  { name: "5", path: `https://www.youtube.com/embed/${videoId[0].id5}`, text: "IMAGE TAG" },
+  { name: "6", path: `https://www.youtube.com/embed/${videoId[0].id6}`, text: "IMAGE HEIGHT AND WIDTH" },
+  { name: "7", path: `https://www.youtube.com/embed/${videoId[0].id7}`, text: "LINKING IMAGES" },
+  { name: "8", path: `https://www.youtube.com/embed/${videoId[0].id8}`, text: "DIV CONTAINER" },
+
 ];
 const ContentPage = () => {
   const [mode, setMode] = useState("inline");
