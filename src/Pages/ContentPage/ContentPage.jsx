@@ -32,16 +32,16 @@ const items = [
   ]),
 ];
 const videoId = [
-  {id: 'BpgAzeU0w-s', id1:"MskilKYVKOs", id2: "P6CUDf-bu5A", id3: 'LIj5w7gAmXc', id4: ""}
+  {id: 'BpgAzeU0w-s', id1:"MskilKYVKOs", id2: "P6CUDf-bu5A", id3: 'LIj5w7gAmXc', id4: "2KGR6tQ5B0U", id5: "LmoMDpEncEE",}
 ]
 
 
 const videoSources = [
-  { name: "lesson1", path: `https://www.youtube.com/embed/${videoId.id}`},
-  { name: "lesson2", path: `https://www.youtube.com/embed/${videoId.id1}` },
-  { name: "lesson3", path: `https://www.youtube.com/embed/${videoId.id2}` },
-  { name: "lesson4", path: `https://www.youtube.com/embed/${videoId.id3}` },
-  { name: "lesson5", path: "https://www.youtube.com/watch?v=2KGR6tQ5B0U" },
+  { name: "lesson1", path: `https://www.youtube.com/embed/${videoId[0].id}`},
+  { name: "lesson2", path: `https://www.youtube.com/embed/${videoId[0].id1}` },
+  { name: "lesson3", path: `https://www.youtube.com/embed/${videoId[0].id2}` },
+  { name: "lesson4", path: `https://www.youtube.com/embed/${videoId[0].id3}` },
+  { name: "lesson5", path: `https://www.youtube.com/embed/${videoId[0].id4}` },
   { name: "lesson6", path: "https://www.youtube.com/watch?v=LmoMDpEncEE" },
   { name: "lesson7", path: "https://www.youtube.com/watch?v=vq_QwWhlHhc" },
   { name: "lesson8", path: "https://www.youtube.com/watch?v=ed7iFE7VavI" },
