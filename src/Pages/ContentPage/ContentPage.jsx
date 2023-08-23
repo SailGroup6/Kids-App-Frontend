@@ -33,16 +33,16 @@ const items = [
     getItem("Lesson 9: Div container", "9"),
   ]),
 ];
-
+const videoId = `MskilKYVKOs`
 const videoSources = [
-  { name: "lesson1", path: "https://m.youtube.com/watch?v=BpgAzeU0w-s" },
-  { name: "lesson2", path: "https://m.youtube.com/watch?v=MskilKYVKOs" },
-  { name: "lesson3", path: "https://m.youtube.com/watch?v=P6CUDf-bu5A" },
-  { name: "lesson4", path: "https://m.youtube.com/watch?v=LIj5w7gAmXc" },
-  { name: "lesson5", path: "https://m.youtube.com/watch?v=2KGR6tQ5B0U" },
-  { name: "lesson6", path: "https://m.youtube.com/watch?v=LmoMDpEncEE" },
-  { name: "lesson7", path: "https://m.youtube.com/watch?v=vq_QwWhlHhc" },
-  { name: "lesson8", path: "https://m.youtube.com/watch?v=ed7iFE7VavI" },
+  { name: "lesson1", path: `https://www.youtube.com/embed/${videoId}`},
+  { name: "lesson2", path: "https://www.youtube.com/watch?v=MskilKYVKOs" },
+  { name: "lesson3", path: "https://www.youtube.com/watch?v=P6CUDf-bu5A" },
+  { name: "lesson4", path: "https://www.youtube.com/watch?v=LIj5w7gAmXc" },
+  { name: "lesson5", path: "https://www.youtube.com/watch?v=2KGR6tQ5B0U" },
+  { name: "lesson6", path: "https://www.youtube.com/watch?v=LmoMDpEncEE" },
+  { name: "lesson7", path: "https://www.youtube.com/watch?v=vq_QwWhlHhc" },
+  { name: "lesson8", path: "https://www.youtube.com/watch?v=ed7iFE7VavI" },
 ];
 const ContentPage = () => {
   const [mode, setMode] = useState("inline");
@@ -84,15 +84,13 @@ const ContentPage = () => {
             <iframe
               width="100%"
               height="50%"
-              src= "https://www.youtube.com/watch?v=ed7iFE7VavI"
+              src={videoSources[selectedVideoIndex].path}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               className="w-[100%] h-full object-cover rounded-xl"
               allowFullScreen
-            >
-
-            </iframe>
+            ></iframe>
             {console.log(videoSources[selectedVideoIndex].path)}
 
             <p className="font-[poppins-regular] p-[1rem]">
