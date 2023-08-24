@@ -1,8 +1,20 @@
 import React from "react";
-import { Button, Result } from "antd";
+import { Button, Result, Spin } from "antd";
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 
-const SettingsPage = () => (
+const SettingsPage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+  }, []);
+  return isLoading ? (
+    <div className="flex justify-center items-center min-h-screen w-full">
+      <Spin size="large" />
+    </div>
+  ) : (
   <Result
     status="warning"
     title="We are still fixing this page, try again later."
@@ -20,5 +32,5 @@ const SettingsPage = () => (
     }
     className="font-[poppins-regular] bg-[#FFFBF6] min-h-screen"
   />
-);
+)};
 export default SettingsPage;
