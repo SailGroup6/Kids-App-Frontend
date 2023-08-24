@@ -11,6 +11,8 @@ import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import ContentPage from "./Pages/ContentPage/ContentPage";
 import ContentPageCss from "./Pages/ContentPage/ContentPageCss";
 import { ConfigProvider } from "antd";
+import SettingsPage from "./Pages/SettingsPage/SettingsPage";
+import ContentPageJs from "./Pages/ContentPage/ContentPageJs";
 
 function App() {
   return (
@@ -34,7 +36,8 @@ function App() {
           <Route path="*" element={<NotFoundPage/>} />
           <Route path="/htmlCourse" element={<ContentPage/>} />
           <Route path="/cssCourse" element={<ContentPageCss/>} />
-          <Route path="/jsCourse" element={""} />
+          <Route path="/settings" element={<SettingsPage/>} />
+          <Route path="/jsCourse" element={<ContentPageJs/>} />
         </Routes>
       </ConfigProvider>
 
