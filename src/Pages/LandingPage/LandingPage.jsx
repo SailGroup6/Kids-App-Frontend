@@ -1,9 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import { Spin } from "antd";
 import HeroSection from "./HeroSection/HeroSection";
 import AboutUs from "./AboutUs/AboutUs";
 import ContactUs from "./ContactUs/ContactUs";
+import BackgroundAudio from "../../Components/Howler/BackgroundAudio";
+
 
 const LandingPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,6 +21,7 @@ const LandingPage = () => {
     </div>
   ) : (
     <div className=" bg-[#FFFDFC]">
+
       <HeroSection />
       <AboutUs />
       <ContactUs />
