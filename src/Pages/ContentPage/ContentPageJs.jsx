@@ -14,6 +14,7 @@ const ContentPageJs = () => (
         </Button>{" "}
       </Link>
     }
+    className="bg-[#FFFBF6] font-[poppins-regular] min-h-screen"
   />
 );
 export default ContentPageJs;
