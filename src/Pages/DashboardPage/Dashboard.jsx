@@ -10,9 +10,9 @@ import WidgetCards from "../../Components/Cards/WidgetCards";
 import bellIcon from "../../Assets/Images/bell.svg";
 import taskGirlIcon from "../../Assets/Images/task-girl.svg";
 import taskBoyIcon from "../../Assets/Images/task-boy.svg";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
-// Destructuring components from antd Layout
+
 const { Header, Content, Sider } = Layout;
 
 // Define the Dashboard component

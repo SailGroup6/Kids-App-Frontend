@@ -6,11 +6,10 @@ import { Button, Result } from "antd";
 // Define SuccessPage Component
 const SuccessPage = () => (
   <React.Fragment>
-    <div className="bg-[#FFFBF6] min-h-screen w-full flex flex-row items-center justify-center">
-       {/* Result component to show success message */}
+    <div className="bg-[#FFFBF6] min-h-screen w-full">
       <Result
         status="success"
-        title="Thank you for joining Kid's Hive. Let's Learn"
+        title="Welcome to KidsHive, let's learn"
         subTitle=""
         className="font-[poppins-regular]"
 

@@ -1,10 +1,11 @@
 // Importing necessary modules and components
 import React from "react";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import { Spin } from "antd";
 import HeroSection from "./HeroSection/HeroSection";
 import AboutUs from "./AboutUs/AboutUs";
 import ContactUs from "./ContactUs/ContactUs";
+
 
 // Defining the LandingPage functional component
 const LandingPage = () => {

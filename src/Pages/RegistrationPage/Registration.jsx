@@ -96,7 +96,7 @@ const Registration = () => {
 
         // Display registration form when page load finish
     <>
-      <main className="min-h-screen bg flex items-center justify-center p-5">
+      <main className="h-[auto] bg flex items-center justify-center p-5">
         <form className="w-[65%] h-[auto] bg-[#FFFFFF] p-10 shadow-2xl rounded-lg">
           <div className=" flex-col text-center text-black text-[1rem] md:text-[1.5rem]">
             <Link to="/">
