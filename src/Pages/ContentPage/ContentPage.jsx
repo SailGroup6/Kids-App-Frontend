@@ -19,7 +19,7 @@ function getItem(label, key, icon, children) {
 }
 const items = [
   getItem("HTML BASICS", "sub1", <AppstoreOutlined />, [
-    getItem("Lesson 1: Introduction to basic HTML", "1"),
+    getItem("Lesson 1: Introduction to HTML", "1"),
     getItem("Lesson 2: HTML page structure", "2"),
     getItem("Lesson 3: H1 element", "3"),
     getItem("Lesson 4: Paragraph", "4"),
@@ -43,15 +43,54 @@ const videoId = [
 ];
 
 const videoSources = [
-  { name: "1", path: `https://www.youtube.com/embed/${videoId[0].id1}`, text: "WELCOME TO THE WORLD OF HTML "},
-  { name: "2", path: `https://www.youtube.com/embed/${videoId[0].id2}`, text: "OUR PAGE STRUCTURE " },
-  { name: "3", path: `https://www.youtube.com/embed/${videoId[0].id3}`, text: "MEET THE H1 ELEMENT" },
-  { name: "4", path: `https://www.youtube.com/embed/${videoId[0].id4}`, text: "THE PARAGRAPH TAG" },
-  { name: "5", path: `https://www.youtube.com/embed/${videoId[0].id5}`, text: "THE IMAGE TAG" },
-  { name: "6", path: `https://www.youtube.com/embed/${videoId[0].id6}`, text: "IMAGE HEIGHT AND WIDTH" },
-  { name: "7", path: `https://www.youtube.com/embed/${videoId[0].id7}`, text: "A, THE ANCHOR TELEPORTER" },
-  { name: "8", path: `https://www.youtube.com/embed/${videoId[0].id8}`, text: "DIV CONTAINER, OUR HANDY BOX" },
-
+  {
+    name: "1",
+    path: `https://www.youtube.com/embed/${videoId[0].id1}`,
+    text: "WELCOME TO THE WORLD OF HTML",
+    author: "Godslove Udo",
+  },
+  {
+    name: "2",
+    path: `https://www.youtube.com/embed/${videoId[0].id2}`,
+    text: "OUR PAGE STRUCTURE ",
+    author: "Godslove Udo",
+  },
+  {
+    name: "3",
+    path: `https://www.youtube.com/embed/${videoId[0].id3}`,
+    text: "MEET THE H1 ELEMENT",
+    author: "David Ajitena",
+  },
+  {
+    name: "4",
+    path: `https://www.youtube.com/embed/${videoId[0].id4}`,
+    text: "THE PARAGRAPH TAG",
+    author: "Godslove Udo",
+  },
+  {
+    name: "5",
+    path: `https://www.youtube.com/embed/${videoId[0].id5}`,
+    text: "THE IMAGE TAG",
+    author: "Abiola Sodiq",
+  },
+  {
+    name: "6",
+    path: `https://www.youtube.com/embed/${videoId[0].id6}`,
+    text: "IMAGE HEIGHT AND WIDTH",
+    author: "David Ajitena",
+  },
+  {
+    name: "7",
+    path: `https://www.youtube.com/embed/${videoId[0].id7}`,
+    text: "A, THE ANCHOR TELEPORTER",
+    author: "Godslove Udo",
+  },
+  {
+    name: "8",
+    path: `https://www.youtube.com/embed/${videoId[0].id8}`,
+    text: "DIV CONTAINER, OUR HANDY BOX",
+    author: "Godslove Udo",
+  },
 ];
 const ContentPage = () => {
   const [mode, setMode] = useState("inline");
@@ -78,15 +117,24 @@ const ContentPage = () => {
   ) : (
     <div>
       <Layout className=" h-screen bg-[#FFFBF6]">
-        <Link to="/dashboard" className=" h-[2rem] bg-[#FFFBF6]">
-          <motion.img
-            src={BackIcon}
-            alt="previous"
-            title="previous"
-            whileHover={{ scale: 1.3, transition: { duration: 0.1 } }}
-            className="p-[1rem] "
-          />
-        </Link>
+        <motion.div
+          className=" flex justify-center"
+          initial={{ y: 0 }}
+          animate={{
+            x: [-10, 10, -10],
+            transition: { duration: 1.5, repeat: Infinity },
+          }}
+        >
+          <Link to="/dashboard" className=" h-[2rem] bg-[#FFFBF6]">
+            <motion.img
+              src={BackIcon}
+              alt="previous"
+              title="previous"
+              whileHover={{ scale: 1.3, transition: { duration: 0.1 } }}
+              className="p-[1rem] "
+            />
+          </Link>
+        </motion.div>
         {/*bg-[rgba(155, 93, 230, 0.30)]*/}
         <Content className="h-full grid p-10 ">
           <motion.div className="w-full h-[75svh]">
@@ -101,14 +149,16 @@ const ContentPage = () => {
               allowFullScreen
             ></iframe>
 
-            <p className="font-[poppins-regular] p-[1rem]">
-              Uploaded by <span className="font-bold">Godslove Udo</span>
+            <p className="font-[caveat-regular] p-[1rem]">
+              Uploaded by{" "}
+              <span className="font-bold">
+                {videoSources[selectedVideoIndex].author}
+              </span>
             </p>
-            <p className="font-[poppins-regular] px-[1rem] font-bold text-[1.5rem] border-b-2">
+            <p className="font-[caveat-regular] px-[1rem] font-bold text-[2rem] border-b-2">
               {videoSources[selectedVideoIndex].text}
             </p>
           </motion.div>
-          <div></div>
         </Content>
         <Sider
           breakpoint="md"
@@ -124,15 +174,13 @@ const ContentPage = () => {
             defaultOpenKeys={["sub1"]}
             mode={mode}
             items={items}
-            className="font-[poppins-regular] "
+            className="font-[caveat-regular]"
             onClick={(e) => {
               const selectedIndex = videoSources.findIndex(
-                (video) =>video.name === e.key );
-
+                (video) => video.name === e.key
+              );
               if (selectedIndex !== -1) {
                 changeVideo(selectedIndex);
-                console.log("Clicked Video Name:", videoSources[selectedIndex].name);
-                console.log("Clicked Menu Item Key:", e.key);
               }
             }}
           >

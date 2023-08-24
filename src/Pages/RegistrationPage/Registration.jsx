@@ -87,13 +87,22 @@ const Registration = () => {
       <main className="h-full bg flex items-center justify-center p-5">
         <form className="w-[65%] h-[auto] bg-[#FFFFFF] p-10 shadow-2xl rounded-lg">
           <div className=" flex-col text-center text-black text-[1rem] md:text-[1.5rem]">
-            <Link to="/">
-              <motion.img
-                src={BackIcon}
-                alt="previous"
-                whileHover={{ scale: 1.3, transition: { duration: 0.1 } }}
-              />
-            </Link>
+            <motion.div
+              className=" flex justify-center"
+              initial={{ y: 0 }}
+              animate={{
+                x: [-10, 10, -10],
+                transition: { duration: 1.5, repeat: Infinity },
+              }}
+            >
+              <Link to="/">
+                <motion.img
+                  src={BackIcon}
+                  alt="previous"
+                  whileHover={{ scale: 1.3, transition: { duration: 0.1 } }}
+                />
+              </Link>
+            </motion.div>
 
             <div className="text-center  font-[caveat-regular] text-[1.5rem] animate-pulse sm:text-cyan-[0.9rem]">
               Welcome to Kid Hive

@@ -44,15 +44,54 @@ const videoId = [
 ];
 
 const videoSources = [
-  { name: "1", path: `https://www.youtube.com/embed/${videoId[0].id1}`, text: "WHAT IS CSS?"},
-  { name: "2", path: `https://www.youtube.com/embed/${videoId[0].id2}`, text: "CSS STYLE AND ATTRIBUTES" },
-  { name: "3", path: `https://www.youtube.com/embed/${videoId[0].id3}`, text: "LETS COLOR THE TEXT" },
-  { name: "4", path: `https://www.youtube.com/embed/${videoId[0].id4}`, text: "FIND THE FONT !" },
-  { name: "5", path: `https://www.youtube.com/embed/${videoId[0].id5}`, text: "STYLING RIDDLES" },
-  { name: "6", path: `https://www.youtube.com/embed/${videoId[0].id6}`, text: "LINE HEIGHT'S TO THE RESCUE !" },
-  { name: "7", path: `https://www.youtube.com/embed/${videoId[0].id7}`, text: "PAINTING WITH BACKGROUND COLOR" },
-  { name: "8", path: `https://www.youtube.com/embed/${videoId[0].id8}`, text: "THE PERFECT BACKGROUND" },
-
+  {
+    name: "1",
+    path: `https://www.youtube.com/embed/${videoId[0].id1}`,
+    text: "WHAT IS CSS?",
+    author: "David Ajitena",
+  },
+  {
+    name: "2",
+    path: `https://www.youtube.com/embed/${videoId[0].id2}`,
+    text: "CSS STYLE AND ATTRIBUTES",
+    author: "David Ajitena",
+  },
+  {
+    name: "3",
+    path: `https://www.youtube.com/embed/${videoId[0].id3}`,
+    text: "LETS COLOR THE TEXT",
+    author: "Abiola Sodiq",
+  },
+  {
+    name: "4",
+    path: `https://www.youtube.com/embed/${videoId[0].id4}`,
+    text: "FIND THE FONT !",
+    author: "Godslove Udo",
+  },
+  {
+    name: "5",
+    path: `https://www.youtube.com/embed/${videoId[0].id5}`,
+    text: "STYLING RIDDLES",
+    author: "Abiola Sodiq",
+  },
+  {
+    name: "6",
+    path: `https://www.youtube.com/embed/${videoId[0].id6}`,
+    text: "LINE HEIGHT'S TO THE RESCUE !",
+    author: "David Ajitena",
+  },
+  {
+    name: "7",
+    path: `https://www.youtube.com/embed/${videoId[0].id7}`,
+    text: "PAINTING WITH BACKGROUND COLOR",
+    author: "Godslove Udo",
+  },
+  {
+    name: "8",
+    path: `https://www.youtube.com/embed/${videoId[0].id8}`,
+    text: "THE PERFECT BACKGROUND",
+    author: "David Ajitena",
+  },
 ];
 const ContentPageCss = () => {
   const [mode, setMode] = useState("inline");
@@ -79,15 +118,24 @@ const ContentPageCss = () => {
   ) : (
     <div>
       <Layout className=" h-screen bg-[#FFFBF6]">
-        <Link to="/dashboard" className=" h-[2rem] bg-[#FFFBF6]">
-          <motion.img
-            src={BackIcon}
-            alt="previous"
-            title="previous"
-            whileHover={{ scale: 1.3, transition: { duration: 0.1 } }}
-            className="p-[1rem] "
-          />
-        </Link>
+        <motion.div
+          className=" flex justify-center"
+          initial={{ y: 0 }}
+          animate={{
+            x: [-10, 10, -10],
+            transition: { duration: 1.5, repeat: Infinity },
+          }}
+        >
+          <Link to="/dashboard" className=" h-[2rem] bg-[#FFFBF6]">
+            <motion.img
+              src={BackIcon}
+              alt="previous"
+              title="previous"
+              whileHover={{ scale: 1.3, transition: { duration: 0.1 } }}
+              className="p-[1rem] "
+            />
+          </Link>
+        </motion.div>
         {/*bg-[rgba(155, 93, 230, 0.30)]*/}
         <Content className="h-full grid p-10 ">
           <motion.div className="w-full h-[75svh]">
@@ -102,14 +150,16 @@ const ContentPageCss = () => {
               allowFullScreen
             ></iframe>
 
-            <p className="font-[poppins-regular] p-[1rem]">
-              Uploaded by <span className="font-bold">David Ajitena</span>
+            <p className="font-[caveat-regular] p-[1rem]">
+              Uploaded by{" "}
+              <span className="font-bold">
+                {videoSources[selectedVideoIndex].author}
+              </span>
             </p>
-            <p className="font-[poppins-regular] px-[1rem] font-bold text-[1.5rem] border-b-2">
+            <p className="font-[caveat-regular] px-[1rem] font-bold text-[2rem] border-b-2">
               {videoSources[selectedVideoIndex].text}
             </p>
           </motion.div>
-          <div></div>
         </Content>
         <Sider
           breakpoint="md"
@@ -125,15 +175,13 @@ const ContentPageCss = () => {
             defaultOpenKeys={["sub1"]}
             mode={mode}
             items={items}
-            className="font-[poppins-regular] "
+            className="font-[caveat-regular]"
             onClick={(e) => {
               const selectedIndex = videoSources.findIndex(
-                (video) =>video.name === e.key );
-
+                (video) => video.name === e.key
+              );
               if (selectedIndex !== -1) {
                 changeVideo(selectedIndex);
-                console.log("Clicked Video Name:", videoSources[selectedIndex].name);
-                console.log("Clicked Menu Item Key:", e.key);
               }
             }}
           >
