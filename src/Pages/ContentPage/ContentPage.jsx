@@ -96,6 +96,8 @@ const ContentPage = () => {
   const [mode, setMode] = useState("inline");
   const [selectedVideoIndex, setSelectedVideoIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true); // Initialize with the first video link
+  const [progress, setProgress] = useState(0);
+
   const changeMode = (value) => {
     setMode(value ? "vertical" : "inline");
   };
@@ -103,6 +105,12 @@ const ContentPage = () => {
   const changeVideo = (index) => {
     setSelectedVideoIndex(index);
   };
+
+  const changeProgress = () => {
+    if(selectedVideoIndex <= "8"){
+      setProgress(progress + 12.5 )
+    }
+  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -148,7 +156,6 @@ const ContentPage = () => {
               className="w-[100%] h-full object-cover rounded-xl"
               allowFullScreen
             ></iframe>
-
             <p className="font-[caveat-regular] p-[1rem]">
               Uploaded by{" "}
               <span className="font-bold">

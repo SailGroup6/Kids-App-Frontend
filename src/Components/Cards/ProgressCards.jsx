@@ -6,6 +6,7 @@ import htmlImg from "../../Assets/Images/html-img.svg";
 import cssImg from "../../Assets/Images/css-img.svg";
 import jsImg from "../../Assets/Images/js-img.svg";
 
+
 const cards = [
   {
     image: htmlImg,
@@ -15,7 +16,7 @@ const cards = [
     color: "#EB7D0C",
     shadow:
       "0 10px 15px -3px rgba(252, 237, 218, 0.80), 0 4px 6px -4px rgba(252, 237, 218, 0.80)",
-    progress: 50,
+    progress: 0,
     link: "/htmlCourse",
   },
   {
@@ -26,7 +27,7 @@ const cards = [
     color: "#9B5DE6",
     shadow:
       "0px 10px 15px -3px rgba(155, 93, 230, 0.30), 0px 4px 6px -4px rgba(155, 93, 230, 0.30)",
-    progress: 30,
+    progress: 0,
     link: "/cssCourse",
   },
   {
@@ -37,7 +38,7 @@ const cards = [
     color: "#1DA684",
     shadow:
       "0 10px 15px -3px rgba(20, 174, 136, 0.30), 0 4px 6px -4px rgba(20, 174, 136, 0.30)",
-    progress: 100,
+    progress: 0,
     link: "/jsCourse",
   },
 ];
@@ -55,9 +56,10 @@ const ProgressCards = () => {
               boxShadow: `${card.shadow}`
             }}
             className="flex flex-col justify-around items-center w-full md:w-[30%] h-[30svh] rounded-lg bg-white"
+            
           >
            
-              <div className="flex justify-around items-center">
+              <motion.div className="flex justify-around items-center" whileHover={{scale:1.1}} >
                 <img src={card.image} alt="image" className="h-20 w-15 " />
                 <div className="flex flex-col justify-around items-center ml-[0.3rem]">
                   <p className="font-[caveat-regular] text-[1.2rem] md:text-[1.4rem] ">
@@ -73,7 +75,7 @@ const ProgressCards = () => {
                     {card.teacher}
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               <div className="flex items-center justify-center align-center h-[auto] w-[70%]">
                 <Progress
