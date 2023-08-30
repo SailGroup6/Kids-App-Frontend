@@ -8,12 +8,12 @@ import WidgetCardsSmiley from "../../Components/Cards/WidgetCardsSmiley";
 
 const { Header, Content, Sider } = Layout;
 
-const storedUsername = localStorage.getItem("username") || "User";
-const storedGender = localStorage.getItem("gender") || "";
-const storedAge = localStorage.getItem("age") || "";
-const storedFullName = localStorage.getItem("fullName") || "";
-const storedEmail = localStorage.getItem("email") || "";
-const storedParentFullName = localStorage.getItem("parentFullName") || "";
+const storedUsername = sessionStorage.getItem("username") || "";
+const storedGender = sessionStorage.getItem("gender") || "";
+const storedAge = sessionStorage.getItem("age") || "";
+const storedFullName = sessionStorage.getItem("fullName") || "";
+const storedEmail = sessionStorage.getItem("email") || "";
+const storedParentFullName = sessionStorage.getItem("parentFullName") || "";
 
 const Profile = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -81,7 +81,7 @@ const Profile = () => {
             <div className="pl-5 pt-5 font-[poppins-regular] text-[0.8rem]">
               <h1> 🧑 Full Name : {storedFullName}</h1>
               <h1> 🎂 Age : {storedAge} </h1>
-              <h1> 👨‍🦱 Gender:{storedGender} </h1>
+              <h1> 👨‍🦱 Gender: {storedGender} </h1>
             </div>
           </motion.div>
           <motion.div
@@ -98,7 +98,7 @@ const Profile = () => {
             </div>
             <div className="pl-5 pt-5 font-[poppins-regular] text-[0.8rem]">
               <h1> 🧑 Parent/Guardian Full Name : {storedParentFullName}</h1>
-              <h1> 🎂 Email :<span>{storedEmail}</span></h1>
+              <h1> 🎂 Email :<span> {storedEmail}</span></h1>
             </div>
           </motion.div>
         </Content>

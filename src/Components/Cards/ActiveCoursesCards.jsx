@@ -57,7 +57,7 @@ const ActiveCoursesCards = () => {
             className="flex flex-col justify-around items-center w-full md:w-[25%] h-[20svh] rounded-lg bg-white"
           >
            
-              <div className="flex justify-around items-center w-[30%] h-full">
+              <motion.div className="flex justify-around items-center w-[30%] h-full" whileHover={{scale:1.1}}>
                 <img src={card.image} alt="image" className="h-20 w-15 " />
                 <div className="flex flex-col justify-around items-center ml-[0.3rem]">
                   <p className="font-[caveat-regular] text-[1.1rem] md:text-[1.3rem] ">
@@ -73,7 +73,7 @@ const ActiveCoursesCards = () => {
                     {card.teacher}
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               <div className="flex items-center justify-center align-center h-[auto] w-[80%]">
                 <Progress

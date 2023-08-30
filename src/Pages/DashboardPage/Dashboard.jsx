@@ -19,7 +19,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
   //const username = location.state?.username || "User" ;
-  const storedUsername = localStorage.getItem("username") || "User";
+  const storedUsername = sessionStorage.getItem("username") || "User";
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);

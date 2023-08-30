@@ -42,17 +42,17 @@ const LoginPage = () => {
       // Set the JWT token in the state
       setToken(response.data.data.token);
       // Set the UserData in the state
-      localStorage.setItem("username", response.data.data.username);
-      localStorage.setItem("userId", response.data.data._id);
-      localStorage.setItem("fullName", response.data.data.fullName);
-      localStorage.setItem("age", response.data.data.age);
-      localStorage.setItem("gender", response.data.data.gender);
-      localStorage.setItem("email", response.data.data.email);
-      localStorage.setItem("parentFullName", response.data.data.parentFullName);
-      localStorage.setItem("phoneNumber", response.data.data.phoneNumber);
+      sessionStorage.setItem("username", response.data.data.username);
+      sessionStorage.setItem("userId", response.data.data._id);
+      sessionStorage.setItem("fullName", response.data.data.fullName);
+      sessionStorage.setItem("age", response.data.data.age);
+      sessionStorage.setItem("gender", response.data.data.gender);
+      sessionStorage.setItem("email", response.data.data.email);
+      sessionStorage.setItem("parentFullName", response.data.data.parentFullName);
+      sessionStorage.setItem("phoneNumber", response.data.data.phoneNumber);
 
-      localStorage.setItem("accessToken", response.data.data.token);
-      localStorage.setItem("refreshToken", response.data.data.token);
+      sessionStorage.setItem("accessToken", response.data.data.token);
+      sessionStorage.setItem("refreshToken", response.data.data.token);
 
       // Display success message
       message.success("Login successful!");
