@@ -1,28 +1,36 @@
+// Importing the required modules
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export default function HamburgerNav() {
+  // State to manage the navigation menu's open/close state
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <div className="flex items-center justify-between ">
-      <nav>
-        <section className="MOBILE-MENU flex lg:hidden">
+       <nav>
+        {/* Mobile Navigation Menu */}
+        <section className="flex MOBILE-MENU lg:hidden">
           <div
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)}
-          >
-            <span className="block h-1 w-8 animate-pulse bg-white"></span>
-            <span className="block h-1 w-8 animate-pulse bg-white"></span>
-            <span className="block h-1 w-8 animate-pulse bg-white"></span>
+            >
+            {/* Hamburger Icon */}
+            <span className="block w-8 h-1 bg-white animate-pulse"></span>
+            <span className="block w-8 h-1 bg-white animate-pulse"></span>
+            <span className="block w-8 h-1 bg-white animate-pulse"></span>
           </div>
 
+            {/* Mobile Menu Content */} 
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+
+             {/* Close button Function */}
             <div
               className="absolute top-0 right-0 px-8 py-8"
               onClick={() => setIsNavOpen(false)}
-            >
+              >
+              {/* Close Menu Icon */}
               <svg
-                className="h-8 w-8 text-gray-600"
+                className="w-8 h-8 text-gray-600"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -34,6 +42,8 @@ export default function HamburgerNav() {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </div>
+
+              {/* Mobile Menu Links */}
             <ul className="flex flex-col items-center justify-between min-h-[250px] ">
               <li className="border-b border-gray-400 my-8 uppercase">
                 <ul className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DA684] to-[#BEDC7CFC] ">
@@ -68,6 +78,7 @@ export default function HamburgerNav() {
           </div>
         </section>
 
+         {/* Desktop Menu */}
         <li className="DESKTOP-MENU hidden space-x-8 lg:flex">
           <ul className=" cursor-pointer">Home</ul>
           <ul className=" cursor-pointer">About us</ul>
